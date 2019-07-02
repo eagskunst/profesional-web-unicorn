@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: 'Dosis', Arial, sans-serif;
+}
+
+.left-side{
+    padding: 1em;
+    grid-area: left-bar;
+}
+
+.hero {
+    grid-area: hero;
+}
+
+.habilities{
+    grid-area: skills;
+}
+
+.about-me{
+    grid-area: about-me;
+}
+
+.projects{
+    grid-area: projects;
+}
+
+.my-footer{
+    grid-area: footer;
+}
+
+.global-container{
+    display: grid;
+    grid-template-areas: 
+    "left-bar hero"
+    "left-bar skills"
+    "left-bar about-me"
+    "left-bar projects"
+    "left-bar footer";
+    grid-template-columns: min-content 1fr;
+    grid-gap: 1.2em;
+}
