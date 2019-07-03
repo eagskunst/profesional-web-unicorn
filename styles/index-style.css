@@ -6,6 +6,18 @@ body {
 .left-side{
     padding: 1em;
     grid-area: left-bar;
+    position: fixed;
+    min-width: 5em;
+    max-width: 6em;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content auto;
+    justify-content: center;
+    border-right: 1px solid #cc1a1a1a;
+    /*css matic box shadow*/
+    -webkit-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
+    -moz-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
+    box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
 }
 
 .hero {
@@ -31,11 +43,24 @@ body {
 .global-container{
     display: grid;
     grid-template-areas: 
-    "left-bar hero"
-    "left-bar skills"
-    "left-bar about-me"
-    "left-bar projects"
-    "left-bar footer";
-    grid-template-columns: min-content 1fr;
+    ". hero"
+    ". skills"
+    ". about-me"
+    ". projects"
+    ". footer";
+    grid-template-columns: minmax(7em, 9em) 1fr;
     grid-gap: 1.2em;
+}
+
+.social-media{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    justify-content: flex-end;
+}
+
+.social-link{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
 }
