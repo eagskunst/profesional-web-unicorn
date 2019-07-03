@@ -13,7 +13,7 @@ body {
     display: grid;
     grid-template-rows: min-content auto;
     justify-content: center;
-    border-right: 1px solid #cc1a1a1a;
+    /*border-right: 1px solid #cc1a1a1a; */
     /*css matic box shadow*/
     -webkit-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
     -moz-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
@@ -22,6 +22,15 @@ body {
 
 .hero {
     grid-area: hero;
+    display: grid;
+    grid-template-areas: 
+    "hero-nav hero-nav"
+    "hero-title hero-img";
+    grid-template-columns: 55% 45%;
+    -webkit-box-shadow: 12px 0px 8px 2px #00000017;
+    -moz-box-shadow: 12px 0px 8px 2px #00000017;
+    box-shadow: 12px 0px 8px 2px #00000017;
+    border-bottom: 1px solid #0000001f;
 }
 
 .habilities{
@@ -48,8 +57,8 @@ body {
     ". about-me"
     ". projects"
     ". footer";
-    grid-template-columns: minmax(7em, 9em) 1fr;
-    grid-gap: 1.2em;
+    grid-template-columns: minmax(5em, 7em) 1fr;
+    grid-row-gap: 1.2em;
 }
 
 .social-media{
@@ -64,3 +73,69 @@ body {
     justify-content: center;
     padding: 1em;
 }
+
+.hero-nav{
+    grid-area: hero-nav;
+}
+
+/*Start right top navigation items*/
+.hero-nav ul{
+    display: grid;
+    list-style: none;
+    justify-content: end;
+    grid-auto-flow: column;
+    grid-gap: 2rem;
+    padding-right: 1em;
+    grid-template-rows: 4.2em;
+    grid-auto-rows: auto;
+}
+
+.hero-nav ul li {
+    height: inherit;
+    text-decoration: none;
+    display: flex;
+}
+
+.hero-nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: inherit;
+    font-size: 1.2em;
+    color: #191B4B;
+    font-weight: bold;
+}
+
+.hero h1 {
+    color: #191B4B;
+    font-size: 4em;
+    font-weight: bold;
+    grid-area: hero-title;
+    justify-self: center;
+}
+
+.hero-picture {
+    grid-area: hero-img;
+    background-color: #E92042;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    position: relative;
+    justify-self: center;
+    top: 30%;
+    height: 100%;
+    -webkit-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+-moz-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+}
+
+.hero-picture img{
+    max-width: 83%;
+    max-height: 70%;
+    border-radius: 1em;
+    background-image: url('images/image.png')
+}
+
+/*End right top navigation items*/
