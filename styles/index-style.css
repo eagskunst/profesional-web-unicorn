@@ -18,6 +18,7 @@ body {
     -webkit-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
     -moz-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
     box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
+    background-color: #FCFCFC;
 }
 
 .hero {
@@ -31,6 +32,7 @@ body {
     -moz-box-shadow: 12px 0px 8px 2px #00000017;
     box-shadow: 12px 0px 8px 2px #00000017;
     border-bottom: 1px solid #0000001f;
+    background-color: #FCFCFC;
 }
 
 .habilities{
@@ -59,6 +61,7 @@ body {
     ". footer";
     grid-template-columns: minmax(5em, 7em) 1fr;
     grid-row-gap: 1.2em;
+    background-color: #F7FCFF;
 }
 
 .social-media{
@@ -105,6 +108,7 @@ body {
     color: #191B4B;
     font-weight: bold;
 }
+/*End right top navigation items*/
 
 .hero h1 {
     color: #191B4B;
@@ -127,8 +131,8 @@ body {
     top: 30%;
     height: 100%;
     -webkit-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
--moz-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    -moz-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
 }
 
 .hero-picture img{
@@ -138,4 +142,51 @@ box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
     background-image: url('images/image.png')
 }
 
-/*End right top navigation items*/
+.skill-logo {
+    grid-area: skill-badge;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 60%;
+    min-height: 60%;
+    margin: 0;
+}
+
+.skill-card img{
+    grid-area: skill-badge;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 60%;
+    min-height: 60%;
+    align-self: center;
+    justify-self: center;
+}
+
+.skill-card h4 {
+    grid-area: skill-title;
+    margin: 0;
+    font-size: 22px;
+    color: #191B4B;
+    font-weight: bold;
+    align-self: center;
+}
+
+.skill-card p {
+    grid-area: skill-descp;
+    margin: 0;
+    color: #191B4B;
+}
+
+.skill-card {
+    display: grid;
+    grid-template-areas:
+        "skill-badge skill-title"
+        "skill-badge skill-descp";
+    max-width: 20rem;
+    min-height: 5rem;
+    border-radius: 15px;
+    background-color: white;
+    margin: 35px;
+    -webkit-box-shadow: -1px 2px 9px 2px rgba(0,0,0,0.12);
+-moz-box-shadow: -1px 2px 9px 2px rgba(0,0,0,0.12);
+box-shadow: -1px 2px 9px 2px rgba(0,0,0,0.12);
+}
