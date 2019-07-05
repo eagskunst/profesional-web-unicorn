@@ -72,8 +72,8 @@
                 <h4>Desarrollo de Apps</h4>
                 <p>Android + iOS + Flutter</p>
             </div>
-            <figure class="skills-rocket">
-                <img src="images/rocket.png" alt="rocket">
+            <figure class="skills-rocket" id="rocket-fig">
+                <img src="images/rocket.png" alt="rocket" id="rocket">
             </figure>
         </section>
         <section class="about-me" id="about-me">
@@ -123,8 +123,26 @@
             </div>
         </section>
         <footer class="my-footer">
-            <p>Hecho por <a href="https://github.com/eagskunst" class="my-name">Emmanuel Guerra</a> con 💚 para el desaf&iacute;o de <a href="https://platzi.com/blog/web-unicorn-challenge/">Platzi</a> </p>
+            <p>Hecho por <a href="https://github.com/eagskunst" class="my-name" target="_blank">Emmanuel Guerra</a> con 💚 para el desaf&iacute;o de <a href="https://platzi.com/blog/web-unicorn-challenge/">Platzi</a> </p>
         </footer>
     </div>
+
+    <script>
+        const $rocketFig = document.getElementById('rocket-fig');
+        const $rocket = document.getElementById('rocket');
+        const rocketFigStyle = $rocketFig.style;
+        const rocketStyle = $rocket.style;
+
+        $rocketFig.addEventListener("animationiteration", (event) => {
+            if(event.animationName == 'rocket'){
+                rocketFigStyle.animationPlayState = 'paused';
+                rocketStyle.animationPlayState = 'running';
+            }
+            else if(event.animationName == 'rotate-rocket'){
+                rocketFigStyle.animationPlayState = 'running'
+                rocketStyle.animationPlayState = 'paused';
+            }
+        });
+    </script>
 </body>
 </html>

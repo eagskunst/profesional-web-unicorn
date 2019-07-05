@@ -50,7 +50,24 @@
     background-position: -100% 0;
 }
 
+.skills-rocket{
+    animation: rocket 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
 
+.skills-rocket img {
+    animation-name: rotate-rocket;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    will-change: transform;
+}
 
 @keyframes bounce{
     0% {
@@ -79,5 +96,23 @@
     }
     100% {
         transform: translateX(0em);
+    }
+}
+
+@keyframes rocket {
+    0% {
+        transform: scale(.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate-rocket {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg)
     }
 }
