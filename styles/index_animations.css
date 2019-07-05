@@ -69,6 +69,29 @@
     will-change: transform;
 }
 
+.hero-nav ul li a{
+    transition: .1s;
+    transition-property: transform;
+}
+
+.hero-nav ul li a:hover {
+    transform: scale(1.4);
+}
+
+.page-logo:hover {
+    animation: rotate-logo 1s;
+    animation-timing-function: ease;
+}
+
+@keyframes rotate-logo{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes bounce{
     0% {
         transform: translateY(-6em);
