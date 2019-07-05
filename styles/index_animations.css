@@ -1,0 +1,68 @@
+.hero h1 {
+    animation-name: bounce;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
+
+.hero h1::before{
+    animation-play-state: paused;
+}
+
+.hero h1::after{
+    animation-play-state: running;
+}
+
+.hero-picture{
+    animation-name: enter;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
+
+.hero-picture::before {
+    animation-play-state: paused;
+}
+
+.hero-picture::before {
+    animation-play-state: running;
+}
+
+@keyframes bounce{
+    0% {
+        transform: translateY(-6em);
+    }
+    40%{
+        transform: translateY(0.5em);
+    }
+    60%{
+        transform: translateY(-1.5em);
+    }
+    100% {
+        transform: translateY(0em);
+    }
+}
+
+@keyframes enter {
+    /* from {
+        transform: translateX(10em);
+    }
+    to {
+        transform: translateX(0em);
+    }
+ */
+    0% {
+        transform: translateX(3em);
+    }
+    40%{
+        transform: translateX(-3em);
+    }
+    60%{
+        transform: translateX(1.5em);
+    }
+    100% {
+        transform: translateX(0em);
+    }
+}
