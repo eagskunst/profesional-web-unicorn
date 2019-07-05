@@ -164,4 +164,60 @@
     .hero-picture{
         font-size: 42px;
     }
+
+    .skill-card{
+        grid-template-columns: 4em auto;
+        grid-column-gap: 10px;
+    }
+
+    .skill-card.about-me{
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .global-container {
+        grid-template-areas: 
+        "left-bar"
+        "hero"
+        "skills"
+        "about-me"
+        "projects"
+        "footer";
+        grid-template-columns: 100vw;
+    }
+
+    .left-side{
+        min-width: 100vw;
+        height: 4em;
+        grid-auto-flow: column;
+        grid-template-rows: min-content;
+        grid-template-columns: min-content 1fr;
+        justify-content: center;
+        -webkit-box-shadow: 0px 4px 51px -13px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0px 4px 51px -13px rgba(0,0,0,0.3);
+        box-shadow: 0px 4px 51px -13px rgba(0,0,0,0.3);
+        z-index: 30;
+    }
+
+    .left-side img {
+        height: 4.2em;
+    }
+
+    .social-media{
+        flex-direction: row;
+        padding-right: 1em;
+    }
+    .social-link{
+        padding: 0 1em;
+    }
+
+    .hero {
+        padding-top: 1.03em;
+    }
+
+
+    .habilities .skill-card p{
+        font-size: 18px;
+    }
 }
