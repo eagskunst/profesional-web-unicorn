@@ -54,7 +54,27 @@ body {
     grid-area: footer;
     width: 100%;
     background-color: #E92042;
-    height: 5vh;
+    height: min-content;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+}
+
+.my-footer p {
+    margin: 0;
+    padding: 1em;
+}
+
+.my-footer a{
+    color: #16C60C;
+    text-decoration: none;
+}
+
+.my-name {
+    color: #191B4B !important;
+    font-weight: bold;
 }
 
 .global-container{
