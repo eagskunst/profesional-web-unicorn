@@ -246,7 +246,7 @@ body {
     font-size: 64px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: min-content;
-    grid-auto-rows: 4.5em;
+    grid-auto-rows: 5em;
     justify-items: center;
     grid-column-gap: .2em;
     grid-row-gap: .8em;
@@ -258,16 +258,57 @@ body {
     font-size: 1em;
     margin: 0;
     padding: .8em 0 0 0;
+    color: #191B4B;
 }
 
 .project-card {
-    max-width: 5em;
-    max-height: 5em;
+    width: 5em;
+    height: 5em;
     border-radius: 10px;
     overflow: hidden;
 }
 
+
 .project-card img{
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: inherit
+}
+
+.project-info {
+    width: inherit;
+    height: inherit;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(0,0,0,0.75);
+    border-radius: inherit;
+    opacity: 0;
+    transition: .5s;
+    transition-property: opacity;
+}
+
+.project-info a{
+    width: inherit;
+    height: inherit;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.project-info p{
+    margin: auto 0;
+    font-size: .35em;
+    padding: 1em;
+}
+
+.project-info:hover {
+    transition: .5s;
+    transition-property: opacity;
+    opacity: 1;
 }
