@@ -76,6 +76,10 @@
         font-size: 56px;
     }
 
+    .about-me h2 {
+        text-align: center;
+    }
+
     .skill-card.about-me{
         font-size: 18px;
     }
@@ -132,5 +136,32 @@
     
     .habilities {
         padding-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .projects{
+        font-size: 48px;
+    }
+
+    .global-container{
+        grid-template-columns: 3.7em 1fr;
+    }
+
+    .left-side{
+        font-size: 8.2px;
+    }
+
+    .hero{
+        font-size: 36px;
+    }
+
+    .hero h1{
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .hero-picture{
+        font-size: 42px;
     }
 }
