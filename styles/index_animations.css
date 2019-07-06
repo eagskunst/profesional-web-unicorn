@@ -78,18 +78,14 @@
     transform: scale(1.4);
 }
 
-.page-logo:hover {
-    animation: rotate-logo 1s;
-    animation-timing-function: ease;
+.page-logo {
+    transition: 1s;
+    transition-property: transform;
+    transition-timing-function: ease;
 }
 
-@keyframes rotate-logo{
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.page-logo:hover {
+    transform: rotate(360deg);
 }
 
 @keyframes bounce{
