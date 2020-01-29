@@ -296,6 +296,9 @@ body {
     height: 5em;
     border-radius: 10px;
     overflow: hidden;
+    background-color: #E92042;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -306,6 +309,10 @@ body {
     z-index: 1;
     overflow: hidden;
     border-radius: inherit
+}
+
+.project-card:nth-of-type(6) img {
+    width: 3em;
 }
 
 .project-info {
