@@ -107,6 +107,11 @@ body {
     padding: 1em;
 }
 
+.social-link a img {
+    width: 28px;
+    height: 28px;
+}
+
 .hero-nav{
     grid-area: hero-nav;
 }
