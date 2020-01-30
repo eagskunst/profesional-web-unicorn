@@ -60,7 +60,7 @@ body {
     background-color: #E92042;
     height: min-content;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     color: white;
     font-weight: 500;
@@ -68,6 +68,7 @@ body {
 
 .my-footer p {
     margin: 0;
+    text-align: center;
     padding: 1em;
 }
 
