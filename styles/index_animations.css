@@ -1,4 +1,4 @@
-.hero h1 {
+.hero h1 { /*Maybe use ::after ?*/
     animation-name: bounce;
     animation-duration: 3s;
     animation-timing-function: ease;
@@ -30,7 +30,7 @@
     animation-play-state: running;
 }
 
-.habilities .skill-card{
+.habilities .skill-card {
     transition: background-position 1s;
     background-size: 200% 100%;
 }

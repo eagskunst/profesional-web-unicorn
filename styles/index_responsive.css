@@ -144,15 +144,15 @@
 }
 
 @media screen and (max-width: 375px){
-    .projects{
+    .projects {
         font-size: 48px;
     }
 
-    .global-container{
+    .global-container {
         grid-template-columns: 3.7em 1fr;
     }
 
-    .left-side{
+    .left-side {
         font-size: 8.2px;
     }
 
@@ -160,16 +160,16 @@
         font-size: 36px;
     }
 
-    .hero h1{
+    .hero h1 {
         margin-bottom: 0;
         text-align: center;
     }
 
-    .hero-picture{
+    .hero-picture {
         font-size: 42px;
     }
 
-    .skill-card{
+    .skill-card {
         grid-template-columns: 4em auto;
         grid-column-gap: 10px;
     }
@@ -179,7 +179,7 @@
     }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
     .global-container {
         grid-template-areas: 
         "left-bar"
@@ -191,7 +191,7 @@
         grid-template-columns: 100vw;
     }
 
-    .left-side{
+    .left-side {
         min-width: 100vw;
         height: 4em;
         grid-auto-flow: column;

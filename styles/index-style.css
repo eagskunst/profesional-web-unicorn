@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-  }
+}
 
 body {
     margin: 0;
@@ -40,11 +40,11 @@ body {
     background-color: #FCFCFC;
 }
 
-.habilities{
+.habilities {
     grid-area: skills;
 }
 
-.about-me{
+.about-me {
     grid-area: about-me;
     margin-left: 15%;
     font-size: 64px;
@@ -54,7 +54,7 @@ body {
     grid-area: projects;
 }
 
-.my-footer{
+.my-footer {
     grid-area: footer;
     width: 100%;
     background-color: #E92042;
@@ -72,7 +72,7 @@ body {
     padding: 1em;
 }
 
-.my-footer a{
+.my-footer a {
     color: #16C60C;
     text-decoration: none;
 }
@@ -82,7 +82,7 @@ body {
     font-weight: bold;
 }
 
-.global-container{
+.global-container {
     display: grid;
     grid-template-areas: 
     ". hero"
@@ -95,14 +95,14 @@ body {
     background-color: #F7FCFF;
 }
 
-.social-media{
+.social-media {
     display: flex;
     flex-direction: column;
     padding-bottom: 1em;
     justify-content: flex-end;
 }
 
-.social-link{
+.social-link {
     display: flex;
     justify-content: center;
     padding: 1em;
@@ -118,7 +118,7 @@ body {
 }
 
 /*Start right top navigation items*/
-.hero-nav ul{
+.hero-nav ul {
     font-size: 16px;
     display: grid;
     list-style: none;
@@ -172,7 +172,7 @@ body {
     box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
 }
 
-.hero-picture img{
+.hero-picture img {
     max-width: 83%;
     max-height: 70%;
     border-radius: .25em;
@@ -188,7 +188,7 @@ body {
     margin: 0;
 }
 
-.skill-card img{
+.skill-card img {
     grid-area: skill-badge;
     max-width: 100%;
     max-height: 100%;
@@ -253,23 +253,23 @@ body {
     grid-column-end: span 3;
 }
 
-.skills-rocket{
-    grid-row: 4/ span 2;
+.skills-rocket {
+    grid-row: 4 / span 2;
     grid-column: 7 / span 3;
     margin: 0;
 }
 
-.skills-rocket img{
+.skills-rocket img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.about-me h2{
+.about-me h2 {
     font-size: 1em;
     color: #191B4B;
 }
 
-.skill-card.about-me{
+.skill-card.about-me {
     font-size: 16px;
     padding: 20px;
     line-height: 2em;
@@ -288,7 +288,7 @@ body {
     grid-row-gap: .8em;
 }
 
-.projects h2{
+.projects h2 {
     grid-column: 1 / -1;
     grid-row: 1;
     font-size: 1em;
@@ -333,7 +333,7 @@ body {
     transition-property: opacity;
 }
 
-.project-info a{
+.project-info a {
     width: inherit;
     height: inherit;
     text-decoration: none;
@@ -344,7 +344,7 @@ body {
     align-content: center;
 }
 
-.project-info p{
+.project-info p {
     margin: auto 0;
     font-size: .35em;
     padding: 1em;

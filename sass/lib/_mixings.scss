@@ -1,0 +1,28 @@
+@mixin shadows($box-shadow) {
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+}
+
+@mixin flex-justify-center() {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-full-center(){
+    @include flex-justify-center;
+    align-items: center;
+}
+
+@mixin base-animation-props(){
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
+
+@mixin respond-to($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
