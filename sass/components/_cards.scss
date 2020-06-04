@@ -1,0 +1,47 @@
+.base-card {
+    max-width: 22rem;
+    min-height: 3rem;
+    border-radius: $base-radius;
+    background-color: white;
+    @include shadows($base-card-shadow);
+}
+
+.hero-picture {
+    @include flex-full-center;
+    grid-area: hero-img;
+    background-color: $color-accent;
+    width: 60%;
+    border-radius: $base-responsive-radius;
+    position: relative;
+    justify-self: center;
+    top: 20%;
+    height: 100%;
+    @include shadows($hero-pic-shadow);
+}
+
+.skill-card {
+    @extend .base-card;
+    display: grid;
+    grid-template-areas:
+        "skill-badge skill-title"
+        "skill-badge skill-descp";
+    grid-column-end: span 4;
+}
+
+.about-me-card {
+    @extend .base-card;
+    font-size: getFontSize(normal);
+    padding: 20px;
+    line-height: 2em;
+    margin: 0;
+    color: $color-text;
+}
+
+.project-card {
+    width: 5em;
+    height: 5em;
+    border-radius: $base-radius;
+    overflow: hidden;
+    background-color: $color-accent;
+    @include flex-justify-center;
+}

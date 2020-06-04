@@ -17,7 +17,6 @@ body {
     display: grid;
     grid-template-rows: min-content auto;
     justify-content: center;
-    /*border-right: 1px solid #cc1a1a1a; */
     /*css matic box shadow*/
     -webkit-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
     -moz-box-shadow: 2px -1px 11px -7px rgba(0,0,0,0.55);
@@ -228,7 +227,7 @@ body {
     grid-column-end: span 4;
 }
 
-.habilities{
+.habilities {
     margin-top: 40px;
     padding: 20px;
     display: grid;
@@ -315,10 +314,6 @@ body {
     z-index: 1;
     overflow: hidden;
     border-radius: inherit
-}
-
-.project-card:nth-of-type(6) img {
-    width: 3em;
 }
 
 .project-info {
