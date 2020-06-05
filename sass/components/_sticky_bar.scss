@@ -1,0 +1,67 @@
+.left-side {
+    padding: $base-padding;
+    grid-area: $area-global-left-bar;
+    position: fixed;
+    min-width: 5em;
+    max-width: 6em;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content auto;
+    justify-content: center;
+    @include shadows($left-bar-shadows);
+    background-color: $color-background-light;
+
+    //Responsive:
+
+    @include respond-to(getMaxWidth(phones1)) {
+        font-size: getFontSize(p);
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        font-size: 8.2px;
+    }
+
+    @include respond-to(getMaxWidth(phones3)) {
+        min-width: 100vw;
+        height: 4em;
+        grid-auto-flow: column;
+        grid-template-rows: min-content;
+        grid-template-columns: min-content 1fr;
+        justify-content: center;
+        z-index: 30;
+        @include shadows($left-bar-shadows-responsive);
+
+        & img {
+            height: 4.2em; 
+        }
+    }
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $base-padding;
+    justify-content: flex-end;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones3)) {
+        flex-direction: row;
+        padding-right: $base-padding + 1em;
+    }
+}
+
+.social-img {
+    width: $social-icons-size;
+    height: $social-icons-size;
+}
+
+
+.social-link {
+    @include flex-justify-center;
+    padding: $base-padding;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones3)) {
+        padding: 0 $base-padding;
+    }
+}
