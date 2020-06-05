@@ -49,7 +49,7 @@ body {
     font-size: 64px;
 }
 
-.projects{
+.projects {
     grid-area: projects;
 }
 
@@ -112,7 +112,7 @@ body {
     height: 28px;
 }
 
-.hero-nav{
+.hero-nav {
     grid-area: hero-nav;
 }
 

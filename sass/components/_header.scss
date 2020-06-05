@@ -1,0 +1,79 @@
+.hero {
+    font-size: getFontSize(full);
+    grid-area: $area-global-hero;
+    display: grid;
+    grid-template-areas: 
+    "#{$area-hero-nav} #{$area-hero-nav}"
+    "#{$area-hero-title} #{$area-hero-img}";
+    grid-template-columns: 55% 45%;
+    background-color: $color-background-light;
+    @include shadows($header-shadow);
+    @include bottom-shadow;
+
+    & h1 {
+        font-size: 1em;
+        font-weight: bold;
+        grid-area: $area-hero-title;
+        justify-self: center;
+    }
+
+    //Responsive
+    @include respond-to(getMaxWidth(tablets)) {
+        font-size: getFontSize(big);
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 15% 42% 43%;
+        grid-template-areas: 
+        "#{$area-hero-nav}"
+        "#{$area-hero-title}"
+        "#{$area-hero-img}";
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        font-size: getFontSize(mid);
+    }
+
+    @include respond-to(getMaxWidth(phones3)) {
+        padding-top: 1.03em;
+    }
+
+}
+
+.hero-nav {
+    grid-area: $area-hero-nav;
+    
+    & ul {
+        font-size: getFontSize(normal);
+        display: grid;
+        list-style: none;
+        justify-content: end;
+        grid-auto-flow: column;
+        grid-gap: 2rem;
+        padding-right: $base-padding;
+        grid-template-rows: 4.2em;
+        grid-auto-rows: auto;
+
+        & li {
+            height: inherit;
+            text-decoration: none;
+            display: flex;
+
+            & a {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                font-size: 1.2em;
+                color: $color-text;
+            }
+        }
+    }
+}
+
+.hero-picture img {
+    max-width: 83%;
+    max-height: 70%;
+    border-radius: $base-responsive-radius;
+    background-image: url('images/image.png')
+}

@@ -88,7 +88,7 @@
         font-size: 18px;
     }
 
-    .hero{
+    .hero {
         grid-template-columns: 1fr;
         grid-template-rows: 15% 42% 43%;
         grid-template-areas: 

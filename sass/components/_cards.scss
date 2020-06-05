@@ -17,6 +17,27 @@
     top: 20%;
     height: 100%;
     @include shadows($hero-pic-shadow);
+
+    //Responsive
+    @include respond-to(getMaxWidth(laptop)) {
+        width: 64%;
+    }
+
+    @include respond-to(getMaxWidth(tablets)) {
+        top: 12%;
+        width: 68%;
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        width: 60%;
+        margin: 0;
+        top: 15%;
+        height: 4em;
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        font-size: 42px;
+    }
 }
 
 .skill-card {
