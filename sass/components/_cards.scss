@@ -26,6 +26,48 @@
         "skill-badge skill-title"
         "skill-badge skill-descp";
     grid-column-end: span 4;
+
+    //Responsive: 
+    //TODO: Make this different with React.
+    @include respond-to(getMaxWidth(tablets)) {
+        &:nth-of-type(1) {
+            grid-column-start: 2;
+        }
+        
+        &:nth-of-type(2) {
+            grid-row-start: 2;
+            grid-column-start: 3;
+        }
+        
+        &:nth-of-type(3) {
+            grid-row-start: 3;
+            grid-column: 4 / span 4;
+        }
+
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        grid-column-end: -1;
+
+        &:nth-of-type(1){
+            grid-column-start: 1;
+        }
+        
+        &:nth-of-type(2){
+            grid-row-start: 2;
+            grid-column-start: 1;
+        }
+        
+        &:nth-of-type(3){
+            grid-row-start: 3;
+            grid-column: 1 / -1;
+        }
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        grid-template-columns: 4em auto;
+        grid-column-gap: 10px;
+    }
 }
 
 .about-me-card {
@@ -35,6 +77,19 @@
     line-height: 2em;
     margin: 0;
     color: $color-text;
+
+    //Responsive
+    @include respond-to(getMaxWidth(tablets)) {
+        max-width: 28rem;
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        font-size: getFontSize(tnormal);
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        grid-template-columns: auto;
+    }
 }
 
 .project-card {
