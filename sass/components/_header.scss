@@ -3,14 +3,16 @@
     grid-area: $area-global-hero;
     display: grid;
     grid-template-areas: 
-    "#{$area-hero-nav} #{$area-hero-nav}"
-    "#{$area-hero-title} #{$area-hero-img}";
+        "#{$area-hero-nav} #{$area-hero-nav}"
+        "#{$area-hero-title} #{$area-hero-img}";
+        
     grid-template-columns: 55% 45%;
     background-color: $color-background-light;
     @include shadows($header-shadow);
     @include bottom-shadow;
 
     & h1 {
+        color: $color-text;
         font-size: 1em;
         font-weight: bold;
         grid-area: $area-hero-title;
@@ -69,6 +71,23 @@
             }
         }
     }
+}
+
+.hero-picture {
+    grid-area: hero-img;
+    background-color: #E92042;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .25em;
+    position: relative;
+    justify-self: center;
+    top: 20%;
+    height: 100%;
+    -webkit-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    -moz-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
 }
 
 .hero-picture img {

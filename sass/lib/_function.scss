@@ -26,7 +26,7 @@ $skills-length: 3;
     }
 }
 $row-start: 1;
-$column-start: 3;
+$column-start: 2;
 
 @for $i from 1 through $skills-length {
 
@@ -38,10 +38,10 @@ $column-start: 3;
         }
     }
     $row-start: $row-start + 1;
-    @if $i == 2 {
+    @if $i == 1 {
         $column-start: $column-start + 1;
     }
-    else {
+    @else {
         $column-start: $column-start + 2;
     }
 }
