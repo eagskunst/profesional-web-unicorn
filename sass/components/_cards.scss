@@ -44,8 +44,8 @@
     @extend .base-card;
     display: grid;
     grid-template-areas:
-        "skill-badge skill-title"
-        "skill-badge skill-descp";
+        "#{$area-skill-badge} #{$area-skill-title}"
+        "#{$area-skill-badge} #{$area-skill-descp}";
     grid-column-end: span 4;
 
     //Responsive: 

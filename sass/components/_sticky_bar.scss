@@ -8,7 +8,7 @@
     display: grid;
     grid-template-rows: min-content auto;
     justify-content: center;
-    @include shadows($left-bar-shadows);
+    @include shadows($left-bar-shadow);
     background-color: $color-background-light;
 
     //Responsive:
@@ -29,7 +29,7 @@
         grid-template-columns: min-content 1fr;
         justify-content: center;
         z-index: 30;
-        @include shadows($left-bar-shadows-responsive);
+        @include shadows($left-bar-shadow-responsive);
 
         & img {
             height: 4.2em; 

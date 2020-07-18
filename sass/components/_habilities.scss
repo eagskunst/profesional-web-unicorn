@@ -1,0 +1,76 @@
+.habilities {
+    grid-area: $area-global-skills;
+    margin-top: 40px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 5rem); 
+    grid-row-gap: 1.5em;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones1)) {
+        padding-bottom: 0;
+    } 
+}
+
+
+.skill-card img {
+    grid-area: $area-skill-badge;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 40%;
+    min-height: 40%;
+    justify-self: center;
+    align-self: center;
+}
+
+.skill-card h4 {
+    grid-area: $area-skill-title;
+    margin: 0;
+    font-size: 22px;
+    color: $color-text;
+    font-weight: bold;
+    align-self: center;
+}
+
+.skill-card p {
+    grid-area: $area-skill-descp;
+    margin: 0;
+    color: $color-text;
+}
+
+.skills-rocket {
+    grid-row: 4 / span 2;
+    grid-column: 7 / span 3;
+    margin: 0;
+
+    //Responsive
+    @include respond-to(getMaxWidth(tablets)) {
+        font-size: getFontSize(big);
+        grid-row: 4 / span 2;
+        grid-column: 7 / span 2;
+        margin: 0;
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        grid-row: 4 / -1;
+        grid-column: 3 / 7;
+    }
+}
+
+.skills-rocket img {
+    max-width: 100%;
+    max-height: 100%;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones1)) {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@include respond-to(getMaxWidth(phones3)) {
+    .habilities .skill-card p {
+        font-size: getFontSize(tnormal);
+    }
+}

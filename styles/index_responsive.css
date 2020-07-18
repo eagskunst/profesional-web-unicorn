@@ -44,7 +44,7 @@
         max-width: 28rem;
     }
     
-    .skills-rocket{
+    .skills-rocket {
         grid-row: 4/ span 2;
         grid-column: 7 / span 2;
         margin: 0;
@@ -63,6 +63,7 @@
 
     .skill-card.about-me {
         max-width: 22rem;
+        font-size: 18px;
     }
 
     .left-side {
@@ -82,10 +83,6 @@
 
     .about-me h2 {
         text-align: center;
-    }
-
-    .skill-card.about-me{
-        font-size: 18px;
     }
 
     .hero {

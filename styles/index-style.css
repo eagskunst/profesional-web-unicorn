@@ -39,10 +39,6 @@ body {
     background-color: #FCFCFC;
 }
 
-.habilities {
-    grid-area: skills;
-}
-
 .about-me {
     grid-area: about-me;
     margin-left: 15%;
@@ -228,6 +224,7 @@ body {
 }
 
 .habilities {
+    grid-area: skills;
     margin-top: 40px;
     padding: 20px;
     display: grid;
