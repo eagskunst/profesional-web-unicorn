@@ -1,0 +1,250 @@
+/* Colors: */
+.hero h1 {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.hero h1::before {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.hero h1::after {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.hero-picture {
+  -webkit-animation-name: enter;
+          animation-name: enter;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.hero-picture::before {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.hero-picture::after {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.habilities .skill-card {
+  -webkit-transition: background-position 1s;
+  transition: background-position 1s;
+  background-size: 200% 100%;
+}
+
+.habilities .skill-card:nth-of-type($i) {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #c55b5b));
+  background-image: linear-gradient(to right, white 50%, #c55b5b 50%);
+}
+
+.habilities .skill-card:nth-of-type($i) {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #9dda6b));
+  background-image: linear-gradient(to right, white 50%, #9dda6b 50%);
+}
+
+.habilities .skill-card:nth-of-type($i) {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #6b68eb));
+  background-image: linear-gradient(to right, white 50%, #6b68eb 50%);
+}
+
+.habilities .skill-card:hover {
+  background-position: -100% 0;
+}
+
+.skills-rocket {
+  -webkit-animation: rocket 3s;
+          animation: rocket 3s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  will-change: transform;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.skills-rocket img {
+  -webkit-animation-name: rotate-rocket;
+          animation-name: rotate-rocket;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  will-change: transform;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.hero-nav ul li a {
+  -webkit-transition: .1s;
+  transition: .1s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+}
+
+.hero-nav ul li a:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+.page-logo {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.page-logo:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-6em);
+            transform: translateY(-6em);
+  }
+  40% {
+    -webkit-transform: translateY(0.5em);
+            transform: translateY(0.5em);
+  }
+  60% {
+    -webkit-transform: translateY(-1.5em);
+            transform: translateY(-1.5em);
+  }
+  100% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-6em);
+            transform: translateY(-6em);
+  }
+  40% {
+    -webkit-transform: translateY(0.5em);
+            transform: translateY(0.5em);
+  }
+  60% {
+    -webkit-transform: translateY(-1.5em);
+            transform: translateY(-1.5em);
+  }
+  100% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+}
+
+@-webkit-keyframes enter {
+  0% {
+    -webkit-transform: translateX(3em);
+            transform: translateX(3em);
+  }
+  40% {
+    -webkit-transform: translateX(-3em);
+            transform: translateX(-3em);
+  }
+  60% {
+    -webkit-transform: translateX(1.5em);
+            transform: translateX(1.5em);
+  }
+  100% {
+    -webkit-transform: translateX(0em);
+            transform: translateX(0em);
+  }
+}
+
+@keyframes enter {
+  0% {
+    -webkit-transform: translateX(3em);
+            transform: translateX(3em);
+  }
+  40% {
+    -webkit-transform: translateX(-3em);
+            transform: translateX(-3em);
+  }
+  60% {
+    -webkit-transform: translateX(1.5em);
+            transform: translateX(1.5em);
+  }
+  100% {
+    -webkit-transform: translateX(0em);
+            transform: translateX(0em);
+  }
+}
+
+@-webkit-keyframes rocket {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes rocket {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes rotate-rocket {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+}
+
+@keyframes rotate-rocket {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+}
+/*# sourceMappingURL=index_animations.css.map */

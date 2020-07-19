@@ -1,0 +1,38 @@
+@function getFontSize($font-key){
+    @return map-get($map: $fs, $key: $font-key);
+}
+
+@function getMaxWidth($width-key){
+    @return map-get($map: $widths, $key: $width-key);
+}
+
+
+$text-tags: h1 h2 h3 h4 p;
+$skills-length: 3;
+
+@each $text in $text-tags {
+    .#{$text} {
+        color: $color-text;
+    }
+}
+
+$row-start: 1;
+$column-start: 2;
+
+@for $i from 1 through $skills-length {
+
+    .skill-card:nth-of-type(#{$i}) {
+        grid-row-start: $row-start;
+        grid-column-start: $column-start;
+        @if $i == 3 {
+            grid-column-end: span 3;
+        }
+    }
+    $row-start: $row-start + 1;
+    @if $i == 1 {
+        $column-start: $column-start + 1;
+    }
+    @else {
+        $column-start: $column-start + 2;
+    }
+}

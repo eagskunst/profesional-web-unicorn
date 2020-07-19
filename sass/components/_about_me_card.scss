@@ -1,0 +1,22 @@
+.about-me-card {
+    @extend .base-card;
+    font-size: getFontSize(normal);
+    padding: 20px;
+    line-height: 2em;
+    margin: 0;
+    color: $color-text;
+
+    //Responsive
+    @include respond-to(getMaxWidth(tablets)) {
+        max-width: 28rem;
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        max-width: 22rem;
+        font-size: getFontSize(tnormal);
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        grid-template-columns: auto;
+    }
+}
