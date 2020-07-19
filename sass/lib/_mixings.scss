@@ -30,6 +30,16 @@
     will-change: transform;
 }
 
+@mixin base-anim-play-state() {
+    &::before {
+        animation-play-state: paused;
+    }
+
+    &::after {
+        animation-play-state: running;
+    }
+}
+
 @mixin respond-to($width) {
     @media screen and (max-width: $width) {
         @content;

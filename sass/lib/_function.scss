@@ -6,7 +6,6 @@
     @return map-get($map: $widths, $key: $width-key);
 }
 
-$skills-bg-colors: #c55b5b #9dda6b #6b68eb;
 
 $text-tags: h1 h2 h3 h4 p;
 $skills-length: 3;
@@ -17,14 +16,6 @@ $skills-length: 3;
     }
 }
 
-@for $i from 1 through length($skills-bg-colors) {
-    $el: nth($skills-bg-colors, $i);
-    .habilities {
-        & .skill-card:nth-of-type(#{$i}) {
-            background-image: linear-gradient(to right, $color-white 50%, $el 50%);
-        }
-    }
-}
 $row-start: 1;
 $column-start: 2;
 
