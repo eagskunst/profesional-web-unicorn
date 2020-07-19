@@ -89,7 +89,7 @@
         <section class="projects" id="portfolio">
             <h2>Portfolio</h2>
             <div class="project-card">
-                <img src="https://i.imgur.com/xjywvbm.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/xjywvbm.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews" target="_blank">
                             <p>
@@ -110,7 +110,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/NrdqsCF.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/NrdqsCF.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://github.com/eagskunst/MoviesApp" target="_blank">
                             <p>
@@ -130,7 +130,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/q5QGBKG.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/q5QGBKG.png" alt="project-img">
                 <article class="project-info">
                     <a>
                         <p>
@@ -140,7 +140,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/vwAAz6O.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/vwAAz6O.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://github.com/eagskunst/WordSoup" target="_blank">
                             <p>
@@ -178,6 +178,21 @@
                 rocketStyle.animationPlayState = 'paused';
             }
         });
+    </script>
+    <script>
+        const asyncLoad = ( async () => {
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll("img.lazyload");
+                images.forEach( img => {
+                    img.src = img.dataset.src;
+                });
+            }
+            else {
+                const lazySizesLib = await import("https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js");
+                lazySizesLib.init();
+            }
+        });
+        asyncLoad();
     </script>
 </body>
 </html>
