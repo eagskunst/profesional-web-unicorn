@@ -1,0 +1,27 @@
+.my-footer {
+    grid-area: footer;
+    width: 100%;
+    background-color: $color-accent;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    font-weight: 500;
+
+    & p {
+        margin: 0;
+        text-align: center;
+        padding: $base-padding;
+    }
+
+    & a {
+        color: $color-links;
+        text-decoration: none;
+    }
+}
+    
+.my-name {
+    color: $color-text !important;
+    font-weight: bold;
+}

@@ -753,4 +753,42 @@ Variables
   transition-property: opacity;
   opacity: 1;
 }
+
+.my-footer {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: footer;
+  width: 100%;
+  background-color: #E92042;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-weight: 500;
+}
+
+.my-footer p {
+  margin: 0;
+  text-align: center;
+  padding: 1em;
+}
+
+.my-footer a {
+  color: #16C60C;
+  text-decoration: none;
+}
+
+.my-name {
+  color: #191B4B !important;
+  font-weight: bold;
+}
 /*# sourceMappingURL=styles.css.map */
