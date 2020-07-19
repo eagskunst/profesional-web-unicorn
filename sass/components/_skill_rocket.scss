@@ -5,7 +5,6 @@
 
     //Responsive
     @include respond-to(getMaxWidth(tablets)) {
-        font-size: getFontSize(big);
         grid-row: 4 / span 2;
         grid-column: 7 / span 2;
         margin: 0;

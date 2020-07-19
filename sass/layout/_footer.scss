@@ -3,11 +3,8 @@
     width: 100%;
     background-color: $color-accent;
     height: min-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-full-center();
     color: $color-white;
-    font-weight: 500;
 
     & p {
         margin: 0;
@@ -17,7 +14,6 @@
 
     & a {
         color: $color-links;
-        text-decoration: none;
     }
 }
     

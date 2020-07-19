@@ -71,6 +71,15 @@ body {
       grid-column-end: span 3;
 }
 
+.base-card, .skill-card, .about-me-card {
+  max-width: 22rem;
+  min-height: 3rem;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
+}
+
 /**
 Variables
 */
@@ -103,151 +112,6 @@ Variables
         grid-template-areas: "left-bar" "hero" "skills" "about-me" "projects" "footer";
     -ms-grid-columns: 100vw;
         grid-template-columns: 100vw;
-  }
-}
-
-.base-card, .skill-card, .about-me-card {
-  max-width: 22rem;
-  min-height: 3rem;
-  border-radius: 10px;
-  background-color: white;
-  -webkit-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
-  box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
-}
-
-.hero-picture {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: hero-img;
-  background-color: #E92042;
-  width: 60%;
-  border-radius: 0.25em;
-  position: relative;
-  justify-self: center;
-  top: 20%;
-  height: 100%;
-  -webkit-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
-  box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
-}
-
-@media screen and (max-width: null) {
-  .hero-picture {
-    width: 64%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-picture {
-    top: 12%;
-    width: 68%;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .hero-picture {
-    width: 60%;
-    margin: 0;
-    top: 15%;
-    height: 4em;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .hero-picture {
-    font-size: 42px;
-  }
-}
-
-.skill-card {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
-  -ms-grid-column-span: 4;
-      grid-column-end: span 4;
-}
-
-@media screen and (max-width: 768px) {
-  .skill-card:nth-of-type(1) {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-  }
-  .skill-card:nth-of-type(2) {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 3;
-        grid-column-start: 3;
-  }
-  .skill-card:nth-of-type(3) {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 4;
-    grid-column: 4 / span 4;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .skill-card {
-    grid-column-end: -1;
-  }
-  .skill-card:nth-of-type(1) {
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-  }
-  .skill-card:nth-of-type(2) {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-  }
-  .skill-card:nth-of-type(3) {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    grid-column: 1 / -1;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .skill-card {
-    -ms-grid-columns: 4em auto;
-        grid-template-columns: 4em auto;
-    grid-column-gap: 10px;
-  }
-}
-
-.about-me-card {
-  font-size: 16px;
-  padding: 20px;
-  line-height: 2em;
-  margin: 0;
-  color: #191B4B;
-}
-
-@media screen and (max-width: 768px) {
-  .about-me-card {
-    max-width: 28rem;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .about-me-card {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .about-me-card {
-    -ms-grid-columns: auto;
-        grid-template-columns: auto;
   }
 }
 
@@ -376,7 +240,21 @@ Variables
   grid-area: hero-title;
   -ms-grid-column-align: center;
       justify-self: center;
-  margin-left: 5px;
+  margin-left: 0.5em;
+}
+
+@media screen and (max-width: 425px) {
+  .hero h1 {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -430,6 +308,19 @@ Variables
   grid-auto-rows: auto;
 }
 
+@media screen and (max-width: 425px) {
+  .hero-nav ul {
+    margin: 0;
+    font-size: 14px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-right: 0;
+    -webkit-padding-start: 0;
+            padding-inline-start: 0;
+  }
+}
+
 .hero-nav ul li {
   height: inherit;
   text-decoration: none;
@@ -451,11 +342,6 @@ Variables
 }
 
 .hero-picture {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: hero-img;
-  background-color: #E92042;
-  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,6 +351,15 @@ Variables
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: hero-img;
+  background-color: #E92042;
+  width: 60%;
+  border-radius: 0.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: .25em;
   position: relative;
   justify-self: center;
@@ -472,6 +367,34 @@ Variables
   height: 100%;
   -webkit-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
   box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-picture {
+    width: 64%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-picture {
+    top: 12%;
+    width: 68%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-picture {
+    width: 60%;
+    margin: 0;
+    top: 20%;
+    height: 4em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-picture {
+    font-size: 42px;
+  }
 }
 
 .hero-picture img {
@@ -505,6 +428,63 @@ Variables
 @media screen and (max-width: 320px) {
   .habilities .skill-card p {
     font-size: 18px;
+  }
+}
+
+.skill-card {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
+  -ms-grid-column-span: 4;
+      grid-column-end: span 4;
+}
+
+@media screen and (max-width: 768px) {
+  .skill-card:nth-of-type(1) {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+  }
+  .skill-card:nth-of-type(2) {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
+  }
+  .skill-card:nth-of-type(3) {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 4;
+    grid-column: 4 / span 4;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .skill-card {
+    grid-column-end: -1;
+  }
+  .skill-card:nth-of-type(1) {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+  }
+  .skill-card:nth-of-type(2) {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+  }
+  .skill-card:nth-of-type(3) {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .skill-card {
+    -ms-grid-columns: 4em auto;
+        grid-template-columns: 4em auto;
+    grid-column-gap: 10px;
   }
 }
 
@@ -557,7 +537,6 @@ Variables
 
 @media screen and (max-width: 768px) {
   .skills-rocket {
-    font-size: 48px;
     -ms-grid-row: 4;
     -ms-grid-row-span: 2;
     grid-row: 4 / span 2;
@@ -622,6 +601,34 @@ Variables
   grid-area: skill-descp;
   margin: 0;
   color: #191B4B;
+}
+
+.about-me-card {
+  font-size: 16px;
+  padding: 20px;
+  line-height: 2em;
+  margin: 0;
+  color: #191B4B;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me-card {
+    max-width: 28rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .about-me-card {
+    max-width: 22rem;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .about-me-card {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
 }
 
 .projects {
@@ -721,9 +728,7 @@ Variables
 .project-info a {
   width: inherit;
   height: inherit;
-  text-decoration: none;
   color: white;
-  font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -773,7 +778,6 @@ Variables
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  font-weight: 500;
 }
 
 .my-footer p {
@@ -784,7 +788,6 @@ Variables
 
 .my-footer a {
   color: #16C60C;
-  text-decoration: none;
 }
 
 .my-name {

@@ -12,6 +12,14 @@
         grid-template-rows: 4.2em;
         grid-auto-rows: auto;
 
+        @include respond-to(getMaxWidth(phones1)) {
+            margin: 0;
+            font-size: 14px;
+            justify-content: center;
+            padding-right: 0;
+            padding-inline-start: 0;
+        }
+
         & li {
             height: inherit;
             text-decoration: none;

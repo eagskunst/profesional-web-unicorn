@@ -17,7 +17,18 @@
         font-weight: bold;
         grid-area: $area-hero-title;
         justify-self: center;
-        margin-left: 5px;
+        margin-left: 0.5em;
+
+        @include respond-to(getMaxWidth(phones1)) {
+            text-align: center;
+            margin-left: 0;
+        }
+
+        @include respond-to(getMaxWidth(phones2)) {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
     }
 
     //Responsive

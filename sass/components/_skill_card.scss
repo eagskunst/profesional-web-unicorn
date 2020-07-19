@@ -1,24 +1,76 @@
-.skill-card img {
-    grid-area: $area-skill-badge;
-    max-width: 100%;
-    max-height: 100%;
-    min-width: 40%;
-    min-height: 40%;
-    justify-self: center;
-    align-self: center;
-}
+.skill-card {
+    @extend .base-card;
+    display: grid;
+    grid-template-areas:
+        "#{$area-skill-badge} #{$area-skill-title}"
+        "#{$area-skill-badge} #{$area-skill-descp}";
+    grid-column-end: span 4;
 
-.skill-card h4 {
-    grid-area: $area-skill-title;
-    margin: 0;
-    font-size: 22px;
-    color: $color-text;
-    font-weight: bold;
-    align-self: center;
-}
+    //Responsive: 
+    //TODO: Make this different with React.
+    @include respond-to(getMaxWidth(tablets)) {
+        &:nth-of-type(1) {
+            grid-column-start: 2;
+        }
+        
+        &:nth-of-type(2) {
+            grid-row-start: 2;
+            grid-column-start: 3;
+        }
+        
+        &:nth-of-type(3) {
+            grid-row-start: 3;
+            grid-column: 4 / span 4;
+        }
 
-.skill-card p {
-    grid-area: $area-skill-descp;
-    margin: 0;
-    color: $color-text;
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        grid-column-end: -1;
+
+        &:nth-of-type(1){
+            grid-column-start: 1;
+        }
+        
+        &:nth-of-type(2){
+            grid-row-start: 2;
+            grid-column-start: 1;
+        }
+        
+        &:nth-of-type(3){
+            grid-row-start: 3;
+            grid-column: 1 / -1;
+        }
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        grid-template-columns: 4em auto;
+        grid-column-gap: 10px;
+    }
+
+    & img {
+        grid-area: $area-skill-badge;
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 40%;
+        min-height: 40%;
+        justify-self: center;
+        align-self: center;
+    }
+
+    & h4 {
+        grid-area: $area-skill-title;
+        margin: 0;
+        font-size: 22px;
+        color: $color-text;
+        font-weight: bold;
+        align-self: center;
+    }
+
+    & p {
+        grid-area: $area-skill-descp;
+        margin: 0;
+        color: $color-text;
+    }
+
 }
