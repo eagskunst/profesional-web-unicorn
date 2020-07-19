@@ -1,0 +1,32 @@
+.global-container {
+    display: grid;
+    grid-template-areas: 
+    ". #{$area-global-hero}"
+    ". #{$area-global-skills}"
+    ". #{$area-global-aboutme}"
+    ". #{$area-global-projects}"
+    ". #{$area-global-footer}";
+    grid-template-columns: minmax(5em, 7em) 1fr;
+    grid-row-gap: 1.2em;
+    background-color: $color-background;
+
+    @include respond-to(getMaxWidth(phones1)) {
+        grid-template-columns: minmax(3.5em, 5.5em) 1fr;
+    }
+    
+    @include respond-to(getMaxWidth(phones2)) {
+        grid-template-columns: 3.7em 1fr;
+    }
+
+    @include respond-to(getMaxWidth(phones3)) {
+        grid-template-areas:
+        "#{$area-global-left-bar}" 
+        "#{$area-global-hero}"
+        "#{$area-global-skills}"
+        "#{$area-global-aboutme}"
+        "#{$area-global-projects}"
+        "#{$area-global-footer}";
+        grid-template-columns: 100vw;
+    }
+
+}

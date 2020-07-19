@@ -1,0 +1,41 @@
+.projects {
+    grid-area: $area-global-projects;
+    display: grid;
+    font-size: getFontSize(full);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
+    grid-auto-rows: 5em;
+    justify-items: center;
+    grid-column-gap: .2em;
+    grid-row-gap: .8em;
+
+    @include respond-to(getMaxWidth(laptop1)) {
+        font-size: getFontSize(big);
+    }
+
+    @include respond-to(getMaxWidth(tablets)) {
+        font-size: getFontSize(mid);
+    }
+
+    @include respond-to(getMaxWidth(phones1)) {
+        font-size: getFontSize(tbig);
+        grid-template-rows: min-content repeat(3, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    @include respond-to(getMaxWidth(phones2)) {
+        font-size: getFontSize(big);
+    }
+
+    & h2 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        font-size: 1em;
+        margin: 0;
+        padding: .8em 0 0 0;
+        color: $color-text;
+    }
+}
+
+@import "../components/project_card";
+@import "../components/project_info";
