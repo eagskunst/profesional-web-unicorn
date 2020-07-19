@@ -112,12 +112,3 @@
         grid-template-columns: auto;
     }
 }
-
-.project-card {
-    width: 5em;
-    height: 5em;
-    border-radius: $base-radius;
-    overflow: hidden;
-    background-color: $color-accent;
-    @include flex-justify-center;
-}

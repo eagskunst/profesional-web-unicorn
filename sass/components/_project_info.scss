@@ -1,0 +1,38 @@
+.project-info {
+    width: inherit;
+    height: inherit;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(0,0,0,0.75);
+    border-radius: inherit;
+    opacity: 0;
+    transition: .5s;
+    transition-property: opacity;
+
+    & a {
+        width: inherit;
+        height: inherit;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    & p {
+        margin: auto 0;
+        font-size: .35em;
+        padding: 1em;
+
+        @include respond-to(getMaxWidth(tablets)) {
+            font-size: .42em;
+        }
+    }
+
+    &:hover {
+        transition: .5s;
+        transition-property: opacity;
+        opacity: 1;
+    }
+}
