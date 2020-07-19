@@ -37,31 +37,7 @@
     }
 }
 
-.social-media {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: $base-padding;
-    justify-content: flex-end;
 
-    //Responsive
-    @include respond-to(getMaxWidth(phones3)) {
-        flex-direction: row;
-        padding-right: $base-padding + 1em;
-    }
-}
-
-.social-img {
-    width: $social-icons-size;
-    height: $social-icons-size;
-}
-
-
-.social-link {
-    @include flex-justify-center;
-    padding: $base-padding;
-
-    //Responsive
-    @include respond-to(getMaxWidth(phones3)) {
-        padding: 0 $base-padding;
-    }
-}
+@import "../components/social_media";
+@import "../components/social_img";
+@import "../components/social_link";

@@ -1,0 +1,24 @@
+.skill-card img {
+    grid-area: $area-skill-badge;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 40%;
+    min-height: 40%;
+    justify-self: center;
+    align-self: center;
+}
+
+.skill-card h4 {
+    grid-area: $area-skill-title;
+    margin: 0;
+    font-size: 22px;
+    color: $color-text;
+    font-weight: bold;
+    align-self: center;
+}
+
+.skill-card p {
+    grid-area: $area-skill-descp;
+    margin: 0;
+    color: $color-text;
+}

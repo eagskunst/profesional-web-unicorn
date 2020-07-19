@@ -1,0 +1,29 @@
+.hero-nav {
+    grid-area: $area-hero-nav;
+    
+    & ul {
+        font-size: getFontSize(normal);
+        display: grid;
+        list-style: none;
+        justify-content: end;
+        grid-auto-flow: column;
+        grid-gap: 2rem;
+        padding-right: $base-padding;
+        grid-template-rows: 4.2em;
+        grid-auto-rows: auto;
+
+        & li {
+            height: inherit;
+            text-decoration: none;
+            display: flex;
+
+            & a {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                font-size: 1.2em;
+                color: $color-text;
+            }
+        }
+    }
+}

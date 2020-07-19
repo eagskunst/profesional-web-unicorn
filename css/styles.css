@@ -515,6 +515,12 @@ Variables
   }
 }
 
+@media screen and (max-width: 320px) {
+  .habilities .skill-card p {
+    font-size: 18px;
+  }
+}
+
 .skill-card img {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
@@ -593,12 +599,6 @@ Variables
   .skills-rocket img {
     width: 100%;
     height: 100%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .habilities .skill-card p {
-    font-size: 18px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,9 @@
+.social-link {
+    @include flex-justify-center;
+    padding: $base-padding;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones3)) {
+        padding: 0 $base-padding;
+    }
+}

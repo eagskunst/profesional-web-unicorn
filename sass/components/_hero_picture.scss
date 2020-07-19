@@ -1,0 +1,23 @@
+.hero-picture {
+    grid-area: hero-img;
+    background-color: #E92042;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .25em;
+    position: relative;
+    justify-self: center;
+    top: 20%;
+    height: 100%;
+    -webkit-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    -moz-box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+    box-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+}
+
+.hero-picture img {
+    max-width: 83%;
+    max-height: 70%;
+    border-radius: $base-responsive-radius;
+    background-image: url('images/image.png')
+}
