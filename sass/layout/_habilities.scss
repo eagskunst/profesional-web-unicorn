@@ -10,7 +10,7 @@
     //Responsive
     @include respond-to(getMaxWidth(phones1)) {
         padding-bottom: 0;
-    } 
+    }
 }
 
 @include respond-to(getMaxWidth(phones3)) {
