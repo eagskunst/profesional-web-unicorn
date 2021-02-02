@@ -1,72 +1,57 @@
+@import "lib/mixings";
+@import "lib/variables";
+
+
 .hero h1 {
     animation-name: bounce;
-    animation-duration: 3s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    will-change: transform;
+    @include base-animation-props();
+    @include base-anim-play-state();
 }
 
-.hero h1::before{
-    animation-play-state: paused;
-}
-
-.hero h1::after{
-    animation-play-state: running;
-}
-
-.hero-picture{
+.hero-picture {
     animation-name: enter;
-    animation-duration: 3s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    will-change: transform;
+    @include base-animation-props();
+    @include base-anim-play-state();
 }
 
-.hero-picture::before {
-    animation-play-state: paused;
-}
-
-.hero-picture::before {
-    animation-play-state: running;
-}
-
-.habilities .skill-card{
+.habilities .skill-card {
     transition: background-position 1s;
     background-size: 200% 100%;
 }
-.habilities .skill-card:nth-of-type(1){
-    background-image: linear-gradient(to right, white 50%, #c55b5b 50%);
+
+$skills-bg-colors: #c55b5b, #9dda6b, #6b68eb;
+
+@for $i from 1 through length($skills-bg-colors) {
+    $el: nth($skills-bg-colors, $i);
+    .habilities {
+        & .skill-card:nth-of-type($i) {
+            background-image: linear-gradient(to right, $color-white 50%, $el 50%);
+        }
+    }
 }
 
-.habilities .skill-card:nth-of-type(2){
-    background-image: linear-gradient(to right, white 50%, #9dda6b 50%);
-}
-
-.habilities .skill-card:nth-of-type(3){
-    background-image: linear-gradient(to right, white 50%, #6b68eb 50%);
-}
-
-.habilities .skill-card:hover{
+.habilities .skill-card:hover {
     background-position: -100% 0;
 }
 
-.skills-rocket{
-    animation: rocket 3s;
+@mixin base-rocket-anim() {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation-fill-mode: forwards;
     will-change: transform;
 }
 
-.skills-rocket img {
-    animation-name: rotate-rocket;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: paused;
-    will-change: transform;
+.skills-rocket {
+    animation: rocket 3s;
+    @include base-rocket-anim();
+    animation-fill-mode: forwards;
+
+    & img {
+        animation-name: rotate-rocket;
+        animation-duration: 2s;
+        @include base-rocket-anim();
+        animation-play-state: paused;
+    }
 }
 
 .hero-nav ul li a{

@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Emmanuel Guerra - App Developer</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="styles/index-style.css">
-    <link rel="stylesheet" href="styles/index_responsive.css">
-    <link rel="stylesheet" href="styles/index_animations.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index_animations.css">
     <link rel="icon" href="https://i.imgur.com/kjcl2xZ.png" type="image/png">
 </head>
 <body>
@@ -54,7 +53,7 @@
             </nav>
             <h1>Emmanuel Guerra <br> App Developer</h1>
             <figure class="hero-picture">
-                <img src="https://pbs.twimg.com/profile_images/1206693443717742604/84zsUUuK_400x400.jpg" alt="hero-img" >
+                <img src="https://pbs.twimg.com/profile_images/1352248988368572417/FnUrjAYr_400x400.jpg" alt="hero-img" >
             </figure>
         </section>
         <section class="habilities" id="home">
@@ -79,7 +78,7 @@
         </section>
         <section class="about-me" id="about-me">
             <h2>About me</h2>
-            <div class="skill-card about-me">
+            <div class="about-me-card">
                 <p>
                     My name is Emmanuel. I'm an Android Developer.<br>
                     Currently, I'm learning Web Development and Data Engineering.<br> Programming, reading and learning are my passions.<br>
@@ -90,7 +89,7 @@
         <section class="projects" id="portfolio">
             <h2>Portfolio</h2>
             <div class="project-card">
-                <img src="https://i.imgur.com/xZbTvmy.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/xjywvbm.png" src="https://i.imgur.com/xjywvbm.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews" target="_blank">
                             <p>
@@ -111,7 +110,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/zr4KXad.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/NrdqsCF.png" src="https://i.imgur.com/NrdqsCF.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://github.com/eagskunst/MoviesApp" target="_blank">
                             <p>
@@ -131,7 +130,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/0yrcV3x.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/q5QGBKG.png" src="https://i.imgur.com/q5QGBKG.png" alt="project-img">
                 <article class="project-info">
                     <a>
                         <p>
@@ -141,7 +140,7 @@
                 </article>
             </div>
             <div class="project-card">
-                <img src="https://i.imgur.com/CShtza1.png" alt="project-img">
+                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/vwAAz6O.png" src="https://i.imgur.com/vwAAz6O.png" alt="project-img">
                 <article class="project-info">
                         <a href="https://github.com/eagskunst/WordSoup" target="_blank">
                             <p>
@@ -179,6 +178,13 @@
                 rocketStyle.animationPlayState = 'paused';
             }
         });
+    </script>
+    <script>
+        const asyncLoad = ( async () => {
+            const lazySizesLib = await import("https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js");
+            lazySizes.init();
+        });
+        asyncLoad();
     </script>
 </body>
 </html>

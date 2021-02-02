@@ -1,0 +1,23 @@
+.habilities {
+    grid-area: $area-global-skills;
+    margin-top: 40px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 5rem); 
+    grid-row-gap: 1.5em;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones1)) {
+        padding-bottom: 0;
+    }
+}
+
+@include respond-to(getMaxWidth(phones3)) {
+    .habilities .skill-card p {
+        font-size: getFontSize(tnormal);
+    }
+}
+
+@import "../components/skill_card";
+@import "../components/skill_rocket";

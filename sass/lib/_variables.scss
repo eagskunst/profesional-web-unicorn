@@ -1,0 +1,45 @@
+/* Colors: */
+$color-background: #F7FCFF;
+$color-background-light: #FCFCFC;
+$color-accent: #E92042;
+$color-links: #16C60C;
+$color-text: #191B4B;
+
+$color-white: white;
+
+$color-left-bar-shadow: rgba(0,0,0,0.55);
+$color-hero-shadow: #00000017;
+$color-skill-shadow: rgba(0,0,0,0.12);
+
+$basefont: 'Dosis', Arial, sans-serif;
+
+$left-bar-shadow: 2px -1px 11px -7px $color-left-bar-shadow;
+$hero-pic-shadow: -2px 13px 35px -19px rgba(0,0,0,0.76);
+$base-card-shadow: -1px 2px 9px 2px $color-skill-shadow;
+$left-bar-shadow-responsive: 0px 4px 51px -13px rgba(0,0,0,0.3);
+$header-shadow: 12px 0px 8px 2px #00000017;
+
+$base-radius: 10px;
+$base-responsive-radius: .25em;
+$base-padding: 1em;
+
+$social-icons-size: 28px;
+
+$fs: (
+    full: 64px,
+    tbig: 56px,
+    big: 48px,
+    mid: 36px,
+    tnormal: 18px,
+    normal: 16px,
+    snormal: 14px,
+    p: 12px, /*Paragraph*/
+);
+
+$widths: (
+    laptop1: 1024px,
+    tablets: 768px,
+    phones1: 425px,
+    phones2: 375px,
+    phones3: 320px
+)

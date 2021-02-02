@@ -1,0 +1,12 @@
+.social-media {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $base-padding;
+    justify-content: flex-end;
+
+    //Responsive
+    @include respond-to(getMaxWidth(phones3)) {
+        flex-direction: row;
+        padding-right: $base-padding + 1em;
+    }
+}

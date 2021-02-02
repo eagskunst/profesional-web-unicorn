@@ -1,0 +1,7 @@
+.base-card {
+    max-width: 22rem;
+    min-height: 3rem;
+    border-radius: $base-radius;
+    background-color: $color-white;
+    @include shadows($base-card-shadow);
+}
