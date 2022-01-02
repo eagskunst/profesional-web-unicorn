@@ -3,19 +3,22 @@
     margin-top: 40px;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(5, 5rem); 
+    grid-template-rows: repeat(3, 5rem); 
+    justify-content: center;
     grid-row-gap: 1.5em;
 
     //Responsive
     @include respond-to(getMaxWidth(phones1)) {
+        grid-template-rows: repeat(2, 5rem); 
         padding-bottom: 0;
+        margin-top: 0;
     }
-}
-
-@include respond-to(getMaxWidth(phones3)) {
-    .habilities .skill-card p {
-        font-size: getFontSize(tnormal);
+    @include respond-to(getMaxWidth(phones2)) {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    @include respond-to(getMaxWidth(phones3)) {
+        margin-top: 0.5em;
     }
 }
 

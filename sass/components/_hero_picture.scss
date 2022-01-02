@@ -19,19 +19,23 @@
     }
 
     @include respond-to(getMaxWidth(tablets)) {
-        top: 12%;
-        width: 68%;
+        top: 0%;
+        width: 75%;
     }
 
     @include respond-to(getMaxWidth(phones1)) {
-        width: 60%;
+        width: 55%;
         margin: 0;
-        top: 20%;
         height: 4em;
+        margin-left: 0.5em;
     }
 
     @include respond-to(getMaxWidth(phones2)) {
         font-size: 42px;
+    }
+
+    @include respond-to(getMaxWidth(phones3)) {
+        top: 5%;
     }
 }
 
@@ -39,5 +43,9 @@
     max-width: 83%;
     max-height: 70%;
     border-radius: $base-responsive-radius;
-    background-image: url('images/image.png')
+    background-image: url('images/image.png');
+
+    @include respond-to(getMaxWidth(phones1)) {
+        max-height: 85%;
+    }
 }

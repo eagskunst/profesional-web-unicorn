@@ -7,11 +7,9 @@
     @include flex-justify-center;
 
     & img {
-        width: inherit;
-        height: inherit;
-        position: absolute;
         z-index: 1;
         overflow: hidden;
-        border-radius: inherit
+        border-radius: inherit;
+        object-fit: cover;
     }
 }

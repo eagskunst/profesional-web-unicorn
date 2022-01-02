@@ -1,4 +1,12 @@
 .social-img {
     width: $social-icons-size;
     height: $social-icons-size;
+    @include respond-to(getMaxWidth(phones1)) {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    @include respond-to(getMaxWidth(phones3)) {
+        width: 2em;
+        height: 2em;
+    }
 }

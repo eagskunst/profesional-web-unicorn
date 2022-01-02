@@ -49,17 +49,12 @@
   background-size: 200% 100%;
 }
 
-.habilities .skill-card:nth-of-type($i) {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #c55b5b));
-  background-image: linear-gradient(to right, white 50%, #c55b5b 50%);
-}
-
-.habilities .skill-card:nth-of-type($i) {
+.habilities .skill-card:nth-of-type(1) {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #9dda6b));
   background-image: linear-gradient(to right, white 50%, #9dda6b 50%);
 }
 
-.habilities .skill-card:nth-of-type($i) {
+.habilities .skill-card:nth-of-type(2) {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #6b68eb));
   background-image: linear-gradient(to right, white 50%, #6b68eb 50%);
 }
