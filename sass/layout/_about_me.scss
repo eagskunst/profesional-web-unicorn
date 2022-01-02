@@ -1,20 +1,24 @@
 
 .about-me {
     grid-area: $area-global-aboutme;
-    margin-left: 15%;
     font-size: getFontSize(full);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include respond-to(getMaxWidth(phones1)) {
-        margin-left: 10%;
-        margin-right: 10%;
         font-size: getFontSize(tbig);
     }
 
     & h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
         font-size: 1em;
         color: $color-text;
         @include respond-to(getMaxWidth(phones1)) {
             text-align: center;
+            margin-top: 30px;
+            margin-bottom: 45px;
         }
     }
 

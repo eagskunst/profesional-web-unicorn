@@ -19,12 +19,12 @@
     background-size: 200% 100%;
 }
 
-$skills-bg-colors: #c55b5b, #9dda6b, #6b68eb;
+$skills-bg-colors: #9dda6b, #6b68eb;
 
 @for $i from 1 through length($skills-bg-colors) {
     $el: nth($skills-bg-colors, $i);
     .habilities {
-        & .skill-card:nth-of-type($i) {
+        & .skill-card:nth-of-type(#{$i}) {
             background-image: linear-gradient(to right, $color-white 50%, $el 50%);
         }
     }

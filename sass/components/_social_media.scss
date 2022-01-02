@@ -5,8 +5,9 @@
     justify-content: flex-end;
 
     //Responsive
-    @include respond-to(getMaxWidth(phones3)) {
+    @include respond-to(getMaxWidth(phones1)) {
         flex-direction: row;
-        padding-right: $base-padding + 1em;
+        align-self: center;
+        padding-bottom: 0;
     }
 }

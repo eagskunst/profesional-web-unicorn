@@ -3,7 +3,7 @@
     padding: $base-padding;
 
     //Responsive
-    @include respond-to(getMaxWidth(phones3)) {
+    @include respond-to(getMaxWidth(phones1)) {
         padding: 0 $base-padding;
     }
 }
