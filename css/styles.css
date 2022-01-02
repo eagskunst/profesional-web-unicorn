@@ -11,6 +11,8 @@ html {
 body {
   margin: 0;
   font-family: "Dosis", Arial, sans-serif;
+  background-color: #F7FCFF;
+  overflow-x: hidden;
 }
 
 .h1 {
@@ -33,31 +35,8 @@ body {
   color: #191B4B;
 }
 
-.skill-card:nth-of-type(1) {
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-  -ms-grid-column: 2;
-      grid-column-start: 2;
-}
-
-.skill-card:nth-of-type(2) {
-  -ms-grid-row: 2;
-      grid-row-start: 2;
-  -ms-grid-column: 3;
-      grid-column-start: 3;
-}
-
-.skill-card:nth-of-type(3) {
-  -ms-grid-row: 3;
-      grid-row-start: 3;
-  -ms-grid-column: 5;
-      grid-column-start: 5;
-  -ms-grid-column-span: 3;
-      grid-column-end: span 3;
-}
-
 .base-card, .skill-card, .about-me-card {
-  max-width: 22rem;
+  max-width: 30rem;
   min-height: 3rem;
   border-radius: 10px;
   background-color: white;
@@ -79,20 +58,6 @@ Variables
 }
 
 @media screen and (max-width: 425px) {
-  .global-container {
-    -ms-grid-columns: minmax(3.5em, 5.5em) 1fr;
-        grid-template-columns: minmax(3.5em, 5.5em) 1fr;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .global-container {
-    -ms-grid-columns: 3.7em 1fr;
-        grid-template-columns: 3.7em 1fr;
-  }
-}
-
-@media screen and (max-width: 320px) {
   .global-container {
         grid-template-areas: "left-bar" "hero" "skills" "about-me" "projects" "footer";
     -ms-grid-columns: 100vw;
@@ -122,19 +87,8 @@ Variables
 
 @media screen and (max-width: 425px) {
   .left-side {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .left-side {
-    font-size: 8.2px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .left-side {
-    min-width: 100vw;
+    max-width: none;
+    min-width: calc(100vw - 2em);
     height: 4em;
     grid-auto-flow: column;
     -ms-grid-rows: min-content;
@@ -147,11 +101,14 @@ Variables
         -ms-flex-pack: center;
             justify-content: center;
     z-index: 30;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     -webkit-box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
-  }
-  .left-side img {
-    height: 4.2em;
   }
 }
 
@@ -169,19 +126,36 @@ Variables
           justify-content: flex-end;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .social-media {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    padding-right: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-bottom: 0;
   }
 }
 
 .social-img {
   width: 28px;
   height: 28px;
+}
+
+@media screen and (max-width: 425px) {
+  .social-img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .social-img {
+    width: 2em;
+    height: 2em;
+  }
 }
 
 .social-link {
@@ -194,7 +168,7 @@ Variables
   padding: 1em;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .social-link {
     padding: 0 1em;
   }
@@ -228,10 +202,16 @@ Variables
   margin-left: 0.5em;
 }
 
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .hero h1 {
     text-align: center;
-    margin-left: 0;
+    margin-top: 1em;
   }
 }
 
@@ -239,6 +219,15 @@ Variables
   .hero h1 {
     text-align: center;
     margin-bottom: 0;
+    font-size: 1.2em;
+    margin-top: 0.4em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero h1 {
+    font-size: 1em;
+    margin: auto 30px;
   }
 }
 
@@ -293,16 +282,33 @@ Variables
   grid-auto-rows: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-nav ul {
+    padding-right: 2.3em;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .hero-nav ul {
     margin: 0;
-    font-size: 14px;
+    font-size: 30px;
+    padding: 0;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding-right: 0;
-    -webkit-padding-start: 0;
-            padding-inline-start: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-nav ul {
+    font-size: 20px;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero-nav ul {
+    font-size: 18px;
   }
 }
 
@@ -362,23 +368,29 @@ Variables
 
 @media screen and (max-width: 768px) {
   .hero-picture {
-    top: 12%;
-    width: 68%;
+    top: 0%;
+    width: 75%;
   }
 }
 
 @media screen and (max-width: 425px) {
   .hero-picture {
-    width: 60%;
+    width: 55%;
     margin: 0;
-    top: 20%;
     height: 4em;
+    margin-left: 0.5em;
   }
 }
 
 @media screen and (max-width: 375px) {
   .hero-picture {
     font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero-picture {
+    top: 5%;
   }
 }
 
@@ -389,6 +401,12 @@ Variables
   background-image: url("images/image.png");
 }
 
+@media screen and (max-width: 425px) {
+  .hero-picture img {
+    max-height: 85%;
+  }
+}
+
 .habilities {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
@@ -397,22 +415,33 @@ Variables
   padding: 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[8];
-      grid-template-columns: repeat(8, 1fr);
-  -ms-grid-rows: (5rem)[5];
-      grid-template-rows: repeat(5, 5rem);
+  -ms-grid-rows: (5rem)[3];
+      grid-template-rows: repeat(3, 5rem);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   grid-row-gap: 1.5em;
 }
 
 @media screen and (max-width: 425px) {
   .habilities {
+    -ms-grid-rows: (5rem)[2];
+        grid-template-rows: repeat(2, 5rem);
     padding-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .habilities {
+    margin-left: 0%;
+    margin-right: 0%;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .habilities .skill-card p {
-    font-size: 18px;
+  .habilities {
+    margin-top: 0.5em;
   }
 }
 
@@ -420,56 +449,37 @@ Variables
   display: -ms-grid;
   display: grid;
       grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
-  -ms-grid-column-span: 4;
-      grid-column-end: span 4;
-}
-
-@media screen and (max-width: 768px) {
-  .skill-card:nth-of-type(1) {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-  }
-  .skill-card:nth-of-type(2) {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 3;
-        grid-column-start: 3;
-  }
-  .skill-card:nth-of-type(3) {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 4;
-    grid-column: 4 / span 4;
-  }
+  width: 100vw;
+  margin: 0 20px;
 }
 
 @media screen and (max-width: 425px) {
   .skill-card {
-    grid-column-end: -1;
-  }
-  .skill-card:nth-of-type(1) {
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-  }
-  .skill-card:nth-of-type(2) {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-  }
-  .skill-card:nth-of-type(3) {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    grid-column: 1 / -1;
+    width: 90vw;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .skill-card {
-    -ms-grid-columns: 4em auto;
-        grid-template-columns: 4em auto;
-    grid-column-gap: 10px;
+.skill-card:nth-of-type(1) {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+@media screen and (max-width: 425px) {
+  .skill-card:nth-of-type(1) {
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+}
+
+.skill-card:nth-of-type(2) {
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+@media screen and (max-width: 425px) {
+  .skill-card:nth-of-type(2) {
+    -ms-grid-row: 2;
+    grid-row: 2;
   }
 }
 
@@ -494,7 +504,7 @@ Variables
   -ms-grid-column: 2;
   grid-area: skill-title;
   margin: 0;
-  font-size: 22px;
+  font-size: 26px;
   color: #191B4B;
   font-weight: bold;
   -ms-flex-item-align: center;
@@ -502,12 +512,25 @@ Variables
       align-self: center;
 }
 
+@media screen and (max-width: 320px) {
+  .skill-card h4 {
+    font-size: 20px;
+  }
+}
+
 .skill-card p {
+  font-size: 18px;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: skill-descp;
   margin: 0;
   color: #191B4B;
+}
+
+@media screen and (max-width: 320px) {
+  .skill-card p {
+    font-size: 13px;
+  }
 }
 
 .skills-rocket {
@@ -557,19 +580,28 @@ Variables
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: about-me;
-  margin-left: 15%;
   font-size: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 425px) {
   .about-me {
-    margin-left: 10%;
-    margin-right: 10%;
     font-size: 56px;
   }
 }
 
 .about-me h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
   font-size: 1em;
   color: #191B4B;
 }
@@ -577,6 +609,8 @@ Variables
 @media screen and (max-width: 425px) {
   .about-me h2 {
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 45px;
   }
 }
 
@@ -589,10 +623,12 @@ Variables
 }
 
 .about-me-card {
-  font-size: 16px;
+  font-size: 18px;
   padding: 20px;
   line-height: 2em;
   margin: 0;
+  width: 30rem;
+  text-align: center;
   color: #191B4B;
 }
 
@@ -604,8 +640,12 @@ Variables
 
 @media screen and (max-width: 425px) {
   .about-me-card {
-    max-width: 22rem;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
     font-size: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
@@ -613,6 +653,15 @@ Variables
   .about-me-card {
     -ms-grid-columns: auto;
         grid-template-columns: auto;
+    max-width: none;
+    width: 86vw;
+    margin: 0 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about-me-card {
+    width: 70vw;
   }
 }
 
@@ -688,12 +737,11 @@ Variables
 }
 
 .project-card img {
-  width: inherit;
-  height: inherit;
-  position: absolute;
   z-index: 1;
   overflow: hidden;
   border-radius: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .project-info {

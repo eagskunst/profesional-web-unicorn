@@ -4,48 +4,26 @@
     grid-template-areas:
         "#{$area-skill-badge} #{$area-skill-title}"
         "#{$area-skill-badge} #{$area-skill-descp}";
-    grid-column-end: span 4;
-
-    //Responsive: 
-    //TODO: Make this different with React.
-    @include respond-to(getMaxWidth(tablets)) {
-        &:nth-of-type(1) {
-            grid-column-start: 2;
-        }
-        
-        &:nth-of-type(2) {
-            grid-row-start: 2;
-            grid-column-start: 3;
-        }
-        
-        &:nth-of-type(3) {
-            grid-row-start: 3;
-            grid-column: 4 / span 4;
-        }
-
-    }
+    //grid-column: 3 / span 3;
+    width: 100vw;
+    margin: 0 20px;
 
     @include respond-to(getMaxWidth(phones1)) {
-        grid-column-end: -1;
-
-        &:nth-of-type(1){
-            grid-column-start: 1;
-        }
-        
-        &:nth-of-type(2){
-            grid-row-start: 2;
-            grid-column-start: 1;
-        }
-        
-        &:nth-of-type(3){
-            grid-row-start: 3;
-            grid-column: 1 / -1;
+        width: 90vw;
+    }
+    
+    &:nth-of-type(1) {
+        grid-row: 2;
+        @include respond-to(getMaxWidth(phones1)) {
+            grid-row: 1;
         }
     }
 
-    @include respond-to(getMaxWidth(phones2)) {
-        grid-template-columns: 4em auto;
-        grid-column-gap: 10px;
+    &:nth-of-type(2) {
+        grid-row: 3;
+        @include respond-to(getMaxWidth(phones1)) {
+            grid-row: 2;
+        }
     }
 
     & img {
@@ -61,16 +39,23 @@
     & h4 {
         grid-area: $area-skill-title;
         margin: 0;
-        font-size: 22px;
+        font-size: 26px;
         color: $color-text;
         font-weight: bold;
         align-self: center;
+        @include respond-to(getMaxWidth(phones3)) {
+            font-size: 20px;
+        }
     }
 
     & p {
+        font-size: getFontSize(tnormal);
         grid-area: $area-skill-descp;
         margin: 0;
         color: $color-text;
+        @include respond-to(getMaxWidth(phones3)) {
+            font-size: 13px;
+        }
     }
 
 }

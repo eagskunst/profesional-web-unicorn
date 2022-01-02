@@ -14,26 +14,18 @@
     //Responsive:
 
     @include respond-to(getMaxWidth(phones1)) {
-        font-size: getFontSize(p);
-    }
-
-    @include respond-to(getMaxWidth(phones2)) {
-        font-size: 8.2px;
-    }
-
-    @include respond-to(getMaxWidth(phones3)) {
-        min-width: 100vw;
+        max-width: none;
+        min-width: calc(100vw - 2em);
         height: 4em;
         grid-auto-flow: column;
         grid-template-rows: min-content;
         grid-template-columns: min-content 1fr;
         justify-content: center;
         z-index: 30;
+        align-items: start;
+        position: sticky;
+        top: 0;
         @include shadows($left-bar-shadow-responsive);
-
-        & img {
-            height: 4.2em; 
-        }
     }
 }
 
