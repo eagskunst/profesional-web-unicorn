@@ -256,6 +256,8 @@ Variables
   grid-area: hero-img;
   background-color: #68D085;
   width: 50%;
+  aspect-ratio: 4/3;
+  height: auto;
   border-radius: 0.25em;
   display: flex;
   justify-content: center;
@@ -264,7 +266,6 @@ Variables
   position: relative;
   justify-self: center;
   top: 20%;
-  height: 100%;
   box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
 }
 @media screen and (max-width: 1024px) {
@@ -282,7 +283,6 @@ Variables
   .hero-picture {
     width: 55%;
     margin: 0;
-    height: 4em;
     margin-left: 0.5em;
   }
 }
@@ -298,8 +298,12 @@ Variables
 }
 
 .hero-picture img {
-  max-width: 83%;
-  max-height: 70%;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 0.25em;
   background-image: url("images/image.png");
 }
