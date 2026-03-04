@@ -2,7 +2,9 @@
     @include flex-full-center;
     grid-area: hero-img;
     background-color: $color-accent;
-    width: 60%;
+    width: 50%;
+    aspect-ratio: 4 / 3;
+    height: auto;
     border-radius: $base-responsive-radius;
     display: flex;
     justify-content: center;
@@ -11,7 +13,6 @@
     position: relative;
     justify-self: center;
     top: 20%;
-    height: 100%;
     @include shadows($hero-pic-shadow);
 
     @include respond-to(getMaxWidth(laptop1)) {
@@ -26,7 +27,6 @@
     @include respond-to(getMaxWidth(phones1)) {
         width: 55%;
         margin: 0;
-        height: 4em;
         margin-left: 0.5em;
     }
 
@@ -40,8 +40,11 @@
 }
 
 .hero-picture img {
-    max-width: 83%;
-    max-height: 70%;
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: $base-responsive-radius;
     background-image: url('images/image.png');
 
