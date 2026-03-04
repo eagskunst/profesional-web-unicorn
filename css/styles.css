@@ -40,8 +40,6 @@ body {
   min-height: 3rem;
   border-radius: 10px;
   background-color: white;
-  -webkit-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
   box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
 }
 
@@ -72,8 +70,6 @@ Variables
   display: grid;
   grid-template-rows: min-content auto;
   justify-content: center;
-  -webkit-box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
   box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
   background-color: #FCFCFC;
 }
@@ -90,8 +86,6 @@ Variables
     align-items: start;
     position: sticky;
     top: 0;
-    -webkit-box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
   }
 }
@@ -145,8 +139,6 @@ Variables
   grid-template-areas: "hero-nav hero-nav" "hero-title hero-img";
   grid-template-columns: 55% 45%;
   background-color: #FCFCFC;
-  -webkit-box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
-  -moz-box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
   box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1215686275);
 }
@@ -274,8 +266,6 @@ Variables
   position: relative;
   justify-self: center;
   top: 20%;
-  -webkit-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
-  -moz-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
   box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
 }
 @media screen and (max-width: 1024px) {
@@ -312,7 +302,8 @@ Variables
   max-height: 90%;
   width: auto;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 0.25em;
   background-image: url("images/image.png");
 }
@@ -333,7 +324,7 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .habilities {
-    grid-template-rows: repeat(2, 5rem);
+    grid-template-rows: repeat(4, 5rem);
     padding-bottom: 0;
     margin-top: 0;
   }
@@ -355,6 +346,8 @@ Variables
   grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
   width: 100vw;
   margin: 0 20px;
+  justify-content: center;
+  justify-items: center;
 }
 @media screen and (max-width: 425px) {
   .skill-card {
@@ -362,7 +355,7 @@ Variables
   }
 }
 .skill-card:nth-of-type(1) {
-  grid-row: 2;
+  grid-row: 1;
 }
 @media screen and (max-width: 425px) {
   .skill-card:nth-of-type(1) {
@@ -370,11 +363,19 @@ Variables
   }
 }
 .skill-card:nth-of-type(2) {
-  grid-row: 3;
+  grid-row: 2;
 }
 @media screen and (max-width: 425px) {
   .skill-card:nth-of-type(2) {
     grid-row: 2;
+  }
+}
+.skill-card:nth-of-type(3) {
+  grid-row: 3;
+}
+@media screen and (max-width: 425px) {
+  .skill-card:nth-of-type(3) {
+    grid-row: 3;
   }
 }
 .skill-card img {
@@ -488,6 +489,7 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .about-me-card {
+    max-width: -moz-fit-content;
     max-width: fit-content;
     font-size: 18px;
     margin-left: 20px;
@@ -563,7 +565,8 @@ Variables
   z-index: 1;
   overflow: hidden;
   border-radius: inherit;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .project-info {
@@ -605,6 +608,7 @@ Variables
   grid-area: footer;
   width: 100%;
   background-color: #68D085;
+  height: -moz-min-content;
   height: min-content;
   display: flex;
   justify-content: center;
@@ -624,6 +628,4 @@ Variables
 .my-name {
   color: #191B4B !important;
   font-weight: bold;
-}
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
