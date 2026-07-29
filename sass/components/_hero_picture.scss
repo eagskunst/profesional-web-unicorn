@@ -3,52 +3,36 @@
     grid-area: hero-img;
     background-color: $color-accent;
     width: 50%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     height: auto;
     border-radius: $base-responsive-radius;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: .25em;
     position: relative;
     justify-self: center;
-    top: 20%;
+    top: 10%;
     @include shadows($hero-pic-shadow);
 
     @include respond-to(getMaxWidth(laptop1)) {
-        width: 64%;
+        width: 60%;
     }
 
     @include respond-to(getMaxWidth(tablets)) {
         top: 0%;
-        width: 75%;
+        width: 70%;
     }
 
     @include respond-to(getMaxWidth(phones1)) {
-        width: 55%;
-        margin: 0;
-        margin-left: 0.5em;
-    }
-
-    @include respond-to(getMaxWidth(phones2)) {
-        font-size: 42px;
-    }
-
-    @include respond-to(getMaxWidth(phones3)) {
-        top: 5%;
+        width: 65%;
+        max-width: 260px;
+        margin: 0 auto;
     }
 }
 
 .hero-picture img {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
     border-radius: $base-responsive-radius;
-    background-image: url('images/image.png');
-
-    @include respond-to(getMaxWidth(phones1)) {
-        max-height: 85%;
-    }
 }
