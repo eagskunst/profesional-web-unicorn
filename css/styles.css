@@ -282,12 +282,15 @@ Variables
 }
 
 .skill-card {
-  display: grid;
-  grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
-  width: calc(100% - 2rem);
-  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 32rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.2rem 1.5rem;
 }
 @media screen and (max-width: 768px) {
   .skill-card {
@@ -296,46 +299,11 @@ Variables
     margin: 0 auto;
   }
 }
-.skill-card:nth-of-type(1) {
-  grid-row: 1;
-}
-@media screen and (max-width: 768px) {
-  .skill-card:nth-of-type(1) {
-    grid-row: 1;
-  }
-}
-.skill-card:nth-of-type(2) {
-  grid-row: 2;
-}
-@media screen and (max-width: 768px) {
-  .skill-card:nth-of-type(2) {
-    grid-row: 2;
-  }
-}
-.skill-card:nth-of-type(3) {
-  grid-row: 3;
-}
-@media screen and (max-width: 768px) {
-  .skill-card:nth-of-type(3) {
-    grid-row: 3;
-  }
-}
-.skill-card img {
-  grid-area: skill-bagde;
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 40%;
-  min-height: 40%;
-  justify-self: center;
-  align-self: center;
-}
 .skill-card h4 {
-  grid-area: skill-title;
-  margin: 0;
-  font-size: 26px;
+  margin: 0 0 0.4rem 0;
+  font-size: 24px;
   color: #191B4B;
   font-weight: bold;
-  align-self: center;
 }
 @media screen and (max-width: 360px) {
   .skill-card h4 {
@@ -344,9 +312,9 @@ Variables
 }
 .skill-card p {
   font-size: 18px;
-  grid-area: skill-descp;
   margin: 0;
   color: #191B4B;
+  line-height: 1.4;
 }
 @media screen and (max-width: 360px) {
   .skill-card p {
