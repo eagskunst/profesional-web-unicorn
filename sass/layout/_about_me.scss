@@ -1,24 +1,22 @@
 
 .about-me {
     grid-area: $area-global-aboutme;
-    font-size: getFontSize(full);
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @include respond-to(getMaxWidth(phones1)) {
-        font-size: getFontSize(tbig);
-    }
-
     & h2 {
-        margin-top: 0;
-        margin-bottom: 0.5em;
-        font-size: 1em;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 44px;
+        font-weight: bold;
         color: $color-text;
-        @include respond-to(getMaxWidth(phones1)) {
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 45px;
+        text-align: center;
+
+        @include respond-to(getMaxWidth(tablets)) {
+            font-size: 32px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
         }
     }
 
