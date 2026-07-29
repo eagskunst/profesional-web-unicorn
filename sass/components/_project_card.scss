@@ -1,6 +1,8 @@
 .project-card {
-    width: 220px;
-    height: 220px;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     position: relative;
     border-radius: $base-radius;
     overflow: hidden;
