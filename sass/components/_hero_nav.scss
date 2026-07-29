@@ -13,10 +13,6 @@
         grid-auto-rows: auto;
 
         @include respond-to(getMaxWidth(tablets)) {
-            padding-right: 2.3em;
-        }
-
-        @include respond-to(getMaxWidth(phones1)) {
             margin: 0;
             font-size: 1.1rem;
             padding: 0.5rem 0;

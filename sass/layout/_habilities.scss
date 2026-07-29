@@ -7,7 +7,7 @@
     justify-content: center;
     grid-row-gap: 1.5em;
 
-    @include respond-to(getMaxWidth(phones1)) {
+    @include respond-to(getMaxWidth(tablets)) {
         grid-template-rows: repeat(3, auto); 
         padding-bottom: 0;
         margin-top: 0;

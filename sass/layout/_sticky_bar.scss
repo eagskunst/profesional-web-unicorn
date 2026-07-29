@@ -13,7 +13,7 @@
 
     //Responsive:
 
-    @include respond-to(getMaxWidth(phones1)) {
+    @include respond-to(getMaxWidth(tablets)) {
         max-width: none;
         width: 100%;
         min-width: 0;

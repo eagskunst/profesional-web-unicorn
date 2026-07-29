@@ -223,20 +223,11 @@ Variables
 @media screen and (max-width: 425px) {
   .hero-nav ul {
     margin: 0;
-    font-size: 30px;
-    padding: 0;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
     justify-content: center;
-  }
-}
-@media screen and (max-width: 375px) {
-  .hero-nav ul {
-    font-size: 20px;
-    padding-left: 0;
-  }
-}
-@media screen and (max-width: 320px) {
-  .hero-nav ul {
-    font-size: 18px;
+    grid-gap: 1.5rem;
+    grid-template-rows: auto;
   }
 }
 .hero-nav ul li {
@@ -309,35 +300,22 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .habilities {
-    grid-template-rows: repeat(4, 5rem);
+    grid-template-rows: repeat(3, auto);
     padding-bottom: 0;
     margin-top: 0;
-  }
-}
-@media screen and (max-width: 375px) {
-  .habilities {
-    margin-left: 0%;
-    margin-right: 0%;
-  }
-}
-@media screen and (max-width: 320px) {
-  .habilities {
-    margin-top: 0.5em;
+    grid-row-gap: 1em;
   }
 }
 
 .skill-card {
   display: grid;
   grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
-  width: 100vw;
-  margin: 0 20px;
+  width: calc(100% - 2rem);
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1rem;
   justify-content: center;
   justify-items: center;
-}
-@media screen and (max-width: 425px) {
-  .skill-card {
-    width: 90vw;
-  }
 }
 .skill-card:nth-of-type(1) {
   grid-row: 1;
@@ -461,9 +439,10 @@ Variables
 .about-me-card {
   font-size: 18px;
   padding: 20px;
-  line-height: 2em;
-  margin: 0;
-  width: 30rem;
+  line-height: 1.8em;
+  margin: 0 auto;
+  width: calc(100% - 2rem);
+  max-width: 30rem;
   text-align: center;
   color: #191B4B;
 }
@@ -474,23 +453,9 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .about-me-card {
-    max-width: fit-content;
-    font-size: 18px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .about-me-card {
-    grid-template-columns: auto;
-    max-width: none;
-    width: 86vw;
-    margin: 0 20px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .about-me-card {
-    width: 70vw;
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -517,14 +482,11 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .projects {
-    font-size: 56px;
-    grid-template-rows: min-content repeat(3, 1fr);
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 375px) {
-  .projects {
-    font-size: 48px;
+    font-size: 16px;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 0 1rem;
   }
 }
 .projects h2 {
@@ -537,8 +499,9 @@ Variables
 }
 
 .project-card {
-  width: 5em;
-  height: 5em;
+  width: 220px;
+  height: 220px;
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
   background-color: #68D085;
@@ -546,6 +509,8 @@ Variables
   justify-content: center;
 }
 .project-card img {
+  width: 100%;
+  height: 100%;
   z-index: 1;
   overflow: hidden;
   border-radius: inherit;
@@ -553,37 +518,34 @@ Variables
 }
 
 .project-info {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.82);
   border-radius: inherit;
   opacity: 0;
-  transition: 0.5s;
-  transition-property: opacity;
+  transition: opacity 0.3s ease;
 }
 .project-info a {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .project-info p {
-  margin: auto 0;
-  font-size: 0.35em;
-  padding: 1em;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 1rem;
+  text-align: center;
 }
-@media screen and (max-width: 768px) {
-  .project-info p {
-    font-size: 0.42em;
-  }
-}
-.project-info:hover {
-  transition: 0.5s;
-  transition-property: opacity;
+.project-info:hover, .project-info:focus-within, .project-info:active {
   opacity: 1;
 }
 

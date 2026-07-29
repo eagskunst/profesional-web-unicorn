@@ -14,16 +14,8 @@
     top: 10%;
     @include shadows($hero-pic-shadow);
 
-    @include respond-to(getMaxWidth(laptop1)) {
-        width: 60%;
-    }
-
     @include respond-to(getMaxWidth(tablets)) {
-        top: 0%;
-        width: 70%;
-    }
-
-    @include respond-to(getMaxWidth(phones1)) {
+        top: 0;
         width: 65%;
         max-width: 260px;
         margin: 0 auto;
