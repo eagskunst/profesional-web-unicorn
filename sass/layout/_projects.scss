@@ -18,13 +18,11 @@
     }
 
     @include respond-to(getMaxWidth(phones1)) {
-        font-size: getFontSize(tbig);
-        grid-template-rows: min-content repeat(3, 1fr);
-        grid-template-columns: 1fr;
-    }
-
-    @include respond-to(getMaxWidth(phones2)) {
-        font-size: getFontSize(big);
+        font-size: getFontSize(normal);
+        grid-template-rows: auto;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding: 0 1rem;
     }
 
     & h2 {

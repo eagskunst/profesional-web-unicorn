@@ -18,19 +18,11 @@
 
         @include respond-to(getMaxWidth(phones1)) {
             margin: 0;
-            font-size: 30px;
-            padding: 0;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
             justify-content: center;
-        }
-
-        @include respond-to(getMaxWidth(phones2)) {
-            font-size: 20px;
-            padding-left: 0;
-        }
-
-
-        @include respond-to(getMaxWidth(phones3)) {
-            font-size: 18px;
+            grid-gap: 1.5rem;
+            grid-template-rows: auto;
         }
 
         & li {

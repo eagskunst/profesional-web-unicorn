@@ -25,18 +25,8 @@
 
         @include respond-to(getMaxWidth(phones1)) {
             text-align: center;
-            margin-top: 1em;
-        }
-
-        @include respond-to(getMaxWidth(phones2)) {
-            text-align: center;
-            margin-bottom: 0;
-            font-size: 1.2em;
-            margin-top: 0.4em;
-        }
-        @include respond-to(getMaxWidth(phones3)) {
-            font-size: 1em;
-            margin: auto 30px;
+            margin: 0.5em 0;
+            font-size: 0.55em;
         }
     }
 
@@ -47,7 +37,9 @@
 
     @include respond-to(getMaxWidth(phones1)) {
         grid-template-columns: 1fr;
-        grid-template-rows: 15% 42% 43%;
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+        padding: 1rem 0.5rem 2rem 0.5rem;
         grid-template-areas: 
         "#{$area-hero-nav}"
         "#{$area-hero-title}"
@@ -56,10 +48,6 @@
 
     @include respond-to(getMaxWidth(phones2)) {
         font-size: getFontSize(mid);
-    }
-
-    @include respond-to(getMaxWidth(phones3)) {
-        padding-top: 1.03em;
     }
 
 }

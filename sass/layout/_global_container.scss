@@ -9,6 +9,9 @@
     grid-template-columns: minmax(5em, 7em) 1fr;
     grid-row-gap: 1.2em;
     background-color: $color-background;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 
     @include respond-to(getMaxWidth(phones1)) {
         grid-template-areas:
@@ -18,9 +21,6 @@
         "#{$area-global-aboutme}"
         "#{$area-global-projects}"
         "#{$area-global-footer}";
-        grid-template-columns: 100vw;
+        grid-template-columns: 100%;
     }
-    
-
-
 }

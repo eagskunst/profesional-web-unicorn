@@ -2,32 +2,20 @@
     @extend .base-card;
     font-size: getFontSize(tnormal);
     padding: 20px;
-    line-height: 2em;
-    margin: 0;
-    width: 30rem;
+    line-height: 1.8em;
+    margin: 0 auto;
+    width: calc(100% - 2rem);
+    max-width: 30rem;
     text-align: center;
     color: $color-text;
 
-    //Responsive
     @include respond-to(getMaxWidth(tablets)) {
         max-width: 28rem;
     }
 
     @include respond-to(getMaxWidth(phones1)) {
-        max-width: fit-content;
-        font-size: getFontSize(tnormal);
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    @include respond-to(getMaxWidth(phones2)) {
-        grid-template-columns: auto;
-        max-width: none;
-        width: 86vw;
-        margin: 0 20px;
-    }
-
-    @include respond-to(getMaxWidth(phones3)) {
-        width: 70vw;
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
