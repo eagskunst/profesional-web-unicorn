@@ -10,10 +10,6 @@
     color: $color-text;
 
     @include respond-to(getMaxWidth(tablets)) {
-        max-width: 28rem;
-    }
-
-    @include respond-to(getMaxWidth(phones1)) {
         width: calc(100% - 2rem);
         max-width: 100%;
         margin: 0 auto;

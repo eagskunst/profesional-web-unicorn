@@ -21,10 +21,6 @@
         
         @include respond-to(getMaxWidth(tablets)) {
             text-align: center;
-        }
-
-        @include respond-to(getMaxWidth(phones1)) {
-            text-align: center;
             margin: 0.5em 0;
             font-size: 0.55em;
         }
@@ -32,10 +28,6 @@
 
     //Responsive
     @include respond-to(getMaxWidth(tablets)) {
-        font-size: getFontSize(big);
-    }
-
-    @include respond-to(getMaxWidth(phones1)) {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         gap: 1rem;

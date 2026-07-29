@@ -14,15 +14,12 @@
     }
 
     @include respond-to(getMaxWidth(tablets)) {
-        font-size: getFontSize(mid);
-    }
-
-    @include respond-to(getMaxWidth(phones1)) {
         font-size: getFontSize(normal);
         grid-template-rows: auto;
         grid-auto-rows: auto;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         padding: 0 1rem;
+        width: 100%;
     }
 
     & h2 {

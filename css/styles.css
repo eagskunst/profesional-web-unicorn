@@ -63,7 +63,7 @@ Variables
   max-width: 100%;
   overflow-x: hidden;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .global-container {
     grid-template-areas: "left-bar" "hero" "skills" "about-me" "projects" "footer";
     grid-template-columns: 100%;
@@ -85,7 +85,7 @@ Variables
   box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
   background-color: #FCFCFC;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .left-side {
     max-width: none;
     width: 100%;
@@ -113,7 +113,7 @@ Variables
   padding-bottom: 1em;
   justify-content: flex-end;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .social-media {
     flex-direction: row;
     align-self: center;
@@ -125,13 +125,13 @@ Variables
   width: 28px;
   height: 28px;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .social-img {
     width: 2.5em;
     height: 2.5em;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .social-img {
     width: 2em;
     height: 2em;
@@ -143,7 +143,7 @@ Variables
   justify-content: center;
   padding: 1em;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .social-link {
     padding: 0 1em;
   }
@@ -172,21 +172,11 @@ Variables
 @media screen and (max-width: 768px) {
   .hero h1 {
     text-align: center;
-  }
-}
-@media screen and (max-width: 425px) {
-  .hero h1 {
-    text-align: center;
     margin: 0.5em 0;
     font-size: 0.55em;
   }
 }
 @media screen and (max-width: 768px) {
-  .hero {
-    font-size: 48px;
-  }
-}
-@media screen and (max-width: 425px) {
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -195,7 +185,7 @@ Variables
     grid-template-areas: "hero-nav" "hero-title" "hero-img";
   }
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 480px) {
   .hero {
     font-size: 36px;
   }
@@ -217,26 +207,12 @@ Variables
 }
 @media screen and (max-width: 768px) {
   .hero-nav ul {
-    padding-right: 2.3em;
-  }
-}
-@media screen and (max-width: 425px) {
-  .hero-nav ul {
     margin: 0;
-    font-size: 30px;
-    padding: 0;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
     justify-content: center;
-  }
-}
-@media screen and (max-width: 375px) {
-  .hero-nav ul {
-    font-size: 20px;
-    padding-left: 0;
-  }
-}
-@media screen and (max-width: 320px) {
-  .hero-nav ul {
-    font-size: 18px;
+    grid-gap: 1.5rem;
+    grid-template-rows: auto;
   }
 }
 .hero-nav ul li {
@@ -272,19 +248,9 @@ Variables
   -moz-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
   box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
 }
-@media screen and (max-width: 1024px) {
-  .hero-picture {
-    width: 60%;
-  }
-}
 @media screen and (max-width: 768px) {
   .hero-picture {
-    top: 0%;
-    width: 70%;
-  }
-}
-@media screen and (max-width: 425px) {
-  .hero-picture {
+    top: 0;
     width: 65%;
     max-width: 260px;
     margin: 0 auto;
@@ -307,42 +273,34 @@ Variables
   justify-content: center;
   grid-row-gap: 1.5em;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .habilities {
-    grid-template-rows: repeat(4, 5rem);
+    grid-template-rows: repeat(3, auto);
     padding-bottom: 0;
     margin-top: 0;
-  }
-}
-@media screen and (max-width: 375px) {
-  .habilities {
-    margin-left: 0%;
-    margin-right: 0%;
-  }
-}
-@media screen and (max-width: 320px) {
-  .habilities {
-    margin-top: 0.5em;
+    grid-row-gap: 1em;
   }
 }
 
 .skill-card {
   display: grid;
   grid-template-areas: "skill-bagde skill-title" "skill-bagde skill-descp";
-  width: 100vw;
-  margin: 0 20px;
-  justify-content: center;
-  justify-items: center;
+  width: calc(100% - 2rem);
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1rem;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skill-card {
-    width: 90vw;
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 .skill-card:nth-of-type(1) {
   grid-row: 1;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skill-card:nth-of-type(1) {
     grid-row: 1;
   }
@@ -350,7 +308,7 @@ Variables
 .skill-card:nth-of-type(2) {
   grid-row: 2;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skill-card:nth-of-type(2) {
     grid-row: 2;
   }
@@ -358,7 +316,7 @@ Variables
 .skill-card:nth-of-type(3) {
   grid-row: 3;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skill-card:nth-of-type(3) {
     grid-row: 3;
   }
@@ -380,7 +338,7 @@ Variables
   font-weight: bold;
   align-self: center;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .skill-card h4 {
     font-size: 20px;
   }
@@ -391,7 +349,7 @@ Variables
   margin: 0;
   color: #191B4B;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .skill-card p {
     font-size: 13px;
   }
@@ -409,7 +367,7 @@ Variables
     margin: 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skills-rocket {
     grid-row: 4/-1;
     grid-column: 3/7;
@@ -420,7 +378,7 @@ Variables
   max-width: 100%;
   max-height: 100%;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .skills-rocket img {
     width: 100%;
     height: 100%;
@@ -434,7 +392,7 @@ Variables
   flex-direction: column;
   align-items: center;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .about-me {
     font-size: 56px;
   }
@@ -445,7 +403,7 @@ Variables
   font-size: 1em;
   color: #191B4B;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .about-me h2 {
     text-align: center;
     margin-top: 30px;
@@ -461,36 +419,18 @@ Variables
 .about-me-card {
   font-size: 18px;
   padding: 20px;
-  line-height: 2em;
-  margin: 0;
-  width: 30rem;
+  line-height: 1.8em;
+  margin: 0 auto;
+  width: calc(100% - 2rem);
+  max-width: 30rem;
   text-align: center;
   color: #191B4B;
 }
 @media screen and (max-width: 768px) {
   .about-me-card {
-    max-width: 28rem;
-  }
-}
-@media screen and (max-width: 425px) {
-  .about-me-card {
-    max-width: fit-content;
-    font-size: 18px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .about-me-card {
-    grid-template-columns: auto;
-    max-width: none;
-    width: 86vw;
-    margin: 0 20px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .about-me-card {
-    width: 70vw;
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -512,19 +452,12 @@ Variables
 }
 @media screen and (max-width: 768px) {
   .projects {
-    font-size: 36px;
-  }
-}
-@media screen and (max-width: 425px) {
-  .projects {
-    font-size: 56px;
-    grid-template-rows: min-content repeat(3, 1fr);
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 375px) {
-  .projects {
-    font-size: 48px;
+    font-size: 16px;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 0 1rem;
+    width: 100%;
   }
 }
 .projects h2 {
@@ -537,8 +470,9 @@ Variables
 }
 
 .project-card {
-  width: 5em;
-  height: 5em;
+  width: 220px;
+  height: 220px;
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
   background-color: #68D085;
@@ -546,6 +480,8 @@ Variables
   justify-content: center;
 }
 .project-card img {
+  width: 100%;
+  height: 100%;
   z-index: 1;
   overflow: hidden;
   border-radius: inherit;
@@ -553,37 +489,34 @@ Variables
 }
 
 .project-info {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.82);
   border-radius: inherit;
   opacity: 0;
-  transition: 0.5s;
-  transition-property: opacity;
+  transition: opacity 0.3s ease;
 }
 .project-info a {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .project-info p {
-  margin: auto 0;
-  font-size: 0.35em;
-  padding: 1em;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 1rem;
+  text-align: center;
 }
-@media screen and (max-width: 768px) {
-  .project-info p {
-    font-size: 0.42em;
-  }
-}
-.project-info:hover {
-  transition: 0.5s;
-  transition-property: opacity;
+.project-info:hover, .project-info:focus-within, .project-info:active {
   opacity: 1;
 }
 
