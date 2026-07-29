@@ -4,6 +4,10 @@
 }
 
 /* Colors: */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,6 +17,7 @@ body {
   font-family: "Dosis", Arial, sans-serif;
   background-color: #F7FCFF;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .h1 {
@@ -40,6 +45,8 @@ body {
   min-height: 3rem;
   border-radius: 10px;
   background-color: white;
+  -webkit-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
   box-shadow: -1px 2px 9px 2px rgba(0, 0, 0, 0.12);
 }
 
@@ -52,11 +59,14 @@ Variables
   grid-template-columns: minmax(5em, 7em) 1fr;
   grid-row-gap: 1.2em;
   background-color: #F7FCFF;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 425px) {
   .global-container {
     grid-template-areas: "left-bar" "hero" "skills" "about-me" "projects" "footer";
-    grid-template-columns: 100vw;
+    grid-template-columns: 100%;
   }
 }
 
@@ -70,22 +80,29 @@ Variables
   display: grid;
   grid-template-rows: min-content auto;
   justify-content: center;
+  -webkit-box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
   box-shadow: 2px -1px 11px -7px rgba(0, 0, 0, 0.55);
   background-color: #FCFCFC;
 }
 @media screen and (max-width: 425px) {
   .left-side {
     max-width: none;
-    min-width: calc(100vw - 2em);
-    height: 4em;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 3.5em;
+    padding: 0.5em 1em;
     grid-auto-flow: column;
     grid-template-rows: min-content;
     grid-template-columns: min-content 1fr;
-    justify-content: center;
+    justify-content: space-between;
     z-index: 30;
-    align-items: start;
+    align-items: center;
     position: sticky;
     top: 0;
+    -webkit-box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 4px 51px -13px rgba(0, 0, 0, 0.3);
   }
 }
@@ -139,6 +156,8 @@ Variables
   grid-template-areas: "hero-nav hero-nav" "hero-title hero-img";
   grid-template-columns: 55% 45%;
   background-color: #FCFCFC;
+  -webkit-box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
+  -moz-box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
   box-shadow: 12px 0px 8px 2px rgba(0, 0, 0, 0.0901960784);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1215686275);
 }
@@ -158,21 +177,8 @@ Variables
 @media screen and (max-width: 425px) {
   .hero h1 {
     text-align: center;
-    margin-top: 1em;
-  }
-}
-@media screen and (max-width: 375px) {
-  .hero h1 {
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 1.2em;
-    margin-top: 0.4em;
-  }
-}
-@media screen and (max-width: 320px) {
-  .hero h1 {
-    font-size: 1em;
-    margin: auto 30px;
+    margin: 0.5em 0;
+    font-size: 0.55em;
   }
 }
 @media screen and (max-width: 768px) {
@@ -183,18 +189,15 @@ Variables
 @media screen and (max-width: 425px) {
   .hero {
     grid-template-columns: 1fr;
-    grid-template-rows: 15% 42% 43%;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
     grid-template-areas: "hero-nav" "hero-title" "hero-img";
   }
 }
 @media screen and (max-width: 375px) {
   .hero {
     font-size: 36px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .hero {
-    padding-top: 1.03em;
   }
 }
 
@@ -256,61 +259,43 @@ Variables
   grid-area: hero-img;
   background-color: #68D085;
   width: 50%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   height: auto;
   border-radius: 0.25em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.25em;
   position: relative;
   justify-self: center;
-  top: 20%;
+  top: 10%;
+  -webkit-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
   box-shadow: -2px 13px 35px -19px rgba(0, 0, 0, 0.76);
 }
 @media screen and (max-width: 1024px) {
   .hero-picture {
-    width: 64%;
+    width: 60%;
   }
 }
 @media screen and (max-width: 768px) {
   .hero-picture {
     top: 0%;
-    width: 75%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 425px) {
   .hero-picture {
-    width: 55%;
-    margin: 0;
-    margin-left: 0.5em;
-  }
-}
-@media screen and (max-width: 375px) {
-  .hero-picture {
-    font-size: 42px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .hero-picture {
-    top: 5%;
+    width: 65%;
+    max-width: 260px;
+    margin: 0 auto;
   }
 }
 
 .hero-picture img {
-  max-width: 90%;
-  max-height: 90%;
-  width: auto;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
   border-radius: 0.25em;
-  background-image: url("images/image.png");
-}
-@media screen and (max-width: 425px) {
-  .hero-picture img {
-    max-height: 85%;
-  }
 }
 
 .habilities {
@@ -489,7 +474,6 @@ Variables
 }
 @media screen and (max-width: 425px) {
   .about-me-card {
-    max-width: -moz-fit-content;
     max-width: fit-content;
     font-size: 18px;
     margin-left: 20px;
@@ -565,8 +549,7 @@ Variables
   z-index: 1;
   overflow: hidden;
   border-radius: inherit;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .project-info {
@@ -608,7 +591,6 @@ Variables
   grid-area: footer;
   width: 100%;
   background-color: #68D085;
-  height: -moz-min-content;
   height: min-content;
   display: flex;
   justify-content: center;
@@ -628,4 +610,6 @@ Variables
 .my-name {
   color: #191B4B !important;
   font-weight: bold;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

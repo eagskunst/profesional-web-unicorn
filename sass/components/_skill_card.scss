@@ -4,14 +4,12 @@
     grid-template-areas:
         "#{$area-skill-badge} #{$area-skill-title}"
         "#{$area-skill-badge} #{$area-skill-descp}";
-    width: 100vw;
-    margin: 0 20px;
+    width: calc(100% - 2rem);
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 1rem;
     justify-content: center;
     justify-items: center;
-
-    @include respond-to(getMaxWidth(phones1)) {
-        width: 90vw;
-    }
     
     &:nth-of-type(1) {
         grid-row: 1;
