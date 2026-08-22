@@ -14,10 +14,6 @@ body {
     will-change: transform;
 }
 
-.hero-glow {
-    background: radial-gradient(circle at center, rgba(132, 246, 230, 0.15) 0%, rgba(35, 61, 77, 0) 70%);
-}
-
 .section-gradient {
     background: linear-gradient(to bottom, transparent, #24303D);
 }
