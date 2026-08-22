@@ -50,10 +50,10 @@
                 Emmanuel Guerra
             </div>
             <div class='hidden md:flex items-center gap-8 font-geist text-base'>
-                <a class='text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1 hover:text-graphite-primary transition-colors duration-300' href='#about'>About</a>
-                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors duration-300' href='#projects'>Projects</a>
-                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors duration-300' href='#contact'>Contact</a>
-                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors duration-300' href='#blog'>Blog</a>
+                <a class='nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1 hover:text-graphite-primary transition-colors duration-300' href='#about' data-section='about'>About</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#projects' data-section='projects'>Projects</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#contact' data-section='contact'>Contact</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#blog' data-section='blog'>Blog</a>
             </div>
             <button class='md:hidden text-graphite-on-surface' aria-label='Open menu'>
                 <span class='material-symbols-outlined'>menu</span>
@@ -406,6 +406,54 @@
                 observer.disconnect();
                 window.removeEventListener('resize', resize);
             });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const navLinks = Array.from(document.querySelectorAll('.nav-link[data-section]'));
+            if (!navLinks.length) return;
+
+            const linksBySection = new Map(navLinks.map((link) => [link.dataset.section, link]));
+            const sections = Array.from(linksBySection.keys())
+                .map((id) => document.getElementById(id))
+                .filter(Boolean);
+
+            function setActiveLink(id) {
+                navLinks.forEach((link) => {
+                    const isActive = link.dataset.section === id;
+                    link.classList.toggle('font-bold', isActive);
+                    link.classList.toggle('text-graphite-primary', isActive);
+                    link.classList.toggle('border-graphite-primary-container', isActive);
+                    link.classList.toggle('text-graphite-on-surface-variant', !isActive);
+                    link.classList.toggle('border-transparent', !isActive);
+                });
+            }
+
+            let currentId = null;
+            const visibleRatios = new Map();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    visibleRatios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+                });
+
+                let bestId = currentId;
+                let bestRatio = 0;
+                visibleRatios.forEach((ratio, id) => {
+                    if (ratio > bestRatio) {
+                        bestRatio = ratio;
+                        bestId = id;
+                    }
+                });
+
+                if (bestRatio > 0 && bestId !== currentId) {
+                    currentId = bestId;
+                    setActiveLink(currentId);
+                }
+            }, { rootMargin: '-100px 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+            sections.forEach((section) => observer.observe(section));
         })();
     </script>
 </body>
