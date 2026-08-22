@@ -11,6 +11,7 @@ body {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform;
 }
 
 .hero-glow {
@@ -25,12 +26,47 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-    color: #ffffff;
-    padding: 1rem;
-    min-height: 80px;
-    font-size: 0.75rem;
-    line-height: 1.2;
+    width: 160px;
+    height: 80px;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    backface-visibility: hidden;
+}
+
+@media (min-width: 768px) {
+    .client-logo {
+        width: 220px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .client-logo {
+        width: 280px;
+        height: 120px;
+    }
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: scroll-logos 20s linear infinite;
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
