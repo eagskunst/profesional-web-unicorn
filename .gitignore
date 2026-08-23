@@ -1,3 +1,4 @@
 /images
 *.txt
+!robots.txt
 *.css.map
