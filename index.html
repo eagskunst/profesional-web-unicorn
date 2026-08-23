@@ -422,7 +422,10 @@
             }
 
             function loop() {
-                if (!isVisible) return;
+                if (!isVisible) {
+                    animationId = null;
+                    return;
+                }
                 update();
                 draw();
                 animationId = requestAnimationFrame(loop);
