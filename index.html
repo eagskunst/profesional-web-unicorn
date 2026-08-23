@@ -1,201 +1,532 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class='dark' lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Emmanuel Guerra - Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/index_animations.css">
-    <link rel="icon" href="https://i.imgur.com/kjcl2xZ.png" type="image/png">
-</head>
-<body>
-    <div class="global-container">
-        <section class="left-side">
-            <img alt="logo" class="page-logo" width="64px" height="64px"
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIKdmlld0JveD0iMCAwIDQ4IDQ4IgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiM3Y2IzNDIiIGQ9Ik0xMiAyOWMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTJ2LTljMC0xLjEuOS0yIDItMnMyIC45IDIgMlYyOXpNNDAgMjljMCAxLjEtLjkgMi0yIDJzLTItLjktMi0ydi05YzAtMS4xLjktMiAyLTJzMiAuOSAyIDJWMjl6TTIyIDQwYzAgMS4xLS45IDItMiAycy0yLS45LTItMnYtOWMwLTEuMS45LTIgMi0yczIgLjkgMiAyVjQwek0zMCA0MGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTJ2LTljMC0xLjEuOS0yIDItMnMyIC45IDIgMlY0MHoiPjwvcGF0aD48cGF0aCBmaWxsPSIjN2NiMzQyIiBkPSJNMTQgMTh2MTVjMCAxLjEuOSAyIDIgMmgxNmMxLjEgMCAyLS45IDItMlYxOEgxNHpNMjQgOGMtNiAwLTkuNyAzLjYtMTAgOGgyMEMzMy43IDExLjYgMzAgOCAyNCA4ek0yMCAxMy42Yy0uNiAwLTEtLjQtMS0xIDAtLjYuNC0xIDEtMXMxIC40IDEgMUMyMSAxMy4xIDIwLjYgMTMuNiAyMCAxMy42ek0yOCAxMy42Yy0uNiAwLTEtLjQtMS0xIDAtLjYuNC0xIDEtMXMxIC40IDEgMUMyOSAxMy4xIDI4LjYgMTMuNiAyOCAxMy42eiI+PC9wYXRoPjxwYXRoIGZpbGw9IiM3Y2IzNDIiIGQ9Ik0yOC4zIDEwLjVjLS4yIDAtLjQtLjEtLjYtLjItLjUtLjMtLjYtLjktLjMtMS40bDEuNy0yLjVjLjMtLjUuOS0uNiAxLjQtLjMuNS4zLjYuOS4zIDEuNGwtMS43IDIuNUMyOSAxMC4zIDI4LjcgMTAuNSAyOC4zIDEwLjV6TTE5LjMgMTAuMWMtLjMgMC0uNy0uMi0uOC0uNWwtMS4zLTIuMWMtLjMtLjUtLjItMS4xLjMtMS40LjUtLjMgMS4xLS4yIDEuNC4zbDEuMyAyLjFjLjMuNS4yIDEuMS0uMyAxLjRDMTkuNyAxMCAxOS41IDEwLjEgMTkuMyAxMC4xeiI+PC9wYXRoPjwvc3ZnPg==">
-            <article class="social-media">
-                <div class="social-link">
-                    <a href="https://www.linkedin.com/in/emmanuel-guerra-074002175/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-img" src="https://img.icons8.com/fluency-systems-regular/48/000000/linkedin.png" alt="linked-in">
-                    </a>
-                </div>
-                <div class="social-link">
-                    <a href="mailto:contact@eagskunst.com" target="_blank" rel="noopener noreferrer">
-                        <img class="social-img" src="https://img.icons8.com/material-outlined/50/000000/mail.png" alt="contact">
-                    </a>
-                </div>
-                <div class="social-link">
-                    <a href="https://instagram.com/eagskunstt" target="_blank" rel="noopener noreferrer">
-                        <img class="social-img" 
-                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij4gICAgPHBhdGggZD0iTSA4IDMgQyA1LjI0MyAzIDMgNS4yNDMgMyA4IEwgMyAxNiBDIDMgMTguNzU3IDUuMjQzIDIxIDggMjEgTCAxNiAyMSBDIDE4Ljc1NyAyMSAyMSAxOC43NTcgMjEgMTYgTCAyMSA4IEMgMjEgNS4yNDMgMTguNzU3IDMgMTYgMyBMIDggMyB6IE0gOCA1IEwgMTYgNSBDIDE3LjY1NCA1IDE5IDYuMzQ2IDE5IDggTCAxOSAxNiBDIDE5IDE3LjY1NCAxNy42NTQgMTkgMTYgMTkgTCA4IDE5IEMgNi4zNDYgMTkgNSAxNy42NTQgNSAxNiBMIDUgOCBDIDUgNi4zNDYgNi4zNDYgNSA4IDUgeiBNIDE3IDYgQSAxIDEgMCAwIDAgMTYgNyBBIDEgMSAwIDAgMCAxNyA4IEEgMSAxIDAgMCAwIDE4IDcgQSAxIDEgMCAwIDAgMTcgNiB6IE0gMTIgNyBDIDkuMjQzIDcgNyA5LjI0MyA3IDEyIEMgNyAxNC43NTcgOS4yNDMgMTcgMTIgMTcgQyAxNC43NTcgMTcgMTcgMTQuNzU3IDE3IDEyIEMgMTcgOS4yNDMgMTQuNzU3IDcgMTIgNyB6IE0gMTIgOSBDIDEzLjY1NCA5IDE1IDEwLjM0NiAxNSAxMiBDIDE1IDEzLjY1NCAxMy42NTQgMTUgMTIgMTUgQyAxMC4zNDYgMTUgOSAxMy42NTQgOSAxMiBDIDkgMTAuMzQ2IDEwLjM0NiA5IDEyIDkgeiI+PC9wYXRoPjwvc3ZnPg==" 
-                        alt="instagram">
-                    </a>
-                </div>
-                <div class="social-link">
-                    <a href="https://twitter.com/eagskunst" target="_blank" rel="noopener noreferrer">
-                        <img class="social-img" 
-                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCA0OCA0OCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDMyIDYgQyAyNi41Njg1ODMgNiAyMi4xNjA2NDMgMTAuMzg4NzMxIDIyLjA0Mjk2OSAxNS43OTI5NjkgQyAxNy4yNDA3MjcgMTUuMjE2OTk4IDE0LjExMzU4OSAxMy40MjE1MDcgMTIuMTk1MzEyIDExLjY1MjM0NCBDIDEwLjA2Nzk4MiA5LjY5MDM3NTQgOS4zOTQ1MzEyIDcuOTQ3MjY1NiA5LjM5NDUzMTIgNy45NDcyNjU2IEEgMS41MDAxNSAxLjUwMDE1IDAgMCAwIDYuODAwNzgxMiA3LjU5OTYwOTQgQyA2LjgwMDc4MTIgNy41OTk2MDk0IDUgMTAgNSAxMy41IEMgNSAxNS41MDA5ODUgNS42MzE3OTUyIDE2Ljk4MTU1NCA2LjM4NDc2NTYgMTguMjM2MzI4IEMgNi4zNTcwMjc2IDE4LjIyMzMzOCA2LjE2OTkyMTkgMTguMTU4MjAzIDYuMTY5OTIxOSAxOC4xNTgyMDMgQSAxLjUwMDE1IDEuNTAwMTUgMCAwIDAgNC4wMDU4NTk0IDE5LjYzNjcxOSBDIDQuMDA1ODU5NCAxOS42MzY3MTkgNC41ODMyMDM5IDIzLjg1Njg0MyA4LjU1MDc4MTIgMjYuOTQxNDA2IEwgOC4xMzY3MTg4IDI3LjA0NDkyMiBBIDEuNTAwMTUgMS41MDAxNSAwIDAgMCA3LjE5NzI2NTYgMjkuMjQ0MTQxIEMgNy4xOTcyNjU2IDI5LjI0NDE0MSA3Ljg3MDA1MjcgMzAuMzgyMjIxIDkuMjc5Mjk2OSAzMS41ODAwNzggQyAxMC4xMTQ4NSAzMi4yOTAyOTggMTEuMzQyMjcgMzMuMDIzMTY5IDEyLjc4OTA2MiAzMy43MDExNzIgQyAxMS4wMTIyNzEgMzQuMzUwNDQgOC4zNjI4MTggMzUgNC41IDM1IEEgMS41MDAxNSAxLjUwMDE1IDAgMCAwIDMuMzcxMDkzOCAzNy40ODgyODEgQyAzLjM3MTA5MzggMzcuNDg4MjgxIDQuNTE3MzI1MSAzOC43NTEwMDIgNi43ODMyMDMxIDM5Ljg0OTYwOSBDIDkuMDQ5MDgxMiA0MC45NDgyMTcgMTIuNTM5NDc0IDQyIDE3LjUgNDIgQyAyNi4yMTk2OTcgNDIgMzIuNDg0NjU2IDM3LjgxNzE1MSAzNi4zOTQ1MzEgMzIuNTE1NjI1IEMgNDAuMzA0NDA3IDI3LjIxNDA5OSA0MiAyMC44NjExMTEgNDIgMTYgQyA0MiAxNS42OTE1NDcgNDEuOTgwNzM5IDE1LjM4NzQzNyA0MS45NTMxMjUgMTUuMDg1OTM4IEMgNDQuMDY0MzcxIDEzLjA1MTYwMiA0NC44NTY2MjYgMTEuNTIyMjM1IDQ0Ljg5NDUzMSAxMS40NDcyNjYgQyA0NS4wODQ1MzEgMTEuMDY2MjY2IDQ1LjAxMzc1IDEwLjYwODY4OCA0NC43MTg3NSAxMC4zMDQ2ODggQyA0NC40MjQ3NSA5Ljk5OTY4NzUgNDMuOTY5MDMxIDkuOTEzNzk2OSA0My41ODIwMzEgMTAuMDkxNzk3IEwgNDMuNDE5OTIyIDEwLjE2NjAxNiBDIDQzLjI4MDkyMiAxMC4yMzAwMTYgNDMuMTQxOTUzIDEwLjI5NDQyMiA0My4wMDE5NTMgMTAuMzU3NDIyIEMgNDMuNDA4OTUzIDkuNzA4NDIxOSA0My43MzAxMjUgOS4wMTQ4NzUgNDMuOTUzMTI1IDguMjk2ODc1IEMgNDQuMDc3MTI1IDcuOTAwODc1IDQzLjk0MzIzNCA3LjQ2NjkzNzUgNDMuNjE1MjM0IDcuMjEwOTM3NSBDIDQzLjI4NzIzNCA2Ljk1NDkzNzUgNDIuODM1NDY5IDYuOTI3NTMxMiA0Mi40ODA0NjkgNy4xNDQ1MzEyIEMgNDEuMjU4MjIxIDcuODg3MzU5NCA0MC4wODY2NTIgOC40MDczOSAzOC44NjcxODggOC43NTU4NTk0IEMgMzcuMDcyNTc4IDcuMDUzNDcyNCAzNC42NTY4NzMgNiAzMiA2IHogTSAzMiA5IEMgMzUuODgzMTc4IDkgMzkgMTIuMTE2ODIyIDM5IDE2IEMgMzkgMjAuMTM4ODg5IDM3LjQ0NTU5MyAyNi4wMzU5MDEgMzMuOTgwNDY5IDMwLjczNDM3NSBDIDMwLjUxNTM0NCAzNS40MzI4NDkgMjUuMjgwMzAzIDM5IDE3LjUgMzkgQyAxMy43MzQ4IDM5IDExLjIzMDE4OSAzOC4zMTg5NDIgOS4zNTM1MTU2IDM3LjU4MjAzMSBDIDExLjMxOTM0MSAzNy4yNzY3NTUgMTMuMDExOTQ3IDM2Ljg2OTM2NyAxNC4yMjg1MTYgMzYuMzk4NDM4IEMgMTYuMzM4MTgyIDM1LjU4MTc5MiAxNy40NzY1NjMgMzQuNjM4NjcyIDE3LjQ3NjU2MiAzNC42Mzg2NzIgQSAxLjUwMDE1IDEuNTAwMTUgMCAwIDAgMTYuODYzMjgxIDMyLjA0NDkyMiBDIDE0LjE0MDU1NiAzMS4zNjQyNDEgMTIuMzk0MzI4IDMwLjI2MzMwNyAxMS4yOTg4MjggMjkuMzQ1NzAzIEwgMTIuODYzMjgxIDI4Ljk1NTA3OCBBIDEuNTAwMTUgMS41MDAxNSAwIDAgMCAxMy4wMzkwNjIgMjYuMDk5NjA5IEMgOS43OTM5NDE1IDI0Ljg1MTQ4NiA4LjQzMTIyOTIgMjMuMDg2MzczIDcuNzM0Mzc1IDIxLjYwNzQyMiBDIDguNTgyMzUzOCAyMS43ODI5NjcgOS4zNzE4OTYxIDIyIDEwLjUgMjIgQSAxLjUwMDE1IDEuNTAwMTUgMCAwIDAgMTEuMTY5OTIyIDE5LjE1ODIwMyBDIDExLjE2OTkyMiAxOS4xNTgyMDMgOCAxNy43IDggMTMuNSBDIDggMTIuNzQ1OTQ3IDguMjA4ODQzNSAxMi4yNjgzNTUgOC4zNjEzMjgxIDExLjY5NzI2NiBDIDguODg0NTA3IDEyLjQwMDM1NCA5LjMxNTY4MTUgMTMuMDc4NTkgMTAuMTYwMTU2IDEzLjg1NzQyMiBDIDEyLjczNDgyNCAxNi4yMzE5NTQgMTYuOTkwMzY2IDE4LjY1MzE1NCAyMy40MTk5MjIgMTguOTk4MDQ3IEEgMS41MDAxNSAxLjUwMDE1IDAgMCAwIDI1IDE3LjUgTCAyNSAxNiBDIDI1IDEyLjExNjgyMiAyOC4xMTY4MjIgOSAzMiA5IHoiPjwvcGF0aD48L3N2Zz4="
-                        alt="twitter">
-                    </a>
-                </div>
-            </article>
-        </section>
-        <section class="hero" id="hero-section">
-            <nav class="hero-nav">
-                <ul>
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about-me">About</a>
-                    </li>
-                    <li>
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                </ul>
-            </nav>
-            <h1>Emmanuel Guerra <br>Software Engineer</h1>
-            <figure class="hero-picture" id="hero-pic">
-                <img src="self_photo.jpg" alt="Emmanuel Guerra">
-            </figure>
-        </section>
-        <section class="habilities" id="home">
-            <div class="skill-card">
-                <h4>Mobile Development</h4>
-                <p>Android, iOS, Flutter and React Native</p>
-            </div>
-            <div class="skill-card">
-                <h4>Web Development</h4>
-                <p>Pure HTML/CSS and React</p>
-            </div>
-            <div class="skill-card">
-                <h4>Generalist</h4>
-                <p>Worked with backends with Java and Python. Builded an interpreter</p>
-            </div>
-        </section>
-        <section class="about-me" id="about-me">
-            <h2>About me</h2>
-            <div class="about-me-card">
-                <p>
-                    My name is Emmanuel. I'm an Software Engineer.<br>
-                    Currently, I'm learning data engineering and AI development tools.<br> Programming, reading and learning are my passions.<br>
-                    My hobbies are playing videogames and writing.<br>
-                </p>
-            </div>
-        </section>
-        <section class="projects" id="portfolio">
-            <h2>Portfolio</h2>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/5lWsgAe.png" src="https://i.imgur.com/5lWsgAe.png" alt="project-img">
-                <article class="project-info">
-                        <a href="https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews" target="_blank">
-                            <p>
-                                Gaming News is an app to read, save, share and get notifications
-                                about the news of your favorite games.
-                            </p>
-                        </a>
-                </article>
-            </div>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" src="https://i.imgur.com/Ek6yGAm.png" data-src="https://i.imgur.com/Ek6yGAm.png" alt="project-img">
-                <article class="project-info">
-                    <a href="https://play.google.com/store/apps/details?id=com.eagskunst.apps.xchange" target="_blank">
-                        <p>
-                            XChange is an app to calculate, compare and customize currencies exchange rates.
-                        </p>
-                    </a>
-                </article>
-            </div>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/NrdqsCF.png" src="https://i.imgur.com/NrdqsCF.png" alt="project-img">
-                <article class="project-info">
-                        <a href="https://github.com/eagskunst/MoviesApp" target="_blank">
-                            <p>
-                                Look through movies, categories and save in on your favorites.
-                            </p>
-                        </a>
-                </article>
-            </div>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" src="https://i.imgur.com/oiiG1Rg.png" data-src="https://i.imgur.com/oiiG1Rg.png" alt="project-img">
-                <article class="project-info">
-                    <a href="https://github.com/eagskunst/BottomIndicatorView" target="_blank">
-                        <p>
-                            A library that allows developers to show a custom indicator bar to a BottomNavigationView.
-                        </p>
-                    </a>
-                </article>
-            </div>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/q5QGBKG.png" src="https://i.imgur.com/q5QGBKG.png" alt="project-img">
-                <article class="project-info">
-                    <a>
-                        <p>
-                            Platzi Trips app from Platzi is basic and advanced Flutter course.
-                        </p>
-                    </a>
-                </article>
-            </div>
-            <div class="project-card">
-                <img class="lazyload" loading="lazy" data-src="https://i.imgur.com/mqLKZfM.png" src="https://i.imgur.com/mqLKZfM.png" alt="project-img">
-                <article class="project-info">
-                        <a href="https://github.com/eagskunst/WordSoup" target="_blank">
-                            <p>
-                                Word Soup is an adaptation of the famous game, now in an app. Made with Flutter. 
-                            </p>
-                        </a>
-                </article>
-            </div>
-        </section>
-        <footer class="my-footer">
-            <p>Made by <a href="https://github.com/eagskunst" class="my-name" target="_blank">Emmanuel Guerra</a> with
-                💚</a>
-                <br>
-                Designed by <a href="https://twitter.com/fjuandc" title="Juan David">Juan David</a> 
-                <br>
-                <a href="https://iconos8.es/icon/set/social-media/fluency-systems-regular">Social media icons by Icons8</a>
-            </p>
-            <span></span>
-        </footer>
-    </div>
-
-    <script>
-        const asyncLoad = ( async () => {
-            const lazySizesLib = await import("https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js");
-            lazySizes.init();
-        });
-        asyncLoad();
-    </script>
-    <script>
-
-        const heroSection = document.getElementById("hero-section")
-        const heroPic = document.getElementById("hero-pic")
-        console.log(heroPic)
-
-        let transitionDuration = "1s"
-        let delay = "1s"
-        let timing = "ease-in-out"
-        let width = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
-
-        function listener(event) {
-            switch(event.type) {
-                case "animationstart":
-                    heroSection.style.overflow = "hidden";
-                break;
-                case "animationend":
-                    heroSection.style.overflow = "visible"
-                break;
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Emmanuel Guerra - Senior Software Engineer</title>
+    <meta name='description' content='Emmanuel Guerra — Senior Software Engineer with 8 years of experience building mobile apps, backends, and AI integrations. View selected projects and get in touch.'>
+    <meta name='author' content='Emmanuel Guerra'>
+    <meta property='og:title' content='Emmanuel Guerra - Senior Software Engineer'>
+    <meta property='og:description' content='Portfolio of Emmanuel Guerra, Senior Software Engineer with 8 years of experience in mobile, backend, and AI integrations.'>
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='https://eagskunst.com'>
+    <meta property='og:image' content='https://eagskunst.com/self_photo_new.png'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:title' content='Emmanuel Guerra - Senior Software Engineer'>
+    <meta name='twitter:description' content='Portfolio of Emmanuel Guerra, Senior Software Engineer with 8 years of experience in mobile, backend, and AI integrations.'>
+    <meta name='twitter:image' content='https://eagskunst.com/self_photo_new.png'>
+    <link rel='canonical' href='https://eagskunst.com'>
+    <script src='https://cdn.tailwindcss.com?plugins=forms,container-queries'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' rel='stylesheet'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='css/styles.css'>
+    <link rel='icon' href='favicon.png' type='image/png'>
+    <script id='tailwind-config'>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        graphite: {
+                            bg: '#001522',
+                            surface: '#233D4D',
+                            'on-surface': '#cbe6fb',
+                            primary: '#ffffff',
+                            'primary-container': '#e8eb1c',
+                            'on-primary-fixed': '#1c1d00',
+                            'primary-fixed-dim': '#cbce00',
+                            'surface-container-highest': '#1d3847',
+                            'surface-container-lowest': '#00101a',
+                            'surface-variant': '#1d3847',
+                            'tertiary-container': '#84f6e6',
+                            'tertiary-fixed-dim': '#66d9ca',
+                            'on-surface-variant': '#cac8ac'
+                        }
+                    },
+                    fontFamily: {
+                        geist: ['Ubuntu', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
             }
         }
-        console.log(width)
-        if (width < 425 ) {
-            heroPic.addEventListener("animationstart", listener, false);
-            heroPic.addEventListener("animationend", listener, false);
-        }
+    </script>
+</head>
+<body class='antialiased min-h-screen font-geist text-graphite-on-surface selection:bg-graphite-primary-container selection:text-graphite-on-primary-fixed bg-graphite-surface'>
+
+    <nav class='fixed top-0 w-full z-50 bg-graphite-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm transition-all ease-in-out'>
+        <div class='flex justify-between items-center px-6 md:px-16 py-4 max-w-7xl mx-auto'>
+            <div class='font-mono text-xl font-bold text-graphite-primary'>
+                eagskunst
+            </div>
+            <div class='hidden md:flex items-center gap-8 font-geist text-base'>
+                <a class='nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1 hover:text-graphite-primary transition-colors duration-300' href='#about' data-section='about'>About</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#projects' data-section='projects'>Projects</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#contact' data-section='contact'>Contact</a>
+                <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#blog' data-section='blog'>Blog</a>
+            </div>
+            <button id='mobile-menu-btn' class='md:hidden text-graphite-on-surface' aria-label='Toggle menu' aria-expanded='false' aria-controls='mobile-menu'>
+                <span class='material-symbols-outlined'>menu</span>
+            </button>
+        </div>
+        <div id='mobile-menu' class='hidden md:hidden absolute top-full left-0 w-full bg-graphite-surface/95 backdrop-blur-xl border-b border-white/10'>
+            <div class='flex flex-col items-center gap-4 py-6 font-geist text-base'>
+                <a class='mobile-nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1' href='#about' data-section='about'>About</a>
+                <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#projects' data-section='projects'>Projects</a>
+                <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#contact' data-section='contact'>Contact</a>
+                <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href='#blog' data-section='blog'>Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class='pt-[100px] flex flex-col gap-[120px] pb-[120px]'>
+
+        <section class='relative w-full min-h-[60vh] flex flex-col items-center justify-center px-6 overflow-hidden'>
+            <canvas id='hero-network' class='absolute inset-0 -z-10 pointer-events-none block w-full h-full' aria-hidden='true'></canvas>
+            <div class='flex flex-col items-center text-center gap-6 mt-12'>
+                <div class='w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-6 relative'>
+                    <div class='absolute inset-0 bg-graphite-primary-container/20 rounded-full blur-xl -z-10'></div>
+                    <img alt='Emmanuel Guerra portrait' class='w-full h-full object-cover object-center drop-shadow-2xl' src='self_photo_new.png' width='600' height='548' fetchpriority='high'>
+                </div>
+                <h1 class='font-geist text-4xl md:text-6xl font-bold text-graphite-primary tracking-tight'>Emmanuel Guerra</h1>
+                <h2 class='font-mono text-sm font-medium text-graphite-tertiary-fixed-dim uppercase tracking-widest'>Senior Software Engineer</h2>
+            </div>
+        </section>
+
+        <section class='w-full max-w-7xl mx-auto px-6 md:px-16 section-gradient rounded-3xl p-8 md:p-12 relative overflow-hidden' id='about'>
+            <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10'>
+                <div class='flex flex-col justify-center'>
+                    <h3 class='font-mono text-xs font-bold text-graphite-on-surface-variant mb-6 tracking-widest uppercase'>About</h3>
+                    <p class='text-lg text-graphite-on-surface mb-4'>
+                        With 8 years of experience in software development and a B.S. in Computer Science, I've worked on diverse projects ranging from enterprise systems to mobile applications.
+                    </p>
+                    <ul class='list-disc list-inside space-y-1 text-lg text-graphite-on-surface mb-4'>
+                        <li>A full feature in a week? <strong class='text-graphite-primary'>Done it.</strong></li>
+                        <li>A regression crash that makes no sense? <strong class='text-graphite-primary'>Fixed it.</strong></li>
+                        <li>Weird animations and components without libraries? <strong class='text-graphite-primary'>Built them.</strong></li>
+                        <li>Compile native libraries? <strong class='text-graphite-primary'>Dockerized it.</strong></li>
+                        <li>Full DB migration? <strong class='text-graphite-primary'>Yeah, but not on Fridays.</strong></li>
+                    </ul>
+                    <p class='text-lg text-graphite-on-surface mb-6'>
+                        I take pride and ownership of what I do. Regardless of no users or millions of it, I go all in from planning the tasks to deployment and monitoring.
+                    </p>
+                    <p class='text-base text-graphite-on-surface-variant'>
+                        While my main focus is mobile, my curiosity has driven me to explore many fields of software engineering: databases, backends, data engineering, you name it. 
+                    </p>
+                    <p class='text-base text-graphite-on-surface-variant'>
+                        Currently exploring AI integrations and development tools. When not coding, you'll find me playing video games, reading, and writing.
+                    </p>
+                </div>
+                <div class='glass-panel p-6 md:p-8 rounded-xl w-full max-w-sm md:max-w-xl lg:max-w-2xl mx-auto overflow-hidden'>
+                    <div class='logo-track'>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/thegrint.jpg' alt='TheGrint' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/banco.jpg' alt='Banco de Crédito e Inversiones' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/shokworks.png' alt='ShokWorks' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/kinesis.jpg' alt='Kinesis.Money' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/liga-dimayor.png' alt='Liga Dimayor' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/thegrint.jpg' alt='TheGrint' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/banco.jpg' alt='Banco de Crédito e Inversiones' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/shokworks.png' alt='ShokWorks' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/kinesis.jpg' alt='Kinesis.Money' loading='lazy'>
+                        </div>
+                        <div class='client-logo rounded bg-graphite-surface-container-highest/50 opacity-80 hover:opacity-100 transition-opacity'>
+                            <img src='img/clients/liga-dimayor.png' alt='Liga Dimayor' loading='lazy'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class='w-full max-w-7xl mx-auto px-6 md:px-16' id='projects'>
+            <h3 class='font-mono text-xs font-bold text-graphite-on-surface-variant mb-12 tracking-widest uppercase pl-4 border-l-2 border-graphite-primary-container'>Selected Works</h3>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+
+                <a href='https://play.google.com/store/apps/details?id=com.eagskunst.apps.xchange' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+                    <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
+                        <img class='w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='img/xchange.png' alt='XChange app screenshot' width='600' height='1200' loading='lazy'>
+                    </div>
+                    <div class='p-6'>
+                        <h4 class='font-geist text-xl font-medium text-graphite-primary mb-2'>XChange</h4>
+                        <p class='text-base text-graphite-on-surface-variant line-clamp-2 mb-4'>An app to calculate, compare and customize currencies exchange rates.</p>
+                        <div class='flex flex-wrap gap-2'>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Android</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Kotlin</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Python</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Mongo</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Adobe XD</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href='https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+                    <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
+                        <img class='w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='img/gamingnews.png' alt='GamingNews app screenshot' width='600' height='1200' loading='lazy'>
+                    </div>
+                    <div class='p-6'>
+                        <h4 class='font-geist text-xl font-medium text-graphite-primary mb-2'>GamingNews</h4>
+                        <p class='text-base text-graphite-on-surface-variant line-clamp-2 mb-4'>An app to read, save, share and get notifications about the news of your favorite games.</p>
+                        <div class='flex flex-wrap gap-2'>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Android</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Kotlin</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Stich</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href='https://github.com/eagskunst/dev-space-cleaner' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+                    <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
+                        <img class='w-full h-full object-contain p-6 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='img/dev-space-cleaner-logo.png' alt='Dev Space Cleaner logo' width='300' height='300' loading='lazy'>
+                    </div>
+                    <div class='p-6'>
+                        <h4 class='font-geist text-xl font-medium text-graphite-primary mb-2'>Dev Space Cleaner</h4>
+                        <p class='text-base text-graphite-on-surface-variant line-clamp-2 mb-4'>A cross-platform Tauri desktop app that finds generated development dependencies, build output, and caches so they can be reviewed and removed safely.</p>
+                        <div class='flex flex-wrap gap-2'>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Tauri</span>
+                            <span class='px-3 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>Rust</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class='w-full py-24 flex flex-col items-center justify-center text-center relative overflow-hidden' id='contact'>
+            <div class='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-graphite-surface-variant/40 via-graphite-bg to-graphite-bg -z-10'></div>
+            <h2 class='font-geist text-4xl md:text-6xl font-bold text-graphite-primary mb-8 tracking-tighter'>LET'S BUILD SOMETHING.</h2>
+            <a class='inline-flex items-center gap-2 px-8 py-4 bg-graphite-primary-container text-graphite-on-primary-fixed font-geist text-xl font-bold rounded hover:bg-graphite-primary-fixed-dim transition-colors shadow-[0_0_20px_rgba(232,235,28,0.2)] hover:shadow-[0_0_30px_rgba(232,235,28,0.4)]' href='mailto:contact@eagskunst.com'>
+                <span class='material-symbols-outlined'>mail</span>
+                Get In Touch
+            </a>
+        </section>
+
+        <section class='hidden w-full max-w-7xl mx-auto px-6 md:px-16 mb-12' id='blog'>
+            <h3 class='font-mono text-xs font-bold text-graphite-on-surface-variant mb-8 tracking-widest uppercase pl-4 border-l-2 border-graphite-primary-container'>Latest Logs</h3>
+            <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                <div class='glass-panel p-6 rounded-xl border-l-4 border-l-graphite-tertiary-container'>
+                    <p class='font-mono text-xs text-graphite-tertiary-container mb-2 uppercase'>Oct 12, 2023</p>
+                    <h4 class='font-geist text-xl font-medium text-graphite-primary mb-3'>Blog Post Title</h4>
+                    <p class='text-base text-graphite-on-surface-variant line-clamp-2'>A preview of a future blog post.</p>
+                </div>
+                <div class='glass-panel p-6 rounded-xl'>
+                    <p class='font-mono text-xs text-graphite-on-surface-variant mb-2 uppercase'>Sep 04, 2023</p>
+                    <h4 class='font-geist text-xl font-medium text-graphite-primary mb-3'>Another Post</h4>
+                    <p class='text-base text-graphite-on-surface-variant line-clamp-2'>Another preview ready for later.</p>
+                </div>
+                <div class='glass-panel p-6 rounded-xl'>
+                    <p class='font-mono text-xs text-graphite-on-surface-variant mb-2 uppercase'>Aug 18, 2023</p>
+                    <h4 class='font-geist text-xl font-medium text-graphite-primary mb-3'>First Look</h4>
+                    <p class='text-base text-graphite-on-surface-variant line-clamp-2'>A third placeholder for the blog.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class='w-full py-12 bg-graphite-surface-container-lowest border-t border-white/10'>
+        <div class='flex flex-col md:flex-row justify-between items-center px-6 md:px-16 max-w-7xl mx-auto gap-6'>
+            <div class='font-mono text-xs text-graphite-on-surface opacity-80'>
+                &copy; 2026 Emmanuel Guerra. Built with Precision.
+            </div>
+            <div class='flex items-center gap-6 font-mono text-sm'>
+                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://www.linkedin.com/in/emmanuel-guerra-074002175/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://github.com/eagskunst' target='_blank' rel='noopener noreferrer'>GitHub</a>
+                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://twitter.com/eagskunst' target='_blank' rel='noopener noreferrer'>Twitter</a>
+                <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://github.com/eagskunst/profesional-web-unicorn' target='_blank' rel='noopener noreferrer'>Source</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const canvas = document.getElementById('hero-network');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement || document.body;
+            const portrait = document.querySelector('img[alt="Emmanuel Guerra portrait"]');
+            let width, height, dpr;
+            let particles = [];
+            let animationId;
+            let isVisible = true;
+            let exclusion = null;
+
+            const config = {
+                particleCount: window.innerWidth < 640 ? 35 : 65,
+                connectionDistance: 200,
+                mouseRadius: 150,
+                repulsionForce: 0.75,
+                exclusionMargin: 40,
+                exclusionForce: 1.2,
+                baseSpeed: 0.3,
+                nodeColor: '#84f6e6',
+                lineColor: '#cbe6fb',
+                nodeOpacity: 0.7,
+                lineOpacity: 0.22
+            };
+
+            function updateExclusionZone() {
+                if (!portrait) {
+                    exclusion = null;
+                    return;
+                }
+                const portraitRect = portrait.getBoundingClientRect();
+                const canvasRect = canvas.getBoundingClientRect();
+                const cx = portraitRect.left + portraitRect.width / 2 - canvasRect.left;
+                const cy = portraitRect.top + portraitRect.height / 2 - canvasRect.top;
+                const radius = Math.max(portraitRect.width, portraitRect.height) / 2 + config.exclusionMargin;
+                exclusion = { cx, cy, radius };
+            }
+
+            function isInsideExclusion(x, y) {
+                if (!exclusion) return false;
+                const dx = x - exclusion.cx;
+                const dy = y - exclusion.cy;
+                return Math.sqrt(dx * dx + dy * dy) < exclusion.radius;
+            }
+
+            function resize() {
+                const rect = canvas.getBoundingClientRect();
+                dpr = window.devicePixelRatio || 1;
+                width = rect.width;
+                height = rect.height;
+                canvas.width = Math.max(1, Math.floor(width * dpr));
+                canvas.height = Math.max(1, Math.floor(height * dpr));
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                updateExclusionZone();
+                initParticles();
+            }
+
+            function initParticles() {
+                particles = [];
+                let attempts = 0;
+                while (particles.length < config.particleCount && attempts < config.particleCount * 20) {
+                    attempts++;
+                    const x = Math.random() * width;
+                    const y = Math.random() * height;
+                    if (isInsideExclusion(x, y)) continue;
+                    particles.push({
+                        x,
+                        y,
+                        vx: (Math.random() - 0.5) * config.baseSpeed * 2,
+                        vy: (Math.random() - 0.5) * config.baseSpeed * 2,
+                        radius: Math.random() * 2.2 + 0.8
+                    });
+                }
+            }
+
+            const mouse = { x: -1000, y: -1000 };
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+            });
+
+            function applyMouseRepulsion(p) {
+                const dx = p.x - mouse.x;
+                const dy = p.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < config.mouseRadius && dist > 0) {
+                    const force = (config.mouseRadius - dist) / config.mouseRadius;
+                    p.vx += (dx / dist) * force * config.repulsionForce;
+                    p.vy += (dy / dist) * force * config.repulsionForce;
+                }
+            }
+
+            function applyExclusion(p) {
+                if (!exclusion) return;
+                const dx = p.x - exclusion.cx;
+                const dy = p.y - exclusion.cy;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < exclusion.radius && dist > 0) {
+                    const force = (exclusion.radius - dist) / exclusion.radius;
+                    p.vx += (dx / dist) * force * config.exclusionForce;
+                    p.vy += (dy / dist) * force * config.exclusionForce;
+                }
+            }
+
+            function update() {
+                for (const p of particles) {
+                    applyMouseRepulsion(p);
+                    applyExclusion(p);
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vx *= 0.98;
+                    p.vy *= 0.98;
+
+                    if (Math.abs(p.vx) < 0.05) p.vx += (Math.random() - 0.5) * 0.02;
+                    if (Math.abs(p.vy) < 0.05) p.vy += (Math.random() - 0.5) * 0.02;
+
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+                    if (p.y < 0) p.y = height;
+                    if (p.y > height) p.y = 0;
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.strokeStyle = config.lineColor;
+                ctx.lineWidth = 1;
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < config.connectionDistance) {
+                            const opacity = (1 - dist / config.connectionDistance) * config.lineOpacity;
+                            ctx.globalAlpha = opacity;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                ctx.fillStyle = config.nodeColor;
+                for (const p of particles) {
+                    ctx.globalAlpha = config.nodeOpacity;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.globalAlpha = 1;
+            }
+
+            function loop() {
+                if (!isVisible) {
+                    animationId = null;
+                    return;
+                }
+                update();
+                draw();
+                animationId = requestAnimationFrame(loop);
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                const wasVisible = isVisible;
+                isVisible = entries[0].isIntersecting;
+                if (isVisible && !wasVisible && !animationId) {
+                    animationId = requestAnimationFrame(loop);
+                }
+            }, { threshold: 0 });
+            observer.observe(canvas);
+
+            window.addEventListener('resize', resize);
+            resize();
+            loop();
+
+            window.addEventListener('beforeunload', () => {
+                cancelAnimationFrame(animationId);
+                observer.disconnect();
+                window.removeEventListener('resize', resize);
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const navLinks = Array.from(document.querySelectorAll('.nav-link[data-section], .mobile-nav-link[data-section]'));
+            if (!navLinks.length) return;
+
+            const linksBySection = new Map(navLinks.map((link) => [link.dataset.section, link]));
+            const sections = Array.from(linksBySection.keys())
+                .map((id) => document.getElementById(id))
+                .filter(Boolean);
+
+            function setActiveLink(id) {
+                navLinks.forEach((link) => {
+                    const isActive = link.dataset.section === id;
+                    link.classList.toggle('font-bold', isActive);
+                    link.classList.toggle('text-graphite-primary', isActive);
+                    link.classList.toggle('border-graphite-primary-container', isActive);
+                    link.classList.toggle('text-graphite-on-surface-variant', !isActive);
+                    link.classList.toggle('border-transparent', !isActive);
+                });
+            }
+
+            let currentId = null;
+            const visibleRatios = new Map();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    visibleRatios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+                });
+
+                let bestId = currentId;
+                let bestRatio = 0;
+                visibleRatios.forEach((ratio, id) => {
+                    if (ratio > bestRatio) {
+                        bestRatio = ratio;
+                        bestId = id;
+                    }
+                });
+
+                if (bestRatio > 0 && bestId !== currentId) {
+                    currentId = bestId;
+                    setActiveLink(currentId);
+                }
+            }, { rootMargin: '-100px 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+            sections.forEach((section) => observer.observe(section));
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+
+            const icon = btn.querySelector('.material-symbols-outlined');
+
+            function toggleMenu(open) {
+                menu.classList.toggle('hidden', !open);
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                if (icon) icon.textContent = open ? 'close' : 'menu';
+            }
+
+            btn.addEventListener('click', () => {
+                const isOpen = menu.classList.contains('hidden');
+                toggleMenu(isOpen);
+            });
+
+            menu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) toggleMenu(false);
+            });
+        })();
     </script>
 </body>
 </html>
