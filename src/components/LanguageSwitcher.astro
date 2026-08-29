@@ -1,0 +1,45 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { defaultLang, type Language } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+function getLocalePath(url: URL, locale: Language): string {
+  const pathname = url.pathname.replace(/\/$/, '') || '/';
+  if (locale !== defaultLang) {
+    const prefix = `/${locale}`;
+    if (pathname.startsWith(prefix)) {
+      return pathname.slice(prefix.length) || '/';
+    }
+  }
+  return pathname || '/';
+}
+
+const currentPath = getLocalePath(Astro.url, lang);
+const enUrl = getRelativeLocaleUrl('en', currentPath);
+const esUrl = getRelativeLocaleUrl('es', currentPath);
+---
+
+<div class='flex items-center gap-2 text-sm font-mono'>
+  <a
+    href={enUrl}
+    class={lang === 'en' ? 'text-graphite-primary font-bold underline underline-offset-4' : 'text-graphite-on-surface-variant hover:text-graphite-primary transition-colors'}
+    aria-label={t('language.en')}
+  >
+    EN
+  </a>
+  <span class='text-graphite-on-surface-variant'>/</span>
+  <a
+    href={esUrl}
+    class={lang === 'es' ? 'text-graphite-primary font-bold underline underline-offset-4' : 'text-graphite-on-surface-variant hover:text-graphite-primary transition-colors'}
+    aria-label={t('language.es')}
+  >
+    ES
+  </a>
+</div>

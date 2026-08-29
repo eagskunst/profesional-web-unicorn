@@ -1,0 +1,117 @@
+---
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import '../styles/global.css';
+import { defaultLang, type Language } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  article?: {
+    pubDate: Date;
+    modifiedDate?: Date;
+    tags?: string[];
+  };
+  lang?: Language;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/self_photo_new.png',
+  canonicalURL,
+  type = 'website',
+  article,
+  lang = defaultLang,
+  noIndex = false,
+} = Astro.props;
+
+const site = Astro.site || new URL('https://eagskunst.com');
+const resolvedImage = new URL(image, site);
+const resolvedCanonical = canonicalURL || Astro.url.href;
+
+function getLocalePath(url: URL, locale: Language): string {
+  const pathname = url.pathname.replace(/\/$/, '') || '/';
+  if (locale !== defaultLang) {
+    const prefix = `/${locale}`;
+    if (pathname.startsWith(prefix)) {
+      return pathname.slice(prefix.length) || '/';
+    }
+  }
+  return pathname || '/';
+}
+
+const pathWithoutLocale = getLocalePath(Astro.url, lang);
+const enUrl = getAbsoluteLocaleUrl('en', pathWithoutLocale);
+const esUrl = getAbsoluteLocaleUrl('es', pathWithoutLocale);
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: title,
+  url: site.href,
+};
+
+const blogPostingJsonLd = article
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      image: resolvedImage.href,
+      url: resolvedCanonical,
+      datePublished: article.pubDate.toISOString(),
+      dateModified: article.modifiedDate?.toISOString() || article.pubDate.toISOString(),
+      author: {
+        '@type': 'Person',
+        name: 'Emmanuel Guerra',
+      },
+      ...(article.tags?.length ? { keywords: article.tags.join(', ') } : {}),
+    }
+  : null;
+---
+
+<!DOCTYPE html>
+<html class='dark' lang={lang}>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>{title}</title>
+    <meta name='description' content={description}>
+    <meta name='author' content='Emmanuel Guerra'>
+    {noIndex && <meta name='robots' content='noindex, nofollow'>}
+
+    <meta property='og:title' content={title}>
+    <meta property='og:description' content={description}>
+    <meta property='og:type' content={type}>
+    <meta property='og:url' content={resolvedCanonical}>
+    <meta property='og:image' content={resolvedImage.href}>
+    <meta property='og:locale' content={lang === 'es' ? 'es_ES' : 'en_US'}>
+    <meta property='og:site_name' content="Emmanuel Guerra">
+
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:title' content={title}>
+    <meta name='twitter:description' content={description}>
+    <meta name='twitter:image' content={resolvedImage.href}>
+
+    <link rel='canonical' href={resolvedCanonical}>
+    <link rel='alternate' hreflang='en' href={new URL(enUrl, site).href}>
+    <link rel='alternate' hreflang='es' href={new URL(esUrl, site).href}>
+    <link rel='alternate' hreflang='x-default' href={new URL(enUrl, site).href}>
+
+    <script type='application/ld+json' set:html={JSON.stringify(blogPostingJsonLd || websiteJsonLd)} />
+
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap' rel='stylesheet'>
+    <link rel='icon' href='/favicon.png' type='image/png'>
+    <meta name='generator' content={Astro.generator} />
+  </head>
+  <body class='antialiased min-h-screen font-geist text-graphite-on-surface selection:bg-graphite-primary-container selection:text-graphite-on-primary-fixed bg-graphite-surface'>
+    <slot />
+  </body>
+</html>
