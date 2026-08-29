@@ -64,8 +64,34 @@ const image = post.data.image || '/self_photo_new.png';
         <p class='text-sm text-graphite-on-surface-variant'>
           {lang === 'es' ? 'Escrito por ' : 'Written by '} <strong class='text-graphite-primary'>{post.data.author}</strong>
         </p>
+        <button id='share-post-btn' class='mt-4 inline-flex items-center gap-2 px-4 py-2 rounded bg-graphite-surface-container-highest text-graphite-on-surface hover:text-graphite-primary transition-colors font-mono text-sm' type='button' data-copied={t('blog.linkCopied')}>
+          <span class='material-symbols-outlined text-base'>share</span>
+          <span id='share-post-label'>{t('blog.share')}</span>
+        </button>
       </footer>
     </article>
+
+    <script>
+      (function () {
+        const btn = document.getElementById('share-post-btn');
+        const label = document.getElementById('share-post-label');
+        if (!btn || !label) return;
+
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            const original = label.textContent;
+            const copiedText = btn.dataset.copied || 'Link copied!';
+            label.textContent = copiedText;
+            setTimeout(() => {
+              label.textContent = original;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy link:', err);
+          }
+        });
+      })();
+    </script>
 
     <div class='mt-10'>
       <a href={blogUrl} class='text-graphite-tertiary-container hover:text-graphite-tertiary-fixed-dim transition-colors font-mono text-sm'>
