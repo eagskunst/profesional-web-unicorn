@@ -1,0 +1,16 @@
+---
+import { getLocalizedPosts } from '../../../utils/content';
+import BlogPost from '../../../components/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getLocalizedPosts();
+  return posts.map((post) => {
+    const slug = post.es.id.replace(/^es\//, '').replace(/\.md$/, '');
+    return { params: { slug }, props: { post } };
+  });
+}
+
+const { post } = Astro.props;
+---
+
+<BlogPost lang='es' post={post.es} />

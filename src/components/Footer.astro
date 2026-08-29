@@ -1,0 +1,26 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Language } from '../i18n/ui';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class='w-full py-12 bg-graphite-surface-container-lowest border-t border-white/10'>
+  <div class='flex flex-col md:flex-row justify-between items-center px-6 md:px-16 max-w-7xl mx-auto gap-6'>
+    <div class='font-mono text-xs text-graphite-on-surface opacity-80'>
+      &copy; {year} Emmanuel Guerra. {t('footer.built')}
+    </div>
+    <div class='flex items-center gap-6 font-mono text-sm'>
+      <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://www.linkedin.com/in/emmanuel-guerra-074002175/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+      <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://github.com/eagskunst' target='_blank' rel='noopener noreferrer'>GitHub</a>
+      <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://twitter.com/eagskunst' target='_blank' rel='noopener noreferrer'>Twitter</a>
+      <a class='text-graphite-on-surface-variant hover:text-graphite-primary transition-colors' href='https://github.com/eagskunst/profesional-web-unicorn' target='_blank' rel='noopener noreferrer'>{t('footer.source')}</a>
+    </div>
+  </div>
+</footer>

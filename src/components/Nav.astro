@@ -1,0 +1,71 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Language } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const homeUrl = getRelativeLocaleUrl(lang, '/');
+const blogUrl = getRelativeLocaleUrl(lang, 'blog');
+---
+
+<nav class='fixed top-0 w-full z-50 bg-graphite-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm transition-all ease-in-out'>
+  <div class='flex justify-between items-center px-6 md:px-16 py-4 max-w-7xl mx-auto'>
+    <a href={getRelativeLocaleUrl(lang, '/')} class='font-mono text-xl font-bold text-graphite-primary'>
+      eagskunst
+    </a>
+    <div class='hidden md:flex items-center gap-8 font-geist text-base'>
+      <a class='nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1 hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
+      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
+      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
+      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
+      <LanguageSwitcher lang={lang} />
+    </div>
+    <button id='mobile-menu-btn' class='md:hidden text-graphite-on-surface' aria-label={t('nav.menu.open')} aria-expanded='false' aria-controls='mobile-menu'>
+      <span class='material-symbols-outlined'>menu</span>
+    </button>
+  </div>
+  <div id='mobile-menu' class='hidden md:hidden absolute top-full left-0 w-full bg-graphite-surface/95 backdrop-blur-xl border-b border-white/10'>
+    <div class='flex flex-col items-center gap-4 py-6 font-geist text-base'>
+      <a class='mobile-nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1' href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
+      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
+      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
+      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
+      <LanguageSwitcher lang={lang} />
+    </div>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const icon = btn.querySelector('.material-symbols-outlined');
+
+    function toggleMenu(open: boolean) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (icon) icon.textContent = open ? 'close' : 'menu';
+    }
+
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('hidden');
+      toggleMenu(isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) toggleMenu(false);
+    });
+  })();
+</script>
