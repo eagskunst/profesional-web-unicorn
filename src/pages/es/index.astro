@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import HomePage from '../../components/HomePage.astro';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((post) => post.id.startsWith('es/'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<HomePage lang='es' posts={posts} />

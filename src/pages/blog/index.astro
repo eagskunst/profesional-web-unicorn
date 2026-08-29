@@ -1,0 +1,8 @@
+---
+import BlogIndex from '../../components/BlogIndex.astro';
+import { getLocalizedPosts } from '../../utils/content';
+
+const posts = await getLocalizedPosts();
+---
+
+<BlogIndex lang='en' posts={posts} />

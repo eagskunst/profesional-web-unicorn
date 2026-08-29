@@ -1,0 +1,104 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import type { Language } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Language;
+  post: CollectionEntry<'blog'>;
+}
+
+const { lang, post } = Astro.props;
+const { Content } = await render(post);
+const t = useTranslations(lang);
+const blogUrl = getRelativeLocaleUrl(lang, 'blog');
+
+const canonicalURL = post.data.canonicalURL || Astro.url.href;
+const image = post.data.image || '/self_photo_new.png';
+---
+
+<BaseLayout
+  title={`${post.data.title} | Emmanuel Guerra`}
+  description={post.data.description}
+  image={image}
+  canonicalURL={canonicalURL}
+  type='article'
+  article={{ pubDate: post.data.pubDate, modifiedDate: post.data.updatedDate, tags: post.data.tags }}
+  lang={lang}
+>
+  <Nav lang={lang} />
+
+  <main class='pt-[120px] pb-[120px] px-6 md:px-16 max-w-3xl mx-auto min-h-screen'>
+    <article class='glass-panel p-6 md:p-10 rounded-2xl'>
+      <header class='mb-10'>
+        <div class='flex items-center gap-3 mb-4'>
+          <span class='font-mono text-xs text-graphite-tertiary-container uppercase'>
+            {post.data.pubDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+          {post.data.tags.length > 0 && (
+            <div class='flex flex-wrap gap-2'>
+              {post.data.tags.map((tag) => (
+                <span class='px-2 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>#{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+        <h1 class='font-geist text-3xl md:text-5xl font-bold text-graphite-primary mb-4 tracking-tight'>{post.data.title}</h1>
+        <p class='text-lg text-graphite-on-surface-variant'>{post.data.description}</p>
+        <div class='mt-4'>
+          <LanguageSwitcher lang={lang} />
+        </div>
+      </header>
+
+      <div class='prose prose-invert max-w-none'>
+        <Content />
+      </div>
+
+      <footer class='mt-12 pt-8 border-t border-white/10'>
+        <p class='text-sm text-graphite-on-surface-variant'>
+          {lang === 'es' ? 'Escrito por ' : 'Written by '} <strong class='text-graphite-primary'>{post.data.author}</strong>
+        </p>
+        <button id='share-post-btn' class='mt-4 inline-flex items-center gap-2 px-4 py-2 rounded bg-graphite-surface-container-highest text-graphite-on-surface hover:text-graphite-primary transition-colors font-mono text-sm' type='button' data-copied={t('blog.linkCopied')}>
+          <span class='material-symbols-outlined text-base'>share</span>
+          <span id='share-post-label'>{t('blog.share')}</span>
+        </button>
+      </footer>
+    </article>
+
+    <script>
+      (function () {
+        const btn = document.getElementById('share-post-btn');
+        const label = document.getElementById('share-post-label');
+        if (!btn || !label) return;
+
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            const original = label.textContent;
+            const copiedText = btn.dataset.copied || 'Link copied!';
+            label.textContent = copiedText;
+            setTimeout(() => {
+              label.textContent = original;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy link:', err);
+          }
+        });
+      })();
+    </script>
+
+    <div class='mt-10'>
+      <a href={blogUrl} class='text-graphite-tertiary-container hover:text-graphite-tertiary-fixed-dim transition-colors font-mono text-sm'>
+        ← {t('blog.readMore')}
+      </a>
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</BaseLayout>

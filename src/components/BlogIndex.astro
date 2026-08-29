@@ -1,0 +1,60 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Language } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+import type { LocalizedPost } from '../utils/content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  lang: Language;
+  posts: LocalizedPost[];
+}
+
+const { lang, posts } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = lang === 'es' ? 'Blog | eagskunst' : 'Blog | eagskunst';
+const pageDescription = lang === 'es'
+  ? 'Mis opiniones sobre ingeniería de software, libros, videojuegos y cualquier cosa que me venga a la mente.'
+  : 'My opinions in software engineering, books, games, and anything that comes to my mind.';
+const blogUrl = getRelativeLocaleUrl(lang, 'blog');
+
+function getSlug(post: LocalizedPost): string {
+  return post[lang].id.replace(new RegExp(`^${lang}/`), '').replace(/\.md$/, '');
+}
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} type='website' lang={lang}>
+  <Nav lang={lang} />
+
+  <main class='pt-[120px] pb-[120px] px-6 md:px-16 max-w-7xl mx-auto min-h-screen'>
+    <h1 class='font-geist text-4xl md:text-6xl font-bold text-graphite-primary mb-4 tracking-tight'>{t('blog.heading')}</h1>
+    <p class='text-lg text-graphite-on-surface-variant mb-12 max-w-2xl'>{pageDescription}</p>
+
+    <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+      {posts.map((post) => {
+        const localizedPost = post[lang];
+        const slug = getSlug(post);
+        return (
+          <a href={`${blogUrl}${slug}/`} class='glass-panel p-6 rounded-xl border-l-4 border-l-graphite-tertiary-container hover:-translate-y-1 transition-transform duration-300 block'>
+            <p class='font-mono text-xs text-graphite-tertiary-container mb-2 uppercase'>
+              {localizedPost.data.pubDate.toLocaleDateString(lang, { year: 'numeric', month: 'short', day: 'numeric' })}
+            </p>
+            <h2 class='font-geist text-xl font-medium text-graphite-primary mb-3'>{localizedPost.data.title}</h2>
+            <p class='text-base text-graphite-on-surface-variant line-clamp-3'>{localizedPost.data.description}</p>
+            {localizedPost.data.tags.length > 0 && (
+              <div class='flex flex-wrap gap-2 mt-4'>
+                {localizedPost.data.tags.map((tag) => (
+                  <span class='px-2 py-1 bg-graphite-surface-container-highest text-graphite-tertiary-container font-mono text-xs rounded'>#{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</BaseLayout>
