@@ -14,10 +14,10 @@ interface Props {
 
 const { lang, posts } = Astro.props;
 const t = useTranslations(lang);
-const pageTitle = lang === 'es' ? 'Blog | Emmanuel Guerra' : 'Blog | Emmanuel Guerra';
+const pageTitle = lang === 'es' ? 'Blog | eagskunst' : 'Blog | eagskunst';
 const pageDescription = lang === 'es'
-  ? 'Artículos sobre ingeniería de software, desarrollo mobile, backend, IA y más.'
-  : 'Articles about software engineering, mobile development, backend, AI, and more.';
+  ? 'Mis opiniones sobre ingeniería de software, libros, videojuegos y cualquier cosa que me venga a la mente.'
+  : 'My opinions in software engineering, books, games, and anything that comes to my mind.';
 const blogUrl = getRelativeLocaleUrl(lang, 'blog');
 
 function getSlug(post: LocalizedPost): string {
