@@ -12,6 +12,16 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const homeUrl = getRelativeLocaleUrl(lang, '/');
 const blogUrl = getRelativeLocaleUrl(lang, 'blog');
+
+const pathname = Astro.url.pathname;
+const activeSection = pathname.startsWith(blogUrl) ? 'blog' : 'about';
+
+function navLinkClasses(section: string): string {
+  const base = 'pb-1 transition-colors duration-300 hover:text-graphite-primary';
+  return section === activeSection
+    ? `${base} text-graphite-primary font-bold border-b-2 border-graphite-primary-container`
+    : `${base} text-graphite-on-surface-variant border-b-2 border-transparent`;
+}
 ---
 
 <nav class='fixed top-0 w-full z-50 bg-graphite-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm transition-all ease-in-out'>
@@ -20,10 +30,10 @@ const blogUrl = getRelativeLocaleUrl(lang, 'blog');
       eagskunst
     </a>
     <div class='hidden md:flex items-center gap-8 font-geist text-base'>
-      <a class='nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1 hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
-      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
-      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
-      <a class='nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
+      <a class={`nav-link ${navLinkClasses('about')}`} href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
+      <a class={`nav-link ${navLinkClasses('projects')}`} href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
+      <a class={`nav-link ${navLinkClasses('contact')}`} href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
+      <a class={`nav-link ${navLinkClasses('blog')}`} href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
       <LanguageSwitcher lang={lang} />
     </div>
     <button id='mobile-menu-btn' class='md:hidden text-graphite-on-surface' aria-label={t('nav.menu.open')} aria-expanded='false' aria-controls='mobile-menu'>
@@ -32,10 +42,10 @@ const blogUrl = getRelativeLocaleUrl(lang, 'blog');
   </div>
   <div id='mobile-menu' class='hidden md:hidden absolute top-full left-0 w-full bg-graphite-surface/95 backdrop-blur-xl border-b border-white/10'>
     <div class='flex flex-col items-center gap-4 py-6 font-geist text-base'>
-      <a class='mobile-nav-link text-graphite-primary font-bold border-b-2 border-graphite-primary-container pb-1' href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
-      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
-      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
-      <a class='mobile-nav-link text-graphite-on-surface-variant pb-1 border-b-2 border-transparent hover:text-graphite-primary transition-colors duration-300' href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
+      <a class={`mobile-nav-link ${navLinkClasses('about')}`} href={`${homeUrl}#about`} data-section='about'>{t('nav.about')}</a>
+      <a class={`mobile-nav-link ${navLinkClasses('projects')}`} href={`${homeUrl}#projects`} data-section='projects'>{t('nav.projects')}</a>
+      <a class={`mobile-nav-link ${navLinkClasses('contact')}`} href={`${homeUrl}#contact`} data-section='contact'>{t('nav.contact')}</a>
+      <a class={`mobile-nav-link ${navLinkClasses('blog')}`} href={blogUrl} data-section='blog'>{t('nav.blog')}</a>
       <LanguageSwitcher lang={lang} />
     </div>
   </div>
