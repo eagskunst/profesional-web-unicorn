@@ -161,10 +161,13 @@ const pageDescription = lang === 'es'
     <section class='w-full py-24 flex flex-col items-center justify-center text-center relative overflow-hidden' id='contact'>
       <div class='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-graphite-surface-variant/40 via-graphite-bg to-graphite-bg -z-10'></div>
       <h2 class='font-geist text-4xl md:text-6xl font-bold text-graphite-primary mb-8 tracking-tighter'>{t('contact.heading')}</h2>
-      <a class='inline-flex items-center gap-2 px-8 py-4 bg-graphite-primary-container text-graphite-on-primary-fixed font-geist text-xl font-bold rounded hover:bg-graphite-primary-fixed-dim transition-colors shadow-[0_0_20px_rgba(232,235,28,0.2)] hover:shadow-[0_0_30px_rgba(232,235,28,0.4)]' href='mailto:contact@eagskunst.com'>
+      <a id='contact-cta-btn' data-email='contact@eagskunst.com' class='inline-flex items-center gap-2 px-8 py-4 bg-graphite-primary-container text-graphite-on-primary-fixed font-geist text-xl font-bold rounded hover:bg-graphite-primary-fixed-dim transition-colors shadow-[0_0_20px_rgba(232,235,28,0.2)] hover:shadow-[0_0_30px_rgba(232,235,28,0.4)]' href='mailto:contact@eagskunst.com'>
         <span class='material-symbols-outlined'>mail</span>
         {t('contact.cta')}
       </a>
+      <p id='contact-copied-msg' class='mt-4 font-mono text-sm text-graphite-tertiary-container opacity-0 transition-opacity duration-300 pointer-events-none' aria-live='polite'>
+        {t('contact.emailCopied')}
+      </p>
     </section>
 
     <section class='w-full max-w-7xl mx-auto px-6 md:px-16 mb-12' id='blog'>
@@ -188,4 +191,29 @@ const pageDescription = lang === 'es'
 
   <script src='../scripts/hero-network.js'></script>
   <script src='../scripts/nav-highlight.js'></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('contact-cta-btn');
+      const msg = document.getElementById('contact-copied-msg');
+      if (!btn || !msg) return;
+
+      let hideTimeout: ReturnType<typeof setTimeout> | undefined;
+
+      btn.addEventListener('click', async () => {
+        const email = btn.dataset.email || 'contact@eagskunst.com';
+        try {
+          await navigator.clipboard.writeText(email);
+          msg.classList.remove('opacity-0');
+          msg.classList.add('opacity-100');
+          clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => {
+            msg.classList.remove('opacity-100');
+            msg.classList.add('opacity-0');
+          }, 3000);
+        } catch (err) {
+          console.error('Failed to copy email:', err);
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
