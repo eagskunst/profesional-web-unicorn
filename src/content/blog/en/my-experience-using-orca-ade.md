@@ -19,13 +19,13 @@ When these requests came up while I was coding, they usually broke my focus and 
 4. Solve the problem or trace the ticket/story to understand the decisions that were made.
 5. Switch back to the branch I was working on.
 
-This workflow has a lot of friction and, more than anything, made me lose my train of thought on tasks that needed my full attention. One problem with IDEs is that they don't have a native way to work with [`git worktree`](https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/), and specifically for Mobile development, copying configurations by hand is tedious, while a script can quickly become outdated without clear governance and control.
+This workflow has a lot of friction and, more than anything, made me lose my chain of thought on tasks that needed my full attention. One problem with IDEs is that they don't have a native way to work with [`git worktree`](https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/), and specifically for Mobile development, copying configurations by hand is tedious, while a script can quickly become outdated without clear governance and control.
 
 Agents work great in the terminal. Combined with advances in reasoning and autonomous modes, the goal should be to run them in parallel, giving attention to whatever requires it based on the questions from the agent—or agents. It should be straightforward and not require opening a separate editor instance per worktree, configuring it, making sure it compiles, ensuring the agent stays within the workspace boundaries…
 
 That is where the idea of an [ADE: Agentic Development Environment](https://aidenapp.org/agentic-development-environment) comes from. An application that allows agents to run in parallel across one (or several) repositories, with a developer in charge of instructing them. This is an idea that simple chat applications already handle internally: you can have multiple chats in parallel, answer or ask more questions, and keep iterating. The ADE brings this paradigm to software development.
 
-Although I was skeptical at first because I wasn't sure this could work for mobile app repositories given their structure, I spent a month using Orca, Stably AI's ADE, to solve the problems and friction of pre-agent development—and honestly, I'm very happy with it and have made it my permanent development environment. Even though I haven't uninstalled the default IDEs for each platform, such as Android Studio, I've only used them for a handful of manual changes and to run my main `worktree`.
+Although I was skeptical at first because I wasn't sure this could work for mobile app repositories given their structure, I spent a month using Orca, Stably AI's ADE, to solve the problems and friction of pre-agent development, and honestly, I'm very happy with it and have made it my permanent development environment. Even though I haven't uninstalled the default IDEs for each platform, such as Android Studio, I've only used them for a handful of manual changes and to run my main `worktree`.
 
 ## Orca's strengths:
 
@@ -63,17 +63,17 @@ Lately I've been spending more and more time reading, and not just as a hobby. L
 
 At the bottom left, you always have a progress bar showing your subscription usage, where your daily/hourly limit stands, and your weekly limit. You also have the option to trigger resets available within your subscriptions. Overall, it's very convenient for knowing how many parallel agents you can run, so you can prioritize what's most urgent or keep working on secondary tasks.
 
-In addition, there is a statistics section that gives you an always-available insight into how many tokens you've spent, the number of agents you've created, filtering by provider, and more—great for nerds and for justifying (to your team or yourself) more credits.
+In addition, there is a statistics section that gives you an always available insight into how many tokens you've spent, the number of agents you've created, filtering by provider, and more—great for nerds and for justifying (to your team or yourself) more credits.
 
 ## Where I noticed room for improvement:
 
 ### Android emulator runs very slowly (manually)
 
-Although you can add any Android and iOS emulator, they don't register taps the same way they do when launched directly from Android Studio or Xcode. Maybe it's an internal limitation of Orca from using scrcpy or something similar. Either way, I don't recommend it for manual tap input. On the other hand, the skill for controlling the emulator is very good, and although I haven't benchmarked it, it feels more token-efficient than the classic approach LLMs try to use to drive simulators.
+Although you can add any Android and iOS emulator, they don't register taps the same way they do when launched directly from Android Studio or Xcode. Maybe it's an internal limitation of Orca from using scrcpy or something similar. Either way, I don't recommend it for manual tap input. On the other hand, the skill for controlling the emulator is very good, and although I haven't benchmarked it, it feels more token efficient than the classic approach LLMs try to use to drive simulators.
 
 ### No UI for extended Git actions
 
-While this is a very personal friction point, given its relationship with the terminal, Orca doesn't give you a simple way to stash, commit, or switch branches. It might sound counterintuitive after praising its terminal-first focus, but personally, I prefer switching branches and running fetch/pull from a UI rather than spending tokens doing it. I also don't like that the manual commit UI is overly simplistic: instead of checkboxes, you have to add or remove files from staging one by one. I'm trying to transition to doing full commits with agents, though I'm not completely sold yet. For now, the case where I find it justified is having the agent create granular and/or partial file commits after code review.
+While this is a very personal friction point, given its relationship with the terminal, Orca doesn't give you a simple way to stash, commit, or switch branches. It might sound counterintuitive after praising its terminal first focus, but personally, I prefer switching branches and running fetch/pull from a UI rather than spending tokens doing it. I also don't like that the manual commit UI is overly simplistic: instead of checkboxes, you have to add or remove files from staging one by one. I'm trying to transition to doing full commits with agents, though I'm not completely sold yet. For now, the case where I find it justified is having the agent create granular and/or partial file commits after code review.
 
 ### You can't configure a default agent per project
 
@@ -109,7 +109,7 @@ As a final note, I can say that I've tried it and I'm here to stay in this categ
 - Context length and human attention.
 - Documentation and reading comprehension.
 
-Using a traditional IDE, by nature of its single-workspace design, makes parallelization and collaboration between multiple humans and agents across code repositories harder. I feel that Orca's focus on putting agents first is the path the industry will gradually take—and where companies like JetBrains and Microsoft will surely start focusing their efforts to adapt environments that served as the foundation and core product for many years, but are falling behind in this era of agentic development.
+Using a traditional IDE, by nature of its single workspace design, makes parallelization and collaboration between multiple humans and agents across code repositories harder. I feel that Orca's focus on putting agents first is the path the industry will gradually take—and where companies like JetBrains and Microsoft will surely start focusing their efforts to adapt environments that served as the foundation and core product for many years, but are falling behind in this era of agentic development.
 
 P.S.: When I installed Orca, I added all the recommended skills, and basically the only things I haven't tried are:
 
