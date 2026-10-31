@@ -66,3 +66,11 @@ body {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+.no-scrollbar {
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

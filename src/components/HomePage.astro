@@ -109,8 +109,9 @@ const pageDescription = lang === 'es'
 
     <section class='w-full max-w-7xl mx-auto px-6 md:px-16' id='projects'>
       <h3 class='font-mono text-xs font-bold text-graphite-on-surface-variant mb-12 tracking-widest uppercase pl-4 border-l-2 border-graphite-primary-container'>{t('projects.heading')}</h3>
-      <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-        <a href='https://play.google.com/store/apps/details?id=com.eagskunst.apps.xchange' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+      <div id='projects-carousel' class='overflow-x-auto no-scrollbar pb-4'>
+      <div class='flex w-max'>
+        <a href='https://play.google.com/store/apps/details?id=com.eagskunst.apps.xchange' target='_blank' rel='noopener noreferrer' class='shrink-0 mr-8 w-80 md:w-96 glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
           <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
             <img class='w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='/img/xchange.png' alt='XChange app screenshot' width='600' height='1200' loading='lazy'>
           </div>
@@ -127,7 +128,7 @@ const pageDescription = lang === 'es'
           </div>
         </a>
 
-        <a href='https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+        <a href='https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews' target='_blank' rel='noopener noreferrer' class='shrink-0 mr-8 w-80 md:w-96 glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
           <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
             <img class='w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='/img/gamingnews.png' alt='GamingNews app screenshot' width='600' height='1200' loading='lazy'>
           </div>
@@ -142,7 +143,17 @@ const pageDescription = lang === 'es'
           </div>
         </a>
 
-        <a href='https://github.com/eagskunst/dev-space-cleaner' target='_blank' rel='noopener noreferrer' class='glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+        <a href='https://joureel.com' target='_blank' rel='noopener noreferrer' class='shrink-0 mr-8 w-80 md:w-96 glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
+          <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
+            <img class='w-full h-full object-contain p-6 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='/img/joureel.png' alt='Joureel mascot' width='192' height='144' loading='lazy'>
+          </div>
+          <div class='p-6'>
+            <h4 class='font-geist text-xl font-medium text-graphite-primary mb-2'>Joureel</h4>
+            <p class='text-base text-graphite-on-surface-variant line-clamp-2 mb-4'>{t('projects.joureel.description')}</p>
+          </div>
+        </a>
+
+        <a href='https://github.com/eagskunst/dev-space-cleaner' target='_blank' rel='noopener noreferrer' class='shrink-0 mr-8 w-80 md:w-96 glass-panel rounded-xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300'>
           <div class='h-48 w-full bg-graphite-surface-container-highest overflow-hidden relative'>
             <img class='w-full h-full object-contain p-6 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500' src='/img/dev-space-cleaner-logo.png' alt='Dev Space Cleaner logo' width='300' height='300' loading='lazy'>
           </div>
@@ -155,6 +166,7 @@ const pageDescription = lang === 'es'
             </div>
           </div>
         </a>
+      </div>
       </div>
     </section>
 
@@ -190,6 +202,36 @@ const pageDescription = lang === 'es'
   <Footer lang={lang} />
 
   <script src='../scripts/hero-network.js'></script>
+  <script>
+    // Duplicated cards + scrollLeft wrap = seamless loop that is also manually scrollable.
+    const scroller = document.getElementById('projects-carousel');
+    const track = scroller?.firstElementChild as HTMLElement | null;
+    if (scroller && track) {
+      track.append(...[...track.children].map((c) => {
+        const d = c.cloneNode(true) as HTMLElement;
+        d.setAttribute('aria-hidden', 'true');
+        d.setAttribute('tabindex', '-1');
+        return d;
+      }));
+      const SPEED = 40; // px per second
+      let pos = 0, last = performance.now(), resumeAt = 0;
+      const hold = (ms = 1500) => (resumeAt = performance.now() + ms);
+      for (const e of ['touchstart', 'touchmove', 'touchend', 'wheel']) scroller.addEventListener(e, () => hold(), { passive: true });
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const tick = (now: number) => {
+          const dt = (now - last) / 1000;
+          last = now;
+          const half = track.scrollWidth / 2;
+          if (now < resumeAt) pos = scroller.scrollLeft;
+          else pos += SPEED * dt;
+          if (pos >= half) pos -= half; // wrap forward
+          scroller.scrollLeft = pos;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }
+  </script>
   <script src='../scripts/nav-highlight.js'></script>
   <script>
     (function () {
