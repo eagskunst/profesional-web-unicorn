@@ -217,7 +217,7 @@ const tabs = [
   .dex-main { display: flex; flex: 1; min-height: 0; }
   /* --dex-lens (set by the script) is how far the lens reaches up into the screen; content and the hint pill stay above it. */
   .dex-panels { position: relative; flex: 1; min-width: 0; overflow-y: auto; touch-action: pan-y; padding: 14px 16px calc(var(--dex-lens, 70px) + 20px); overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--dex-accent) transparent; }
-  .dex-more-hint { position: sticky; bottom: 12px; margin: -62px 0 0 auto; /* right edge, clear of the centred lens */ width: max-content; display: flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border-radius: 999px; font: 11px 'Space Mono', monospace; background: var(--dex-panel); color: var(--dex-panel-ink); box-shadow: 0 4px 12px rgba(0,0,0,.35); pointer-events: none; opacity: 0; transition: opacity .3s; }
+  .dex-more-hint { position: sticky; bottom: calc(-1 * var(--dex-lens, 70px) - 4px); /* sticky is inset by the panel's bottom padding, so cancel it */ margin: 0 0 0 auto; /* right edge, clear of the centred lens */ width: max-content; display: flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border-radius: 999px; font: 11px 'Space Mono', monospace; background: var(--dex-panel); color: var(--dex-panel-ink); box-shadow: 0 4px 12px rgba(0,0,0,.35); pointer-events: none; opacity: 0; transition: opacity .3s; }
   .dex-more-hint .material-symbols-outlined { animation: dex-bounce 1.2s ease-in-out infinite; }
   @keyframes dex-bounce { 50% { transform: translateY(5px); } }
   #dex.dex-more .dex-more-hint { opacity: 1; }
@@ -276,7 +276,7 @@ const tabs = [
   .dex-stats .material-symbols-outlined { font-size: 22px; color: var(--dex-accent); }
   .dex-stats h4 { font-size: 14px; font-weight: 700; margin: 8px 0 5px; padding: 2px 10px; background: var(--dex-panel); color: var(--dex-panel-ink); border-radius: 2px 10px 10px 2px; display: inline-block; }
   .dex-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
-  .dex-chips li { font-size: 14px; padding: 3px 10px; border-radius: 4px; background: var(--dex-chip); }
+  .dex-chips li { font-size: 14px; padding: 3px 10px; border-radius: 4px; background: var(--dex-accent); color: var(--dex-accent-ink); }
   .dex-entry { padding: 10px 12px; border: 1px solid var(--dex-line); border-left: 3px solid var(--dex-accent); border-radius: 4px; background: var(--dex-row); }
   .dex-bullets { margin: 0 0 8px; padding-left: 18px; }
   .dex-bullets strong { color: var(--dex-accent); }
@@ -303,7 +303,7 @@ const tabs = [
   .dex-portrait .dex-species { display: none; }
   .dex-portrait .dex-main { flex-direction: column-reverse; } /* tabs on top: the lens sits over the bottom edge */
   .dex-portrait .dex-panels { padding: 16px 14px calc(var(--dex-lens, 40px) + 24px); }
-  .dex-portrait .dex-more-hint { bottom: calc(var(--dex-lens, 40px) + 8px); } /* the narrow screen puts the lens under a right-aligned pill */
+  .dex-portrait .dex-more-hint { bottom: -16px; } /* the narrow screen puts the lens under a right-aligned pill */
   .dex-portrait .dex-panel p { margin-bottom: 12px; }
   .dex-portrait .dex-row { padding: 10px 12px; margin-bottom: 10px; }
   .dex-portrait .dex-row strong { font-size: 16px; }
