@@ -202,6 +202,10 @@ function init(root) {
   // Open / close with a loading phase (portrait decoded + a short boot delay).
   const imagesReady = () => Promise.all([...screenEl.querySelectorAll('img:not([loading])')].map((img) =>
     img.complete ? img.decode().catch(() => {}) : new Promise((r) => { img.onload = img.onerror = r; })));
+  const face = () => {
+    state.yaw = Math.round(state.yaw / (2 * Math.PI)) * 2 * Math.PI; // face the camera via the shortest way
+    state.pitch = 0;
+  };
   const open = async () => {
     if (state.open || state.loading) return;
     state.loading = true;
@@ -211,8 +215,7 @@ function init(root) {
     await Promise.all([imagesReady(), new Promise((r) => setTimeout(r, reduced ? 300 : 1200))]);
     state.loading = false;
     state.open = true;
-    state.yaw = Math.round(state.yaw / (2 * Math.PI)) * 2 * Math.PI; // face the camera via the shortest way
-    state.pitch = 0;
+    face();
     openBtn.disabled = false;
     openBtn.setAttribute('aria-label', openBtn.dataset.close);
   };
@@ -233,6 +236,7 @@ function init(root) {
     screenEl.querySelectorAll('[data-panel]').forEach((p) => { p.hidden = p.dataset.panel !== name; });
     panels.scrollTop = 0;
     scrollHint();
+    face(); // a dragged-away shell swings back to the camera
     // Move the nav underline (classes mirror Nav.astro's navLinkClasses).
     const section = Object.keys(HASH_TAB).find((k) => HASH_TAB[k] === name);
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((a) => {
