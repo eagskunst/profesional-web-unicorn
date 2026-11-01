@@ -182,7 +182,8 @@ function init(root) {
 
   // Drag to rotate (full 360° yaw, clamped pitch). Clicks right after a drag are swallowed.
   let drag = null, lastDragEnd = 0;
-  root.addEventListener('pointerdown', (e) => { drag = { x: e.clientX, y: e.clientY, moved: false }; });
+  // Swipes on the screen scroll its panel; they must not also tilt the body.
+  root.addEventListener('pointerdown', (e) => { if (!screenEl.contains(e.target)) drag = { x: e.clientX, y: e.clientY, moved: false }; });
   root.addEventListener('pointermove', (e) => {
     if (!drag) return;
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
