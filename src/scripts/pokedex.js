@@ -232,6 +232,16 @@ function init(root) {
     screenEl.querySelectorAll('[data-panel]').forEach((p) => { p.hidden = p.dataset.panel !== name; });
     panels.scrollTop = 0;
     scrollHint();
+    // Move the nav underline (classes mirror Nav.astro's navLinkClasses).
+    const section = Object.keys(HASH_TAB).find((k) => HASH_TAB[k] === name);
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((a) => {
+      const on = a.dataset.section === section;
+      a.classList.toggle('text-graphite-primary', on);
+      a.classList.toggle('font-bold', on);
+      a.classList.toggle('border-graphite-primary-container', on);
+      a.classList.toggle('text-graphite-on-surface-variant', !on);
+      a.classList.toggle('border-transparent', !on);
+    });
   };
   tabs.forEach((b) => b.addEventListener('click', () => selectTab(b.dataset.tab)));
   const onHash = () => {
