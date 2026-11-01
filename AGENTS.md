@@ -57,7 +57,12 @@ image: "/self_photo_new.png"  # optional, defaults to the portrait
 
 The build will fail if a post is missing its translation, keeping every article bilingual.
 
+## Home page (Pokedex)
+
+The home page is a 3D Kalos-style Pokedex: two shell halves slide apart and the screen sits in the gap; the centre lens is the only control. `src/components/Pokedex.astro` holds the screen markup (HTML, bilingual via `src/i18n/ui.ts` `dex.*` keys) and `src/scripts/pokedex.js` builds the Three.js body. The screens are real DOM placed with `CSS3DRenderer` behind a transparent WebGL canvas; "hole" meshes (`NoBlending`, opacity 0) let them show through, so any new screen needs both a CSS3DObject and a hole mesh. Nav links `#about`, `#projects`, `#contact`, `#blog` open the Pokedex on the matching tab.
+
 ## URL structure
 
 - English (default locale): `/` and `/blog/<slug>/`
 - Spanish: `/es/` and `/es/blog/<slug>/`
+- `/boring/` and `/es/boring/`: the pre-Pokedex home page (`src/components/BoringPage.astro`), linked from the Pokedex footer row.

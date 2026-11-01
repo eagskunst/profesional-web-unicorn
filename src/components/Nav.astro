@@ -10,7 +10,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const homeUrl = getRelativeLocaleUrl(lang, '/');
+// On the boring page the section links stay on that page instead of jumping to the Pokedex.
+const homeUrl = Astro.url.pathname.includes('/boring') ? Astro.url.pathname : getRelativeLocaleUrl(lang, '/');
 const blogUrl = getRelativeLocaleUrl(lang, 'blog');
 
 const pathname = Astro.url.pathname;

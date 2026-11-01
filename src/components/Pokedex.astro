@@ -1,0 +1,319 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { CollectionEntry } from 'astro:content';
+import type { Language } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { lang, posts } = Astro.props;
+const t = useTranslations(lang);
+const blogUrl = getRelativeLocaleUrl(lang, 'blog');
+
+const companies = [
+  { name: 'TheGrint', img: '/img/clients/thegrint.jpg' },
+  { name: 'Banco de Crédito e Inversiones', img: '/img/clients/banco.jpg' },
+  { name: 'ShokWorks', img: '/img/clients/shokworks.png', dark: true },
+  { name: 'Kinesis.Money', img: '/img/clients/kinesis.jpg' },
+  { name: 'Liga Dimayor', img: '/img/clients/liga-dimayor.png' },
+];
+
+const projects = [
+  { key: 'xchange', name: 'XChange', img: '/img/xchange.png', href: 'https://play.google.com/store/apps/details?id=com.eagskunst.apps.xchange', tags: 'Android · Kotlin · Python' },
+  { key: 'gamingnews', name: 'GamingNews', img: '/img/gamingnews.png', href: 'https://play.google.com/store/apps/details?id=com.eagskunst.emmanuel.gamingnews', tags: 'Android · Kotlin' },
+  { key: 'joureel', name: 'Joureel', img: '/img/joureel.png', href: 'https://joureel.com', tags: 'Python · Next.js · OpenRouter · AI harness' },
+  { key: 'devspace', name: 'Dev Space Cleaner', img: '/img/dev-space-cleaner-logo.png', href: 'https://github.com/eagskunst/dev-space-cleaner', tags: 'Tauri · Rust' },
+] as const;
+
+const tabs = [
+  { key: 'info', icon: 'person' },
+  { key: 'work', icon: 'work' },
+  { key: 'projects', icon: 'apps' },
+  { key: 'blog', icon: 'article' },
+  { key: 'contact', icon: 'mail' },
+] as const;
+---
+
+<section id='dex' class='relative w-full overflow-hidden select-none' data-skin='red' aria-label='Pokedex portfolio' style='height: calc(100dvh - 68px); min-height: 420px; touch-action: none;'>
+  <!-- The elements below are moved into the 3D scene (CSS3D) by their id. -->
+
+  <button id='dex-open' class='dex-lens' type='button' aria-label={t('dex.open')} data-open={t('dex.open')} data-close={t('dex.close')} data-loading={t('dex.loading')}></button>
+
+  <div id='dex-screen' class='dex-screen'>
+    <header class='dex-head'>
+      <span class='dex-no'>No. 001</span>
+      <span class='dex-name'>Emmanuel Guerra</span>
+      <span class='dex-species'>{t('hero.role')}</span>
+      <span class='dex-type'><span class='material-symbols-outlined'>terminal</span>{t('dex.type')}</span>
+    </header>
+    <div class='dex-main'>
+      <div class='dex-panels'>
+        <section class='dex-panel dex-info' data-panel='info' role='tabpanel'>
+          <div class='dex-info-top'>
+            <figure class='dex-photo'>
+              <img src='/self_photo_new.png' alt='Emmanuel Guerra portrait' width='600' height='548' fetchpriority='high'>
+            </figure>
+            <div class='dex-stats'>
+              <p><span class='material-symbols-outlined'>schedule</span>{t('dex.stat.exp')}</p>
+              <p><span class='material-symbols-outlined'>group</span>{t('dex.stat.users')}</p>
+              <p><span class='material-symbols-outlined'>location_on</span>{t('dex.stat.region')}</p>
+              <h4>{t('dex.specialties')}</h4>
+              <ul class='dex-chips'>{t('dex.specialties.list').split(' · ').map((x) => <li>{x}</li>)}</ul>
+              <h4>{t('dex.items')}</h4>
+              <ul class='dex-chips'>{t('dex.items.list').split(' · ').map((x) => <li>{x}</li>)}</ul>
+            </div>
+          </div>
+          <p class='dex-entry'>{t('dex.entry')}</p>
+          <p>{t('about.p2')}</p>
+          <p>{t('about.p3')}</p>
+          <p>{t('about.p4')}</p>
+        </section>
+
+        <section class='dex-panel' data-panel='work' role='tabpanel' hidden>
+          <p>{t('about.p1')}</p>
+          <ul class='dex-bullets'>
+            {lang === 'es' ? (
+              <>
+                <li>¿Una funcionalidad completa en una semana? <strong>Hecho.</strong></li>
+                <li>¿Un crash de regresión que no tiene sentido? <strong>Solucionado.</strong></li>
+                <li>¿Animaciones y componentes raros sin librerías? <strong>Construidos.</strong></li>
+                <li>¿Compilar librerías nativas? <strong>Dockerizado.</strong></li>
+                <li>¿Migración completa de base de datos? <strong>Sí, pero no los viernes.</strong></li>
+              </>
+            ) : (
+              <>
+                <li>A full feature in a week? <strong>Done it.</strong></li>
+                <li>A regression crash that makes no sense? <strong>Fixed it.</strong></li>
+                <li>Weird animations and components without libraries? <strong>Built them.</strong></li>
+                <li>Compile native libraries? <strong>Dockerized it.</strong></li>
+                <li>Full DB migration? <strong>Yeah, but not on Fridays.</strong></li>
+              </>
+            )}
+          </ul>
+          <h4 class='dex-board-title'>{t('dex.board')}</h4>
+          <div class='dex-board'>
+            <!-- Layers are drawn in three passes (all underlays, all copper, all pulses) so a later trace's dark underlay never cuts an earlier one at a junction. -->
+            <svg class='dex-traces' viewBox='0 0 300 200' preserveAspectRatio='none' aria-hidden='true'>
+              {['dex-trace-under', 'dex-trace', 'dex-pulse'].map((cls) => [[50, 33], [250, 33], [50, 100], [250, 100], [50, 167], [250, 167]].map(([x, y]) => (
+                <path class={cls} d={y === 100 ? `M150 100 H${x}` : `M150 100 H${x > 150 ? 215 : 85} V${y} H${x}`} />
+              )))}
+            </svg>
+            <div class='dex-chip dex-cpu'><span>EG</span><small>SoC · 8+ yrs</small><i class='dex-led'></i></div>
+            {companies.map((c, i) => (
+              <div class='dex-chip'><em>U{i + 1}</em><img src={c.img} alt={c.name} loading='lazy' width='72' height='44' class={c.dark ? 'dex-logo-dark' : ''}><small>{c.name}</small><i class='dex-led'></i></div>
+            ))}
+            <div class='dex-chip'><em>U6</em><span class='material-symbols-outlined'>school</span><small>{t('dex.edu.title')}</small><i class='dex-led'></i></div>
+            <!-- Portrait traces: a bus runs down from the full-width SoC with a stub into each chip (2 columns × 3 rows). Last child so the chips' nth-child rules hold. -->
+            <svg class='dex-traces dex-traces-portrait' viewBox='0 0 200 1000' preserveAspectRatio='none' aria-hidden='true'>
+              {['dex-trace-under', 'dex-trace', 'dex-pulse'].map((cls) => [[50, 370], [150, 370], [50, 627], [150, 627], [50, 885], [150, 885]].map(([x, y]) => (
+                <path class={cls} d={`M100 215 V${y} H${x}`} />
+              )))}
+            </svg>
+          </div>
+        </section>
+
+        <section class='dex-panel' data-panel='projects' role='tabpanel' hidden>
+          {projects.map((p) => (
+            <a class='dex-row' href={p.href} target='_blank' rel='noopener noreferrer'>
+              <img src={p.img} alt={p.name} loading='lazy' width='44' height='44'>
+              <div>
+                <span class='dex-row-no'>{p.tags}</span>
+                <strong>{p.name}</strong>
+                <small>{t(`projects.${p.key}.description`)}</small>
+              </div>
+            </a>
+          ))}
+        </section>
+
+        <section class='dex-panel' data-panel='blog' role='tabpanel' hidden>
+          {posts.map((post) => (
+            <a class='dex-row' href={`${blogUrl}${post.id.split('/')[1].replace(/\.md$/, '')}/`}>
+              <span class='dex-row-icon material-symbols-outlined'>article</span>
+              <div>
+                <span class='dex-row-no'>{post.data.pubDate.toLocaleDateString(lang, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                <strong>{post.data.title}</strong>
+                <small>{post.data.description}</small>
+              </div>
+            </a>
+          ))}
+          <a class='dex-row dex-row-more' href={blogUrl}><strong>{t('blog.readMore')} →</strong></a>
+        </section>
+
+        <section class='dex-panel dex-contactp' data-panel='contact' role='tabpanel' hidden>
+          <p>{t('dex.contact.lead')}</p>
+          <p class='dex-email'><a href='mailto:contact@eagskunst.com'>contact@eagskunst.com</a></p>
+          <button id='dex-contact' class='dex-cta' type='button' data-email='contact@eagskunst.com'><span class='material-symbols-outlined'>content_copy</span>{t('dex.contact.copy')}</button>
+          <span id='dex-copied' class='dex-copied opacity-0' aria-live='polite'>{t('contact.emailCopied')}</span>
+          <div class='dex-links'>
+            <a class='dex-row' href='https://www.linkedin.com/in/emmanuel-guerra-074002175/' target='_blank' rel='noopener noreferrer'><span class='dex-row-icon material-symbols-outlined'>work</span><div><strong>LinkedIn</strong><small>/in/emmanuel-guerra</small></div></a>
+            <a class='dex-row' href='https://github.com/eagskunst' target='_blank' rel='noopener noreferrer'><span class='dex-row-icon material-symbols-outlined'>code</span><div><strong>GitHub</strong><small>@eagskunst</small></div></a>
+            <a class='dex-row' href='https://twitter.com/eagskunst' target='_blank' rel='noopener noreferrer'><span class='dex-row-icon material-symbols-outlined'>alternate_email</span><div><strong>Twitter</strong><small>@eagskunst</small></div></a>
+          </div>
+        </section>
+        <div class='dex-more-hint' aria-hidden='true'><span class='material-symbols-outlined'>keyboard_double_arrow_down</span>{t('dex.more')}</div>
+      </div>
+      <nav class='dex-tabs' role='tablist'>
+        {tabs.map((tab, i) => (
+          <button type='button' role='tab' data-tab={tab.key} aria-selected={i === 0 ? 'true' : 'false'}>
+            <span class='material-symbols-outlined'>{tab.icon}</span>
+            <span><small>No. 0{i + 1}</small>{t(`dex.tab.${tab.key}`)}</span>
+          </button>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <!-- 2D overlays -->
+  <p class='dex-hint absolute top-4 left-1/2 -translate-x-1/2 z-[2] font-mono text-xs text-graphite-on-surface-variant text-center pointer-events-none px-4 transition-opacity'>{t('dex.hint')}</p>
+  <div class='absolute bottom-4 left-1/2 -translate-x-1/2 z-[2] flex flex-wrap justify-center items-center gap-2 w-max max-w-[90vw] font-mono text-xs text-graphite-on-surface-variant whitespace-nowrap'>
+    <span>{t('dex.skin')}:</span>
+    <button type='button' class='dex-skin px-2 py-1 rounded border border-white/20' data-skin='red'>{t('dex.skin.red')}</button>
+    <button type='button' class='dex-skin px-2 py-1 rounded border border-white/20' data-skin='graphite'>{t('dex.skin.graphite')}</button>
+    <a href={getRelativeLocaleUrl(lang, 'boring')} class='ml-2 px-2 py-1 rounded border border-white/20 hover:text-white'>{t('dex.boring')}</a>
+  </div>
+</section>
+
+<style>
+  /* Legends Arceus panel palette per shell skin. */
+  #dex[data-skin='red'] { --dex-bg: rgba(226, 244, 248, .96); --dex-ink: #1e2a38; --dex-muted: #5a6572; --dex-panel: #1f3b5c; --dex-panel-ink: #f4efe4; --dex-accent: #d8202a; --dex-accent-ink: #fff; --dex-row: rgba(255,255,255,.55); --dex-line: rgba(30,42,56,.14); --dex-chip: #dcd5c4; }
+  #dex[data-skin='graphite'] { --dex-bg: rgba(6, 25, 42, .96); --dex-ink: #cbe6fb; --dex-muted: #9fb3c2; --dex-panel: #1d3847; --dex-panel-ink: #cbe6fb; --dex-accent: #e8eb1c; --dex-accent-ink: #1c1d00; --dex-row: rgba(255,255,255,.06); --dex-line: rgba(203,230,251,.14); --dex-chip: #233d4d; }
+  #dex .dex-skin[aria-pressed='true'] { color: #fff; border-color: #e8eb1c; }
+  #dex.dex-open .dex-hint { opacity: 0; }
+
+  /* Hidden until the scene has placed them, so nothing flashes at the top-left while Three.js loads. */
+  #dex:not(.dex-ready) .dex-screen, #dex:not(.dex-ready) .dex-lens { visibility: hidden; }
+  .dex-lens, .dex-screen { backface-visibility: hidden; }
+
+  /* The centre lens: a glowing glass disc. It is the only control. */
+  .dex-lens { position: relative; border-radius: 50%; cursor: pointer; border: 3px solid rgba(255,255,255,.7);
+    background: radial-gradient(circle at 40% 35%, #ffffff 0%, #bff4ff 25%, #3fcbea 60%, #0f7fa8 100%);
+    box-shadow: 0 0 24px rgba(127,233,255,.7), inset 0 -10px 20px rgba(0,60,90,.45), inset 0 6px 10px rgba(255,255,255,.6); }
+  .dex-lens::after { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 2px solid rgba(255,255,255,.55); }
+  .dex-lens:hover { box-shadow: 0 0 40px rgba(127,233,255,.9), inset 0 -10px 20px rgba(0,60,90,.45), inset 0 6px 10px rgba(255,255,255,.6); }
+  .dex-lens[disabled] { cursor: progress; animation: dex-lens-pulse .5s ease-in-out infinite alternate; }
+  @keyframes dex-lens-pulse { from { filter: brightness(.85); } to { filter: brightness(1.4); } }
+  #dex[data-skin='graphite'] .dex-lens { background: radial-gradient(circle at 40% 35%, #ffffff 0%, #f7f8a8 25%, #e8eb1c 60%, #8d8f08 100%); box-shadow: 0 0 24px rgba(232,235,28,.6), inset 0 -10px 20px rgba(60,60,0,.45), inset 0 6px 10px rgba(255,255,255,.6); }
+
+  /* No backdrop-filter here: it flattens the CSS 3D stacking and the screen would paint over the lens. */
+  .dex-screen { box-shadow: 0 0 0 1px rgba(127,233,255,.55), 0 0 28px rgba(127,233,255,.35); background: var(--dex-bg); color: var(--dex-ink); font: 16px/1.45 Ubuntu, sans-serif; overflow: hidden; display: flex; flex-direction: column; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), inset 0 0 40px rgba(0,0,0,.18); }
+  .dex-head { display: flex; align-items: center; gap: 12px; padding: 9px 16px; background: var(--dex-panel); color: var(--dex-panel-ink); }
+  .dex-no { font: 700 14px 'Space Mono', monospace; padding: 2px 10px; border-radius: 999px; background: rgba(255,255,255,.14); }
+  .dex-name { font-weight: 700; font-size: 24px; }
+  .dex-species { flex: 1; font: 14px 'Space Mono', monospace; opacity: .75; }
+  .dex-type { display: inline-flex; align-items: center; gap: 5px; font: 700 14px 'Space Mono', monospace; padding: 3px 10px; border-radius: 4px; background: var(--dex-accent); color: var(--dex-accent-ink); white-space: nowrap; }
+  .dex-type .material-symbols-outlined { font-size: 18px; }
+  .dex-main { display: flex; flex: 1; min-height: 0; }
+  /* --dex-lens (set by the script) is how far the lens reaches up into the screen; content and the hint pill stay above it. */
+  .dex-panels { position: relative; flex: 1; min-width: 0; overflow-y: auto; touch-action: pan-y; padding: 14px 16px calc(var(--dex-lens, 70px) + 20px); overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--dex-accent) transparent; }
+  .dex-more-hint { position: sticky; bottom: 12px; margin: -62px 0 0 auto; /* right edge, clear of the centred lens */ width: max-content; display: flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border-radius: 999px; font: 11px 'Space Mono', monospace; background: var(--dex-panel); color: var(--dex-panel-ink); box-shadow: 0 4px 12px rgba(0,0,0,.35); pointer-events: none; opacity: 0; transition: opacity .3s; }
+  .dex-more-hint .material-symbols-outlined { animation: dex-bounce 1.2s ease-in-out infinite; }
+  @keyframes dex-bounce { 50% { transform: translateY(5px); } }
+  #dex.dex-more .dex-more-hint { opacity: 1; }
+  .dex-contactp { text-align: center; min-height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .dex-email a { font: 700 22px 'Space Mono', monospace; }
+  .dex-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 6px; border: 0; background: var(--dex-accent); color: var(--dex-accent-ink); font: 700 15px Ubuntu, sans-serif; cursor: pointer; }
+  .dex-copied { display: block; margin: 8px 0 14px; font: 13px 'Space Mono', monospace; color: var(--dex-muted); transition: opacity .3s; }
+  .dex-links { text-align: left; width: 100%; max-width: 420px; margin: 0 auto; }
+  .dex-panel[hidden] { display: none !important; } /* the contact panel sets display: flex, which would beat the attribute */
+  .dex-panel:not([hidden]) { animation: dex-in .35s ease both; }
+  @keyframes dex-in { from { opacity: 0; transform: translateX(16px); } }
+  @media (prefers-reduced-motion: reduce) { .dex-panel:not([hidden]) { animation: none; } }
+  .dex-panel p { margin: 0 0 8px; }
+  .dex-board-title { font: 700 12px 'Space Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--dex-muted); margin: 14px 0 6px; }
+  /* Motherboard map: a SoC in the middle, company chips around it, copper traces with data pulses running along them. */
+  .dex-board { position: relative; aspect-ratio: 3 / 2; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 16px 28px; padding: 16px; border-radius: 6px; border: 1px solid #2b5a3f;
+    background: #0b3b2a radial-gradient(circle at 1px 1px, rgba(255,255,255,.07) 1px, transparent 1.5px) 0 0 / 12px 12px; box-shadow: inset 0 0 40px rgba(0,0,0,.5); }
+  .dex-traces { position: absolute; inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); fill: none; stroke-linejoin: round; stroke-linecap: round; }
+  .dex-traces path { vector-effect: non-scaling-stroke; }
+  .dex-trace-under { stroke: #3a2a0a; stroke-width: 5px; }
+  .dex-trace { stroke: #c9973f; stroke-width: 2.5px; }
+  .dex-pulse { stroke: #9ff5ff; stroke-width: 2px; stroke-dasharray: 10 90; animation: dex-flow 2.4s linear infinite; filter: drop-shadow(0 0 3px #9ff5ff); }
+  .dex-pulse:nth-of-type(3n) { animation-delay: -.8s; } .dex-pulse:nth-of-type(3n + 1) { animation-delay: -1.6s; }
+  @keyframes dex-flow { to { stroke-dashoffset: -100; } }
+  /* IC package: bevelled black epoxy, pin-1 dot, silkscreen label, status LED. */
+  .dex-chip { position: relative; z-index: 1; /* above the traces, whichever side of the chips the SVG sits in the DOM */ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 12px 10px 16px; border-radius: 5px; background: linear-gradient(150deg, #2a2e37 0%, #181b21 55%, #101216 100%); border: 1px solid #40454f; color: #e6e9ef; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.1), inset 0 -1px 0 rgba(0,0,0,.6); }
+  .dex-chip::before { content: ''; position: absolute; top: 7px; left: 7px; width: 6px; height: 6px; border-radius: 50%; background: #6b7280; box-shadow: inset 0 1px 1px rgba(0,0,0,.6); }
+  .dex-chip::after { content: ''; position: absolute; inset: 5px; border-radius: 3px; border: 1px solid rgba(255,255,255,.06); pointer-events: none; }
+  .dex-chip em { position: absolute; bottom: 4px; left: 8px; font: 9px 'Space Mono', monospace; font-style: normal; color: #7c8594; letter-spacing: .05em; }
+  .dex-led { position: absolute; top: 7px; right: 8px; width: 5px; height: 5px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px #4ade80; animation: dex-blink 2s steps(1) infinite; }
+  .dex-chip:nth-child(odd) .dex-led { animation-delay: -.7s; } .dex-chip:nth-child(3n) .dex-led { animation-delay: -1.3s; }
+  @keyframes dex-blink { 0%, 85% { opacity: 1; } 90%, 100% { opacity: .15; } }
+  .dex-chip img { width: 72px; height: 40px; object-fit: contain; border-radius: 3px; background: #fff; padding: 4px; }
+  .dex-chip img.dex-logo-dark { background: #2b303a; }
+  .dex-chip small { font-size: 11px; line-height: 1.2; color: #b8c0cc; }
+  .dex-chip .material-symbols-outlined { font-size: 34px; color: #e0b85a; }
+  .dex-cpu { grid-column: 2; grid-row: 2; background: linear-gradient(150deg, #8b93a1, #4b5563 45%, #272e3a); border-color: #a3abb8; animation: dex-cpu 3s ease-in-out infinite; }
+  .dex-cpu::after { inset: 14px; border-color: rgba(255,255,255,.2); }
+  .dex-cpu span { font: 700 26px 'Space Mono', monospace; color: #f3f4f6; letter-spacing: .1em; }
+  @keyframes dex-cpu { 50% { box-shadow: 0 0 24px rgba(159,245,255,.55), 0 8px 16px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.1); } }
+  @media (prefers-reduced-motion: reduce) { .dex-pulse, .dex-led, .dex-cpu, .dex-more-hint .material-symbols-outlined { animation: none; } }
+  .dex-chip:nth-child(3) { grid-column: 1; grid-row: 1; } .dex-chip:nth-child(4) { grid-column: 3; grid-row: 1; }
+  .dex-chip:nth-child(5) { grid-column: 1; grid-row: 2; } .dex-chip:nth-child(6) { grid-column: 3; grid-row: 2; }
+  .dex-chip:nth-child(7) { grid-column: 1; grid-row: 3; } .dex-chip:nth-child(8) { grid-column: 3; grid-row: 3; }
+  .dex-traces-portrait { display: none; }
+  .dex-panel a { color: inherit; text-decoration: underline; }
+  .dex-info-top { display: flex; gap: 16px; margin-bottom: 12px; }
+  .dex-photo { position: relative; width: 230px; flex: none; margin: 0; padding: 8px; }
+  .dex-photo::before, .dex-photo::after { content: ''; position: absolute; width: 18px; height: 18px; border: 2px solid var(--dex-panel); }
+  .dex-photo::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+  .dex-photo::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+  .dex-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: 4px; }
+  .dex-stats { flex: 1; min-width: 0; }
+  .dex-stats p { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; }
+  .dex-stats .material-symbols-outlined { font-size: 22px; color: var(--dex-accent); }
+  .dex-stats h4 { font-size: 14px; font-weight: 700; margin: 8px 0 5px; padding: 2px 10px; background: var(--dex-panel); color: var(--dex-panel-ink); border-radius: 2px 10px 10px 2px; display: inline-block; }
+  .dex-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  .dex-chips li { font-size: 14px; padding: 3px 10px; border-radius: 4px; background: var(--dex-chip); }
+  .dex-entry { padding: 10px 12px; border: 1px solid var(--dex-line); border-left: 3px solid var(--dex-accent); border-radius: 4px; background: var(--dex-row); }
+  .dex-bullets { margin: 0 0 8px; padding-left: 18px; }
+  .dex-bullets strong { color: var(--dex-accent); }
+  .dex-row { display: flex; align-items: center; gap: 12px; padding: 8px 10px; margin-bottom: 6px; border-radius: 6px; background: var(--dex-row); border: 1px solid var(--dex-line); text-decoration: none !important; color: inherit; }
+  a.dex-row:hover { border-color: var(--dex-accent); }
+  .dex-row img, .dex-row-icon { width: 52px; height: 52px; flex: none; border-radius: 50%; object-fit: cover; background: #fff; display: grid; place-items: center; color: var(--dex-panel); font-size: 24px !important; }
+  .dex-row > div { min-width: 0; }
+  .dex-row strong { display: block; font-size: 18px; }
+  .dex-row small { display: block; font-size: 15px; color: var(--dex-muted); }
+  .dex-row-no { font: 12px 'Space Mono', monospace; color: var(--dex-muted); }
+  .dex-row-more { justify-content: center; }
+
+  .dex-tabs { width: 240px; flex: none; display: flex; flex-direction: column; gap: 6px; padding: 12px; border-left: 1px solid var(--dex-line); background: rgba(0,0,0,.05); }
+  .dex-tabs button { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--dex-line); background: var(--dex-row); color: inherit; font: 700 16px Ubuntu, sans-serif; text-align: left; cursor: pointer; }
+  .dex-tabs button small { display: block; font: 12px 'Space Mono', monospace; color: var(--dex-muted); }
+  .dex-tabs button .material-symbols-outlined { font-size: 24px; width: 42px; height: 42px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--dex-panel); color: var(--dex-panel-ink); }
+  .dex-tabs button[aria-selected='true'] { border-color: var(--dex-accent); box-shadow: inset 3px 0 0 var(--dex-accent); }
+  .dex-tabs button[aria-selected='true'] .material-symbols-outlined { background: var(--dex-accent); color: var(--dex-accent-ink); }
+
+  /* Portrait device (phones): tabs become a bottom bar, photo shrinks. */
+  .dex-portrait .dex-screen { font-size: 14px; line-height: 1.5; }
+  .dex-portrait .dex-head { flex-wrap: wrap; gap: 6px 10px; padding: 10px 12px; }
+  .dex-portrait .dex-name { font-size: 20px; }
+  .dex-portrait .dex-species { display: none; }
+  .dex-portrait .dex-main { flex-direction: column-reverse; } /* tabs on top: the lens sits over the bottom edge */
+  .dex-portrait .dex-panels { padding: 16px 14px calc(var(--dex-lens, 40px) + 24px); }
+  .dex-portrait .dex-more-hint { bottom: calc(var(--dex-lens, 40px) + 8px); } /* the narrow screen puts the lens under a right-aligned pill */
+  .dex-portrait .dex-panel p { margin-bottom: 12px; }
+  .dex-portrait .dex-row { padding: 10px 12px; margin-bottom: 10px; }
+  .dex-portrait .dex-row strong { font-size: 16px; }
+  .dex-portrait .dex-row small { font-size: 13px; }
+  .dex-portrait .dex-info-top { flex-direction: column; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .dex-portrait .dex-photo { width: 170px; }
+  .dex-portrait .dex-stats { width: 100%; }
+  .dex-portrait .dex-tabs { width: auto; flex-direction: row; border-left: 0; border-bottom: 1px solid var(--dex-line); padding: 10px 8px; }
+  .dex-portrait .dex-tabs button { flex: 1; flex-direction: column; gap: 4px; padding: 8px 2px; font-size: 11px; }
+  .dex-portrait .dex-tabs button small { display: none; }
+  .dex-portrait .dex-tabs button .material-symbols-outlined { width: 30px; height: 30px; font-size: 17px; }
+  /* Portrait board: SoC across the top, chips in 2 columns × 3 rows, bus traces from the portrait SVG. */
+  .dex-portrait .dex-board { aspect-ratio: 3 / 5; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); gap: 14px 28px; }
+  .dex-portrait .dex-traces { display: none; }
+  .dex-portrait .dex-traces-portrait { display: block; }
+  .dex-portrait .dex-board .dex-chip { grid-column: auto; grid-row: auto; padding: 10px 8px 14px; }
+  .dex-portrait .dex-board .dex-cpu { grid-column: 1 / -1; grid-row: 1; flex-direction: row; gap: 14px; }
+  .dex-portrait .dex-chip img { width: 64px; height: 36px; }
+  .dex-portrait .dex-chip small { font-size: 10px; }
+  .dex-portrait .dex-chip .material-symbols-outlined { font-size: 30px; }
+</style>
+
+<script src='../scripts/pokedex.js'></script>
