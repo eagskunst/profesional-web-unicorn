@@ -64,7 +64,7 @@ export const ui = {
     'language.switch': 'Switch language',
     'language.en': 'English',
     'language.es': 'Español',
-    'footer.built': 'Built with Precision.',
+    'footer.built': 'Built with Astro and Three.js.',
     'footer.source': 'Source',
   },
   es: {
@@ -125,7 +125,7 @@ export const ui = {
     'language.switch': 'Cambiar idioma',
     'language.en': 'English',
     'language.es': 'Español',
-    'footer.built': 'Construido con precisión.',
+    'footer.built': 'Construido con Astro y Three.js.',
     'footer.source': 'Código fuente',
   },
 } as const;
