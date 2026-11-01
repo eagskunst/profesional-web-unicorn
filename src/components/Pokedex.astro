@@ -37,10 +37,12 @@ const tabs = [
 ] as const;
 ---
 
-<section id='dex' class='relative w-full overflow-hidden select-none' data-skin='red' aria-label='Pokedex portfolio' style='height: calc(100dvh - 68px); min-height: 420px; touch-action: none;'>
+<section id='dex' class='relative w-full overflow-hidden select-none' aria-label='Pokedex portfolio' style='height: calc(100dvh - 68px); min-height: 420px; touch-action: none;'>
+  <!-- CSS-only closed shell shown until the Three.js scene (loaded after first paint) takes over. -->
+  <div class='dex-ghost' aria-hidden='true'><i></i><i></i><b></b></div>
   <!-- The elements below are moved into the 3D scene (CSS3D) by their id. -->
 
-  <button id='dex-open' class='dex-lens' type='button' aria-label={t('dex.open')} data-open={t('dex.open')} data-close={t('dex.close')} data-loading={t('dex.loading')}></button>
+  <button id='dex-open' class='dex-lens' type='button' aria-label={t('dex.open')} data-open={t('dex.open')} data-close={t('dex.close')} data-loading={t('dex.loading')}><span class='dex-lens-label' aria-hidden='true'>{t('dex.tap')}</span></button>
 
   <div id='dex-screen' class='dex-screen'>
     <header class='dex-head'>
@@ -54,7 +56,7 @@ const tabs = [
         <section class='dex-panel dex-info' data-panel='info' role='tabpanel'>
           <div class='dex-info-top'>
             <figure class='dex-photo'>
-              <img src='/self_photo_new.png' alt='Emmanuel Guerra portrait' width='600' height='548' fetchpriority='high'>
+              <img src='/self_photo_new.webp' alt='Emmanuel Guerra portrait' width='600' height='548' fetchpriority='high'>
             </figure>
             <div class='dex-stats'>
               <p><span class='material-symbols-outlined'>schedule</span>{t('dex.stat.exp')}</p>
@@ -147,6 +149,7 @@ const tabs = [
           <p class='dex-email'><a href='mailto:contact@eagskunst.com'>contact@eagskunst.com</a></p>
           <button id='dex-contact' class='dex-cta' type='button' data-email='contact@eagskunst.com'><span class='material-symbols-outlined'>content_copy</span>{t('dex.contact.copy')}</button>
           <span id='dex-copied' class='dex-copied opacity-0' aria-live='polite'>{t('contact.emailCopied')}</span>
+          <h4 class='dex-board-title dex-find'>{t('dex.contact.find')}</h4>
           <div class='dex-links'>
             <a class='dex-row' href='https://www.linkedin.com/in/emmanuel-guerra-074002175/' target='_blank' rel='noopener noreferrer'><span class='dex-row-icon material-symbols-outlined'>work</span><div><strong>LinkedIn</strong><small>/in/emmanuel-guerra</small></div></a>
             <a class='dex-row' href='https://github.com/eagskunst' target='_blank' rel='noopener noreferrer'><span class='dex-row-icon material-symbols-outlined'>code</span><div><strong>GitHub</strong><small>@eagskunst</small></div></a>
@@ -167,35 +170,41 @@ const tabs = [
   </div>
 
   <!-- 2D overlays -->
-  <p class='dex-hint absolute top-4 left-1/2 -translate-x-1/2 z-[2] font-mono text-xs text-graphite-on-surface-variant text-center pointer-events-none px-4 transition-opacity'>{t('dex.hint')}</p>
-  <div class='absolute bottom-4 left-1/2 -translate-x-1/2 z-[2] flex flex-wrap justify-center items-center gap-2 w-max max-w-[90vw] font-mono text-xs text-graphite-on-surface-variant whitespace-nowrap'>
-    <span>{t('dex.skin')}:</span>
-    <button type='button' class='dex-skin px-2 py-1 rounded border border-white/20' data-skin='red'>{t('dex.skin.red')}</button>
-    <button type='button' class='dex-skin px-2 py-1 rounded border border-white/20' data-skin='graphite'>{t('dex.skin.graphite')}</button>
-    <a href={getRelativeLocaleUrl(lang, 'boring')} class='ml-2 px-2 py-1 rounded border border-white/20 hover:text-white'>{t('dex.boring')}</a>
+  <div class='absolute top-4 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-3 px-4 text-center font-mono text-xs'>
+    <p class='dex-hint text-graphite-on-surface-variant pointer-events-none transition-opacity'>{t('dex.hint')}</p>
+    <a href={getRelativeLocaleUrl(lang, 'boring')} class='px-3 py-1.5 rounded-full border border-white/25 bg-black/30 text-white/90 whitespace-nowrap hover:border-[#e8eb1c] hover:text-white'>{t('dex.switch').replace('%s', t('dex.switch.boring'))}</a>
   </div>
 </section>
 
 <style>
-  /* Legends Arceus panel palette per shell skin. */
-  #dex[data-skin='red'] { --dex-bg: rgba(226, 244, 248, .96); --dex-ink: #1e2a38; --dex-muted: #5a6572; --dex-panel: #1f3b5c; --dex-panel-ink: #f4efe4; --dex-accent: #d8202a; --dex-accent-ink: #fff; --dex-row: rgba(255,255,255,.55); --dex-line: rgba(30,42,56,.14); --dex-chip: #dcd5c4; }
-  #dex[data-skin='graphite'] { --dex-bg: rgba(6, 25, 42, .96); --dex-ink: #cbe6fb; --dex-muted: #9fb3c2; --dex-panel: #1d3847; --dex-panel-ink: #cbe6fb; --dex-accent: #e8eb1c; --dex-accent-ink: #1c1d00; --dex-row: rgba(255,255,255,.06); --dex-line: rgba(203,230,251,.14); --dex-chip: #233d4d; }
-  #dex .dex-skin[aria-pressed='true'] { color: #fff; border-color: #e8eb1c; }
+  /* Legends Arceus panel palette (graphite shell). */
+  #dex { --dex-bg: rgba(6, 25, 42, .96); --dex-ink: #cbe6fb; --dex-muted: #9fb3c2; --dex-panel: #1d3847; --dex-panel-ink: #cbe6fb; --dex-accent: #e8eb1c; --dex-accent-ink: #1c1d00; --dex-row: rgba(255,255,255,.06); --dex-line: rgba(203,230,251,.14); --dex-chip: #233d4d; }
   #dex.dex-open .dex-hint { opacity: 0; }
 
   /* Hidden until the scene has placed them, so nothing flashes at the top-left while Three.js loads. */
   #dex:not(.dex-ready) .dex-screen, #dex:not(.dex-ready) .dex-lens { visibility: hidden; }
+  /* Placeholder shell: two halves, the dark dish and the lens, sized like the closed 3D device (16:10 landscape, 10:8 portrait). */
+  .dex-ghost { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: min(49%, 110vh); aspect-ratio: 16 / 10; display: flex; flex-direction: column; gap: 2.5%; animation: dex-ghost-bob 5.7s ease-in-out infinite; }
+  .dex-ghost i { flex: 1; border-radius: 10px; background: linear-gradient(170deg, #27455a, #182c3a); box-shadow: inset 0 -6px 12px rgba(0,0,0,.25), 0 2px 10px rgba(0,0,0,.3); }
+  .dex-ghost b { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 32%; aspect-ratio: 1; border-radius: 18%; border: 3px solid #aac4d6; background: radial-gradient(circle, #f7f8a8 0 20%, #0b1620 21%); box-shadow: 0 0 20px rgba(232,235,28,.35); }
+  @keyframes dex-ghost-bob { 50% { translate: -50% -54%; } }
+  @media (max-width: 719px) { .dex-ghost { width: 68%; aspect-ratio: 10 / 8; } }
+  @media (prefers-reduced-motion: reduce) { .dex-ghost { animation: none; } }
+  #dex.dex-ready .dex-ghost { display: none; }
   .dex-lens, .dex-screen { backface-visibility: hidden; }
 
   /* The centre lens: a glowing glass disc. It is the only control. */
   .dex-lens { position: relative; border-radius: 50%; cursor: pointer; border: 3px solid rgba(255,255,255,.7);
-    background: radial-gradient(circle at 40% 35%, #ffffff 0%, #bff4ff 25%, #3fcbea 60%, #0f7fa8 100%);
-    box-shadow: 0 0 24px rgba(127,233,255,.7), inset 0 -10px 20px rgba(0,60,90,.45), inset 0 6px 10px rgba(255,255,255,.6); }
+    background: radial-gradient(circle at 40% 35%, #ffffff 0%, #f7f8a8 25%, #e8eb1c 60%, #8d8f08 100%);
+    box-shadow: 0 0 24px rgba(232,235,28,.6), inset 0 -10px 20px rgba(60,60,0,.45), inset 0 6px 10px rgba(255,255,255,.6); }
   .dex-lens::after { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 2px solid rgba(255,255,255,.55); }
-  .dex-lens:hover { box-shadow: 0 0 40px rgba(127,233,255,.9), inset 0 -10px 20px rgba(0,60,90,.45), inset 0 6px 10px rgba(255,255,255,.6); }
+  /* Short "tap" label inside the lens while it is closed and idle. */
+  .dex-lens-label { position: absolute; inset: 0; display: grid; place-items: center; font: 700 12px 'Space Mono', monospace; letter-spacing: .12em; color: rgba(45, 45, 0, .8); text-shadow: 0 1px 0 rgba(255,255,255,.4); transition: opacity .3s; }
+  .dex-portrait .dex-lens-label { font-size: 9px; letter-spacing: .08em; }
+  #dex.dex-open .dex-lens-label, .dex-lens[disabled] .dex-lens-label { opacity: 0; }
+  .dex-lens:hover { box-shadow: 0 0 40px rgba(232,235,28,.85), inset 0 -10px 20px rgba(60,60,0,.45), inset 0 6px 10px rgba(255,255,255,.6); }
   .dex-lens[disabled] { cursor: progress; animation: dex-lens-pulse .5s ease-in-out infinite alternate; }
   @keyframes dex-lens-pulse { from { filter: brightness(.85); } to { filter: brightness(1.4); } }
-  #dex[data-skin='graphite'] .dex-lens { background: radial-gradient(circle at 40% 35%, #ffffff 0%, #f7f8a8 25%, #e8eb1c 60%, #8d8f08 100%); box-shadow: 0 0 24px rgba(232,235,28,.6), inset 0 -10px 20px rgba(60,60,0,.45), inset 0 6px 10px rgba(255,255,255,.6); }
 
   /* No backdrop-filter here: it flattens the CSS 3D stacking and the screen would paint over the lens. */
   .dex-screen { box-shadow: 0 0 0 1px rgba(127,233,255,.55), 0 0 28px rgba(127,233,255,.35); background: var(--dex-bg); color: var(--dex-ink); font: 16px/1.45 Ubuntu, sans-serif; overflow: hidden; display: flex; flex-direction: column; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), inset 0 0 40px rgba(0,0,0,.18); }
@@ -217,6 +226,7 @@ const tabs = [
   .dex-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 6px; border: 0; background: var(--dex-accent); color: var(--dex-accent-ink); font: 700 15px Ubuntu, sans-serif; cursor: pointer; }
   .dex-copied { display: block; margin: 8px 0 14px; font: 13px 'Space Mono', monospace; color: var(--dex-muted); transition: opacity .3s; }
   .dex-links { text-align: left; width: 100%; max-width: 420px; margin: 0 auto; }
+  .dex-find { width: 100%; max-width: 420px; text-align: left; margin: 10px auto 6px; }
   .dex-panel[hidden] { display: none !important; } /* the contact panel sets display: flex, which would beat the attribute */
   .dex-panel:not([hidden]) { animation: dex-in .35s ease both; }
   @keyframes dex-in { from { opacity: 0; transform: translateX(16px); } }
@@ -316,4 +326,10 @@ const tabs = [
   .dex-portrait .dex-chip .material-symbols-outlined { font-size: 30px; }
 </style>
 
-<script src='../scripts/pokedex.js'></script>
+<script>
+  // The Three.js chunk (~145 KB gz) loads once the page has painted and loaded, so text and the placeholder shell come first.
+  let started = false;
+  const start = () => { if (!started) { started = true; import('../scripts/pokedex.js'); } };
+  addEventListener('load', () => requestAnimationFrame(start), { once: true });
+  setTimeout(start, 3000); // a slow third-party font must not hold the scene back
+</script>
